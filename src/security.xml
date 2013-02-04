@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+		"struts-2.0.dtd">
+<!-- Security -->
+<struts>
+    <package name="securityPack" namespace="/" extends="default">
+    	<action name="welcome" class="com.altagamo3.web.actions.SecurityAction" method="welcome">
+			<interceptor-ref name="defaultStack"/>			
+	 		<interceptor-ref name="scope">
+				<param name="type">start</param>
+				<param name="session">property,propertySearch</param>
+			    <param name="autoCreateSession">true</param>
+			</interceptor-ref>	
+			<result name="success" type="tiles">welcome</result>
+			<result name="visitor" type="tiles">visitorTile</result>
+			<result name="seller" type="tiles">sellerTile</result>
+			<result name="admin" type="tiles">adminTile</result>
+		</action>	
+		<action name="preLogin" class="com.altagamo3.web.actions.SecurityAction" method="preLogin">
+			<interceptor-ref name="defaultStack"/>			
+			<result name="success">/welcome.jsp</result>
+		</action>	
+		<action name="login" class="com.altagamo3.web.actions.SecurityAction" method="login">
+			<interceptor-ref name="defaultStack"/>			
+			<result name="visitor" type="tiles">visitorTile</result>
+			<result name="seller" type="tiles">sellerTile</result>
+			<result name="admin" type="tiles">adminTile</result>
+			<result name="input" type="tiles">welcome</result>
+		</action>	
+		<action name="logout" class="com.altagamo3.web.actions.SecurityAction" method="logout">
+			<interceptor-ref name="defaultStack"/>
+			<result name="success">/index.html</result>
+		</action>	
+		<action name="resetPassword" class="com.altagamo3.web.actions.SecurityAction" method="resetPassword">
+			<interceptor-ref name="defaultStack"/>
+			<result name="success">/pages/security/confirm.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>	
+	</package>
+</struts>

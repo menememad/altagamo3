@@ -1,0 +1,129 @@
+@CHARSET "ISO-8859-1";
+.loginBtn{
+	background-image: url("/images/btn_login.jpg");
+	background-repeat: no-repeat;
+	width: 73px;
+	height: 32px;
+}
+table{
+	border: 0;
+	border-spacing: 0;
+	border-collapse:collapse;
+	width: 100%
+}
+th,td{
+	padding: 0 0 0 0;
+}
+font {
+	font-family: Tahoma;
+}
+/**********************************************************/
+dl {
+	font:normal 12px/15px Arial;
+    position: relative;
+    width: 300px;
+}
+dt {
+    clear: both;
+    float:left;
+    width: 100px;
+    padding: 4px 0 2px 0;
+    text-align: left;
+}
+dd {
+    float: left;
+    width: 200px;
+    margin: 0 0 8px 0;
+    padding-left: 6px;
+}
+
+
+/* The hint to Hide and Show */
+.hint {
+   	display: none;
+    position: absolute;
+    right: -250px;
+    width: 200px;
+    margin-top: -4px;
+    border: 1px solid #c93;
+    padding: 10px 12px;
+    /* to fix IE6, I can't just declare a background-color,
+    I must do a bg image, too!  So I'm duplicating the pointer.gif
+    image, and positioning it so that it doesn't show up
+    within the box */
+    background: #ffc url(/images/hint/pointer.gif) no-repeat -10px 5px;
+}
+
+/* The pointer image is hadded by using another span */
+.hint .hint-pointer {
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 10px;
+    height: 19px;
+    background: url(/images/hint/pointer.gif) left top no-repeat;
+}
+.errorMessage{color:red!important;display:inline;font:normal 12px Verdana}
+ul.errorMessage,ul.validator{display:inline;list-style-type:none;margin:0;padding:0}
+ul.errorMessage li span{display:inline;margin:0 0 0 5px}
+ul.errorMessage li,.qmmc .qmcbox a{display:inline}
+.actionMessage{color:green!important;display:inline;font:normal 12px Verdana}
+ul.actionMessage,ul.validator{display:inline;list-style-type:none;margin:0;padding:0}
+ul.actionMessage li span{display:inline;margin:0 0 0 5px}
+ul.actionMessage li,.qmmc .qmcbox a{display:inline}
+div.ui-buttonset{display: inline;}
+#indicator
+{
+    position: fixed;
+    left: 45%;
+    top: 40%;
+    display: none;
+    background: transparent url("../images/loading.gif");
+    z-index: 1000;
+    height: 64px;
+    width: 64px;
+}
+FORM{
+	font-family: Tahoma;
+	font-size: 10pt;
+}
+FIELDSET{
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+LEGEND{
+	font-weight: bold;
+	color: blue;
+	border-color: blue;
+}
+SPAN .data{
+	width: 25%
+}
+DL{width: 100%;
+}
+DL DT{width: 25%;
+}
+DL DD{width: 75%;}
+div.ui-buttonset{
+display: inline;
+}
+TABLE.propertyForm{
+	width: 100%;
+	padding: 0 0 0 0;margin: 0 0 0 0;
+}
+TABLE.propertyForm TR TD{
+	width: 10%;
+	font-family: Tahoma;
+	font-size: 10pt;
+ 	margin-left: 10;
+	margin-right: 10;
+ 	
+}
+.odd{
+color: blue;
+background-color: white;
+}
+.even{
+color: black;
+background-color: fca;
+}

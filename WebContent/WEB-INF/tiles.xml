@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="baseLayout" template="/template/template.jsp">
+    	<put-attribute name="header"  value="/template/header.jsp"/>
+    	<put-attribute name="menu"  value="/template/menu.jsp"/>
+    	<!-- put-attribute name="menu" type="string"  value=""/ -->
+      	<put-attribute name="body"  value="/template/body.jsp"/>
+      	<put-attribute name="footer"  value="/template/footer.jsp"/>
+	</definition>
+   	<definition name="welcome" extends="baseLayout">
+    	<put-attribute name="body"  value="/welcome.jsp"/>
+    </definition>
+    <definition name="internalLayout" extends="baseLayout">
+        <put-attribute name="menu"  value="/template/menu.jsp"/>
+	</definition>
+    <definition name="error" extends="internalLayout">
+        <put-attribute name="body"  value="/error.jsp"/>
+    </definition>
+    <definition name="visitorTile" extends="internalLayout">
+        <put-attribute name="body"  value="/pages/options/visitor.jsp"/>
+	</definition>
+    <definition name="sellerTile" extends="internalLayout">
+        <put-attribute name="body"  value="/pages/options/seller.jsp"/>
+    </definition>
+    <definition name="adminTile" extends="internalLayout">
+        <put-attribute name="body"  value="/pages/options/admin.jsp"/>
+    </definition>
+    <definition name="preChangePassword" extends="internalLayout">
+        <put-attribute name="body"  value="/pages/security/changePassword.jsp"/>
+    </definition>
+    
+    <definition name="propertyDetails" extends="baseLayout">
+        <put-attribute name="body"  value="/pages/properties/propertyDetails.jsp"/>
+    </definition>
+</tiles-definitions>	 

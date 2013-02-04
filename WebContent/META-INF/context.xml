@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+    <!-- Default set of monitored resources -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+ 
+	<Resource name="jdbc/altagamo3" auth="Container" 
+	type="javax.sql.DataSource" maxActive="100" maxIdle="30" maxWait="-1" 
+	username="root" password="password" driverClassName="com.mysql.jdbc.Driver"  
+	url="jdbc:mysql://localhost:3306/allamco1_altagamo3"/>
+
+
+<!--
+	<Resource name="jdbc/altagamo3" auth="Container" 
+	type="javax.sql.DataSource" maxActive="100" maxIdle="30" maxWait="-1" 
+	username="allamco1_root" password="allamco1_password" driverClassName="com.mysql.jdbc.Driver"  
+	url="jdbc:mysql://mysql1000.mochahost.com:3306/allamco1_altagamo3"/>
+ -->
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+
+    <!-- Uncomment this to enable Comet connection tacking (provides events
+         on session expiration as well as webapp lifecycle) -->
+    <!--
+    <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
+    -->
+
+</Context>

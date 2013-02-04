@@ -1,0 +1,122 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.3//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="minArea">
+		<field-validator type="int">
+			<param name="min">20</param>
+            <param name="max">5000000</param>
+			<message>${getText("err.invalid", {getText("area")})}</message>
+		</field-validator>
+	</field>
+    <field name="maxArea">
+		<field-validator type="int">
+			<param name="min">20</param>
+            <param name="max">5000000</param>
+			<message>${getText("err.invalid", {getText("area")})}</message>
+		</field-validator>
+		<field-validator type="expression">
+		    <param name="expression">((minArea==null || maxArea==null || minArea lt maxArea))</param>
+		    <message>${getText("err.range", {getText("area"),"20","5000000"})}</message>
+		</field-validator>
+	</field>
+    <field name="minFloorNo">
+		<field-validator type="int">
+		    <param name="min">-3</param>
+            <param name="max">100</param>
+			<message>${getText("err.invalid", {getText("floorNo")})}</message>
+		</field-validator>
+	</field>
+    <field name="maxFloorNo">
+		<field-validator type="int">
+		    <param name="min">-3</param>
+            <param name="max">100</param>
+			<message>${getText("err.invalid", {getText("floorNo")})}</message>
+		</field-validator>
+		<field-validator type="expression">
+		    <param name="expression">(minFloorNo==null || maxFloorNo==null || (minFloorNo lt maxFloorNo))</param>
+		    <message>${getText("err.range", {getText("floorNo"),"-3","100"})}</message>
+		</field-validator>
+	</field>
+    <field name="minNoOfBedRooms">
+		<field-validator type="int">
+		    <param name="min">1</param>
+            <param name="max">100</param>
+			<message>${getText("err.invalid", {getText("bedrooms.No")})}</message>
+		</field-validator>
+	</field>
+    <field name="maxNoOfBedRooms">
+		<field-validator type="int">
+		    <param name="min">1</param>
+            <param name="max">100</param>
+			<message>${getText("err.invalid", {getText("bedrooms.No")})}</message>
+		</field-validator>
+		<field-validator type="expression">
+		    <param name="expression">(minNoOfBedRooms==null || maxNoOfBedRooms==null || (minNoOfBedRooms lt maxNoOfBedRooms))</param>
+		    <message>${getText("err.range", {getText("bedrooms.No"),"1","100"})}</message>
+		</field-validator>
+	</field>
+    <field name="minNoOfHallRooms">
+		<field-validator type="int">
+		    <param name="min">1</param>
+            <param name="max">50</param>
+			<message>${getText("err.invalid", {getText("hallrooms.No")})}</message>
+		</field-validator>
+	</field>
+    <field name="maxNoOfHallRooms">
+		<field-validator type="int">
+		    <param name="min">1</param>
+            <param name="max">50</param>
+			<message>${getText("err.invalid", {getText("hallrooms.No")})}</message>
+		</field-validator>
+		<field-validator type="expression">
+		    <param name="expression">(minNoOfHallRooms==null || maxNoOfHallRooms==null || (minNoOfHallRooms lt maxNoOfHallRooms))</param>
+		    <message>${getText("err.range", {getText("hallrooms.No"),"1","50"})}</message>
+		</field-validator>
+	</field>
+    <field name="minNoOfBathRooms">
+		<field-validator type="int">
+		    <param name="min">1</param>
+            <param name="max">20</param>
+			<message>${getText("err.invalid", {getText("bathrooms.No")})}</message>
+		</field-validator>
+	</field>
+    <field name="maxNoOfBathRooms">
+		<field-validator type="int">
+		    <param name="min">1</param>
+            <param name="max">20</param>
+			<message>${getText("err.invalid", {getText("bathrooms.No")})}</message>
+		</field-validator>
+		<field-validator type="expression">
+		    <param name="expression">(minNoOfBathRooms==null || maxNoOfBathRooms==null || (minNoOfBathRooms lt maxNoOfBathRooms))</param>
+		    <message>${getText("err.range", {getText("bathrooms.No"),"1","20"})}</message>
+		</field-validator>
+	</field>
+    <field name="minPrice">
+		<field-validator type="int">
+			<param name="min">20</param>
+            <param name="max">1000000000</param>
+			<message>${getText("err.invalid", {getText("price")})}</message>
+		</field-validator>
+	</field>
+    <field name="maxPrice">
+		<field-validator type="int">
+			<param name="min">20</param>
+            <param name="max">1000000000</param>
+			<message>${getText("err.invalid", {getText("price")})}</message>
+		</field-validator>
+		<field-validator type="expression">
+		    <param name="expression">(minPrice==null || maxPrice==null || (minPrice lt maxPrice))</param>
+		    <message>${getText("err.range", {getText("price"),"20","1000000000"})}</message>
+		</field-validator>
+	</field>
+ 	<field name="ownerMobile">
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^([0-9\(\)\/\+ \-]*)$]]></param>
+			<message>${getText("err.invalid", {getText("owner.mobile")})}</message>
+		</field-validator>
+	</field>
+    <field name="ownerEmail">
+		<field-validator type="email">
+			<message>${getText("err.invalid", {getText("owner.email")})}</message>
+		</field-validator>
+	</field>
+</validators>

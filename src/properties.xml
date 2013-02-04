@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+		"struts-2.0.dtd">
+<!-- Properties -->
+<struts>
+    <package name="propertiesPack" namespace="/" extends="default">
+	<action name="preAddProperty" class="com.altagamo3.web.actions.PropertyAction" method="preAddProperty">
+		<interceptor-ref name="defaultStack"/>			
+		<interceptor-ref name="scope">
+			<param name="type">start</param>
+			<param name="session">property</param>
+		    <param name="autoCreateSession">true</param>
+		</interceptor-ref>	
+		<result name="success">/pages/properties/addProperty.jsp</result>
+		<result name="input">/pages/properties/addProperty.jsp</result>
+	</action>	
+	<action name="addProperty" class="com.altagamo3.web.actions.PropertyAction" method="addProperty">
+    	<interceptor-ref name="fileUpload">         
+    		<param name="maximumSize">5242880</param>         
+    		<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>     
+    	</interceptor-ref>		
+    	<interceptor-ref name="defaultStack"/>
+    	<result name="success">/pages/properties/addProperty.jsp</result>
+    	<result name="input">/pages/properties/addProperty.jsp</result>
+	</action>
+	<action name="getPropertyDetails" class="com.altagamo3.web.actions.PropertyAction" method="getPropertyDetails">
+		<interceptor-ref name="defaultStack"/>			
+	    <result name="success">/pages/properties/propertyDetails.jsp</result>
+	    <result name="input">/pages/properties/searchResult.jsp</result>
+	</action>
+	<action name="preEditProperty" class="com.altagamo3.web.actions.PropertyAction" method="getPropertyDetails">
+		<interceptor-ref name="defaultStack"/>			
+		<result name="success">/pages/properties/editProperty.jsp</result>
+		<result name="input">/pages/properties/searchResult.jsp</result>
+	</action>	
+	<action name="editProperty" class="com.altagamo3.web.actions.PropertyAction" method="editProperty">
+    	<interceptor-ref name="fileUpload">         
+    		<param name="maximumSize">5242880</param>         
+    		<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>     
+    	</interceptor-ref>		
+	    <interceptor-ref name="defaultStack"/>
+		<interceptor-ref name="scope">
+			<param name="type">start</param>
+			<param name="session">property</param>
+		    <param name="autoCreateSession">true</param>
+		</interceptor-ref>	
+		<result name="success">/pages/properties/editProperty.jsp</result>
+		<result name="input">/pages/properties/editProperty.jsp</result>
+	</action>
+	<action name="deleteProperty" class="com.altagamo3.web.actions.PropertyAction" method="deleteProperty">
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">/pages/properties/confirmProperty.jsp</result>
+	</action>
+	<action name="approveProperty" class="com.altagamo3.web.actions.PropertyAction" method="approveProperty">
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">/pages/properties/confirmProperty.jsp</result>
+	</action>	
+	<action name="batchEdit" class="com.altagamo3.web.actions.PropertyAction" method="batchEdit">
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">/pages/properties/searchResult.jsp</result>
+	</action>	
+		<action name="changePropertyStatus" class="com.altagamo3.web.actions.PropertyAction" method="changePropertyStatus">
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">/pages/properties/confirmProperty.jsp</result>
+	</action>	
+		
+<!-- Properties Search-->
+	<action name="searchPropertyFor" class="com.altagamo3.web.actions.PropertySearchAction" method="searchPropertyFor">
+	   	<interceptor-ref name="defaultStack"/>			
+		<result name="success">/pages/properties/searchResult.jsp</result>
+	</action>	
+	<action name="fastSearch" class="com.altagamo3.web.actions.PropertySearchAction" method="fastSearch">
+	   	<interceptor-ref name="defaultStack"/>			
+		<result name="success">/pages/properties/searchResult.jsp</result>
+	</action>	
+	<action name="searchPropertyType" class="com.altagamo3.web.actions.PropertySearchAction" method="searchPropertyType">
+	   	<interceptor-ref name="defaultStack"/>			
+		<result name="success">/pages/properties/searchResult.jsp</result>
+	</action>	
+		
+	<action name="preSearchProperty" class="com.altagamo3.web.actions.PropertySearchAction" method="preSearchProperty">
+		<interceptor-ref name="defaultStack"/>			
+		<result name="success">/pages/properties/searchProperty.jsp</result>
+	</action>
+	<action name="searchProperty" class="com.altagamo3.web.actions.PropertySearchAction" method="searchProperty">	
+    	<interceptor-ref name="defaultStack"/>
+    	<result name="success">/pages/properties/searchResult.jsp</result>
+    	<result name="input">/pages/properties/searchProperty.jsp</result>			
+	</action>
+	<action name="searchAllProperties" class="com.altagamo3.web.actions.PropertySearchAction" method="searchAllProperties">	
+    	<interceptor-ref name="defaultStack"/>
+    	<result name="success">/pages/properties/searchResult.jsp</result>			
+	</action>
+    <action name="searchPropertyByStatus" class="com.altagamo3.web.actions.PropertySearchAction" method="searchPropertyByStatus">
+        <interceptor-ref name="defaultStack"/>
+	     <result name="success">/pages/properties/searchResult.jsp</result>
+    </action>	
+    <action name="searchMyProperties" class="com.altagamo3.web.actions.PropertySearchAction" method="searchMyProperties">
+        <interceptor-ref name="defaultStack"/>
+	     <result name="success">/pages/properties/searchResult.jsp</result>
+    </action>	
+    <action name="searchMyFavorites" class="com.altagamo3.web.actions.PropertySearchAction" method="searchMyFavorites">
+        <interceptor-ref name="defaultStack"/>
+	     <result name="success">/pages/properties/searchResult.jsp</result>
+    </action>	
+	</package>
+</struts>
