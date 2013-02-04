@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"struts-2.0.dtd">
+
+<!-- This File is Created By Hossam Yassen ... it's better to remove all interceptors in this file specially it 
+is inherite from struts-default ... but it's not clear for me now so we can enhance this file by writting only 
+what we need rather than copied old one from struts-default . -->
+<struts>
+
+<package  name="interceptors"  extends="tiles-default">	
+	
+	<interceptors>
+		
+		<interceptor name="ServicesOfficer" class="interceptors.ServicesInterceptor"/>
+		<interceptor name="SecurityOfficer" class="interceptors.SecurityInterceptor"/>
+         
+        <interceptor name="alias" class="com.opensymphony.xwork2.interceptor.AliasInterceptor"/>
+        <interceptor name="autowiring" class="com.opensymphony.xwork2.spring.interceptor.ActionAutowiringInterceptor"/>
+        <interceptor name="chain" class="com.opensymphony.xwork2.interceptor.ChainingInterceptor"/>
+        <interceptor name="conversionError" class="org.apache.struts2.interceptor.StrutsConversionErrorInterceptor"/>
+        <interceptor name="createSession" class="org.apache.struts2.interceptor.CreateSessionInterceptor" />
+        <interceptor name="debugging" class="org.apache.struts2.interceptor.debugging.DebuggingInterceptor" />
+        <interceptor name="external-ref" class="com.opensymphony.xwork2.interceptor.ExternalReferencesInterceptor"/>
+        <interceptor name="execAndWait" class="org.apache.struts2.interceptor.ExecuteAndWaitInterceptor"/>
+        <interceptor name="exception" class="com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor"/>
+        <interceptor name="fileUpload" class="org.apache.struts2.interceptor.FileUploadInterceptor"/>
+        <interceptor name="i18n" class="com.opensymphony.xwork2.interceptor.I18nInterceptor"/>
+        <interceptor name="logger" class="com.opensymphony.xwork2.interceptor.LoggingInterceptor"/>
+        <interceptor name="model-driven" class="com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor"/>
+        <interceptor name="scoped-model-driven" class="com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor"/>
+        <interceptor name="params" class="com.opensymphony.xwork2.interceptor.ParametersInterceptor"/>
+        
+        <!--<interceptor name="faq" class="interceptors.FAQInterceptor" />-->
+        
+        <interceptor name="prepare" class="com.opensymphony.xwork2.interceptor.PrepareInterceptor"/>
+        <interceptor name="static-params" class="com.opensymphony.xwork2.interceptor.StaticParametersInterceptor"/>
+        <interceptor name="scope" class="org.apache.struts2.interceptor.ScopeInterceptor"/>
+        <interceptor name="servlet-config" class="org.apache.struts2.interceptor.ServletConfigInterceptor"/>
+        <interceptor name="sessionAutowiring" class="org.apache.struts2.spring.interceptor.SessionContextAutowiringInterceptor"/>
+        <interceptor name="timer" class="com.opensymphony.xwork2.interceptor.TimerInterceptor"/>
+        <interceptor name="token" class="org.apache.struts2.interceptor.TokenInterceptor"/>
+        <interceptor name="token-session" class="org.apache.struts2.interceptor.TokenSessionStoreInterceptor"/>
+        <interceptor name="validation" class="org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor"/>
+        <interceptor name="workflow" class="com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor"/>
+        <interceptor name="store" class="org.apache.struts2.interceptor.MessageStoreInterceptor" />
+        <interceptor name="checkbox" class="org.apache.struts2.interceptor.CheckboxInterceptor" />
+        <interceptor name="profiling" class="org.apache.struts2.interceptor.ProfilingActivationInterceptor" />
+        <interceptor name="roles" class="org.apache.struts2.interceptor.RolesInterceptor" />
+ 	 	<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor" />
+ 	 	
+ 		<interceptor-stack name="defaultStack">
+ 				<interceptor-ref name="SecurityOfficer"/>
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servlet-config"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="scoped-model-driven"/>
+                <interceptor-ref name="model-driven"/>
+	            <interceptor-ref name="fileUpload">
+                    
+                </interceptor-ref>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="static-params"/>
+                <interceptor-ref name="params">
+                	<param name="excludeParams">dojo\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                                
+            <!--    <interceptor-ref name="faq"/> -->     
+   
+         </interceptor-stack>
+         
+ 		<interceptor-stack name="basicStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="servlet-config"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="params"/>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="i18n"/>
+            <!--    <interceptor-ref name="faq"/>    -->
+                <interceptor-ref name="json"/>     
+                              
+        </interceptor-stack>
+ 		
+ 		<interceptor-stack name="distributedStack">
+ 				<interceptor-ref name="SecurityOfficer"/>
+ 				<interceptor-ref name="servlet-config"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>               
+		</interceptor-stack>
+		
+		<interceptor-stack name="noValidationStack">
+		 		<interceptor-ref name="SecurityOfficer"/>
+ 				<interceptor-ref name="servlet-config"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>               
+		</interceptor-stack>
+		
+		<interceptor-stack name="completeStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servlet-config"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="scoped-model-driven"/>
+                <interceptor-ref name="model-driven"/>
+                <interceptor-ref name="fileUpload">
+                </interceptor-ref>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="static-params"/>
+                <interceptor-ref name="params">
+                	<param name="excludeParams">dojo\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+		</interceptor-stack>
+		
+	</interceptors>
+</package>
+
+</struts>

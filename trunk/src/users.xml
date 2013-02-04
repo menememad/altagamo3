@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+		"struts-2.0.dtd">
+<!-- Users -->	
+<struts>
+    <package name="usersPack" namespace="/" extends="default">
+		<action name="preAddUser" class="com.altagamo3.web.actions.UserAction" method="preAddUser">
+			<interceptor-ref name="defaultStack"/>
+			<result name="success">/pages/security/addUser.jsp</result>
+		</action>
+		<action name="addUser" class="com.altagamo3.web.actions.UserAction" method="addUser">
+	    	<interceptor-ref name="fileUpload">         
+	    		<param name="maximumSize">2097152</param>         
+	    		<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg,image/png</param>     
+	    	</interceptor-ref>		
+	    	<interceptor-ref name="defaultStack"/>			
+			<result name="success">/pages/security/addUser.jsp</result>
+			<result name="input">/pages/security/addUser.jsp</result>
+			<result name="login">/pages/security/login.jsp</result>
+		</action>	
+		<action name="preEditUser" class="com.altagamo3.web.actions.UserAction" method="preEditUser">
+			<interceptor-ref name="defaultStack"/>			
+			<result name="success">/pages/security/editUser.jsp</result>
+		</action>	
+		<action name="editUser" class="com.altagamo3.web.actions.UserAction" method="editUser">
+	    	<interceptor-ref name="fileUpload">         
+	    		<param name="maximumSize">2097152</param>         
+	    		<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg,image/png</param>     
+	    	</interceptor-ref>		
+	    	<interceptor-ref name="defaultStack"/>			
+			<result name="success">/pages/security/confirm.jsp</result>
+			<result name="input">/pages/security/editUser.jsp</result>
+		</action>	
+		<action name="viewUser" class="com.altagamo3.web.actions.UserAction" method="preEditUser">
+			<interceptor-ref name="defaultStack"/>			
+			<result name="success">/pages/security/viewUser.jsp</result>
+		</action>	
+		<action name="changePassword" class="com.altagamo3.web.actions.SecurityAction" method="changePassword">
+			<interceptor-ref name="defaultStack"/>
+			<result name="input">/pages/security/changePassword.jsp</result>			
+			<result name="success">/pages/security/confirm.jsp</result>
+		</action>	
+		<action name="preListUsers" class="com.altagamo3.web.actions.UserAction" method="preListUsers">
+			<result name="success">/pages/security/listUsers.jsp</result>
+		</action>
+		<action name="listUsers" class="com.altagamo3.web.actions.UserAction" method="listUsers">
+			<result name="success" type="json" />
+		</action>
+	</package>
+</struts>

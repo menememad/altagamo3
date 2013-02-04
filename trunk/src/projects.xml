@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+		"struts-2.0.dtd">
+<!-- Projects -->
+<struts>
+<package name="projectsPack" namespace="/" extends="default">
+	<!-- Projects -->
+	<action name="listProjects" class="com.altagamo3.web.actions.ProjectAction" method="list">
+		<result name="success">/pages/projects/listProjects.jsp</result>
+	</action>
+	<action name="preAddProject" class="com.altagamo3.web.actions.ProjectAction" method="preAdd">
+		<interceptor-ref name="defaultStack"/>			
+		<interceptor-ref name="scope">
+			<param name="type">start</param>
+			<param name="session">project</param>
+		    <param name="autoCreateSession">true</param>
+		</interceptor-ref>	
+		<result name="success">/pages/projects/addProject.jsp</result>
+		<result name="input">/pages/projects/addProject.jsp</result>
+	</action>	
+	<action name="addProject" class="com.altagamo3.web.actions.ProjectAction" method="add">
+    	<interceptor-ref name="fileUpload">         
+    		<param name="maximumSize">5242880</param>         
+    		<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>     
+    	</interceptor-ref>		
+    	<interceptor-ref name="defaultStack"/>
+		<result name="success">/pages/projects/addProject.jsp</result>
+	</action>
+</package>
+</struts>
