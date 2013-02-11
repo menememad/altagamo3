@@ -84,9 +84,9 @@ public class PropertyAction extends BaseAction{
 		if(attachedFiles!=null && attachedFiles.size()>0){
 			int imageCount = 0;
 			try {
-				//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
+				String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
 				//String filePath = "/public_html/prop_img/"+propertyID+"/";
-				String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
+				//String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
 	            System.out.println("Server path:" + filePath);
 	            for (Image image : attachedFiles) {
 	            	imageCount++;
