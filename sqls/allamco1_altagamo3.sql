@@ -88,7 +88,7 @@ CREATE TABLE project (
  description VARCHAR(1000) NULL ,
  row_order INT(11) NULL DEFAULT NULL ,
  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
- active_flag CHAR(1) NULL ,
+ active_flag CHAR(1) DEFAULT '1' ,
  video_link VARCHAR(100) NULL ,
  img_count INT NULL DEFAULT 0 ,
  PRIMARY KEY (`id`) )
