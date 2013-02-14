@@ -21,7 +21,9 @@
 					<s:param name="propertyFor" value="1" />
 				</s:url>
 				<sj:a href="%{searchSale}" targets="bodyID"><img border="0" src="<%=request.getContextPath()%>/images/header/menu-sale.jpg" width="113" height="89"></sj:a>&nbsp;
-				<sj:a href="/pages/about/Projects.jsp" targets="bodyID"><img border="0" src="<%=request.getContextPath()%>/images/header/menu-projects.jpg" width="113" height="89"></sj:a>
+				    <s:url action="listProjects" id="listProjectsURL"></s:url>
+				<!-- /pages/about/Projects.jsp -->
+				<sj:a href="%{listProjectsURL}" targets="bodyID"><img border="0" src="<%=request.getContextPath()%>/images/header/menu-projects.jpg" width="113" height="89"></sj:a>
 			&nbsp;<sj:a href="/pages/about/Consultant.htm" targets="bodyID"><img border="0" src="<%=request.getContextPath()%>/images/header/menu-consultant.jpg" width="113" height="89"></sj:a>
 			</div>
 		</td>

@@ -42,6 +42,10 @@ h4
 </style>
 </head>
 <body>
+<s:form theme="simple">
+<s:url id="preAddProjectURL" action="preAddProject"/>
+<sj:a href="%{preAddProjectURL}" targets="bodyID" >Add Project </sj:a>
+</s:form>
 <s:if test="%{#session.userInfo!=null && #session.userInfo.roleID==1}">
 <s:url var="listProjects" action="listProjects"/>
 <sj:a href="%{listProjects}" targets="bodyID" button="true">Project Management</sj:a>

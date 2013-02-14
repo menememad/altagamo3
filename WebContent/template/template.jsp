@@ -3,7 +3,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<sj:head jqueryui="true" ajaxhistory="true" ajaxcache="true" jquerytheme="ajax-xhtml"/>
+<sj:head jqueryui="true" ajaxhistory="true" ajaxcache="true"  jquerytheme="flick"/>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
