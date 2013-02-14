@@ -11,7 +11,7 @@ public class Project {
 	private Date createdAt;
 	private boolean isActive;
 	private String videoLink;
-	
+	private int imageCount;
 	public int getId() {
 		return id;
 	}
@@ -54,5 +54,12 @@ public class Project {
 	public void setVideoLink(String videoLink) {
 		this.videoLink = videoLink;
 	}
+	public int getImageCount() {
+		return imageCount;
+	}
+	public void setImageCount(int imageCount) {
+		this.imageCount = imageCount;
+	}
 	
 }
+ 
