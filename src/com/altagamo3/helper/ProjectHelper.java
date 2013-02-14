@@ -46,7 +46,7 @@ public class ProjectHelper {
 		ResultSet rs = null;
 		ArrayList<Project> projectsList = null;
 		try {
-			String sql = "SELECT id,title,description,row_order,created_at FROM project WHERE active_flag = 1 ORDER BY created_at";
+			String sql = "SELECT id,title,description,row_order,created_at,img_count,video_link FROM project WHERE active_flag = 1 ORDER BY created_at";
 			System.out.println("SQL: "+sql);
 			pst = conn.prepareStatement(sql);
 			rs = pst.executeQuery();
@@ -58,6 +58,8 @@ public class ProjectHelper {
 				pr.setDescription(rs.getString(3));
 				pr.setOrder(rs.getInt(4));
 				pr.setCreatedAt(rs.getDate(5));
+				pr.setImageCount(rs.getInt(6));
+				pr.setVideoLink(rs.getString(7));
 				projectsList.add(pr);
 			}
 		} catch (SQLException e) {
@@ -86,14 +88,15 @@ public class ProjectHelper {
 		try {
 			System.out.println("Property: "+p);
 			System.out.println("Desc: "+p.getDescription());
-			String strSQL = "INSERT INTO project (title,description,row_order,active_flag) VALUES(?,?,?,?);";
+			String strSQL = "INSERT INTO project (title,description,row_order,active_flag,img_count,video_link) VALUES(?,?,?,?,?,?);";
 					//CURRENT_TIMESTAMP
 			PreparedStatement pst = conn.prepareStatement(strSQL);
 			pst.setString(1, p.getTitle());
 			pst.setString(2, p.getDescription());
 			pst.setInt(3, p.getOrder());
 			pst.setString(4, p.isActive()?"1":"0");
-
+			pst.setInt(5, p.getImageCount());
+			pst.setString(6,p.getVideoLink());
 			pst.executeUpdate();
 			// Get the newly generated property ID..
 			String strSqlQuery = "SELECT LAST_INSERT_ID() FROM project;";
@@ -920,5 +923,74 @@ public class ProjectHelper {
 			}
 		}
 		return result;
+	}
+	public Project getProjectDetails(int projectID) {
+		DBConnection dbcon = new DBConnection();
+		Connection conn = dbcon.getConnection();
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Project project = null ;
+		try {
+			String sql = "SELECT id,title,description,row_order,created_at,img_count,video_link,active_flag FROM project WHERE id ="+projectID;
+			System.out.println("SQL: "+sql);
+			pst = conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			project = new Project();
+			while (rs.next()) {
+				project.setId(rs.getInt("id"));
+				project.setTitle(rs.getString("title"));
+				project.setDescription(rs.getString("description"));
+				project.setOrder(rs.getInt("row_order"));
+				project.setCreatedAt(rs.getDate("created_at"));
+				project.setImageCount(rs.getInt("img_count"));
+				project.setVideoLink(rs.getString("video_link"));
+				        if(rs.getString("active_flag").trim().equals("1"))
+				project.setActive(true);
+				        else
+				project.setActive(false); 
+				
+			}  
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(rs !=null && !rs.isClosed())	rs.close();
+				if(pst !=null && !pst.isClosed())	pst.close();
+				if(conn !=null && !conn.isClosed())	conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("AAAAAAAAAAAAAAAAAAAAA"+project.getDescription());
+		return project;
+	}
+	public int editProject(Project p) {
+		DBConnection dbcon = new DBConnection();
+		Connection conn = dbcon.getConnection();
+		int projectId = 0;
+		try {
+			System.out.println("Property: "+p);
+			System.out.println("Desc: "+p.getDescription());
+			String strSQL = "UPDATE project SET title = ? ,description = ?,row_order = ?,active_flag = ?,img_count = ?,video_link = ? WHERE id= ?";
+					//CURRENT_TIMESTAMP
+			PreparedStatement pst = conn.prepareStatement(strSQL);
+			pst.setString(1, p.getTitle());
+			pst.setString(2, p.getDescription());
+			pst.setInt(3, p.getOrder());
+			pst.setString(4, p.isActive()?"1":"0");
+			pst.setInt(5, p.getImageCount());
+			pst.setString(6,p.getVideoLink());
+			pst.setInt(7,p.getId());
+			pst.executeUpdate();
+
+			if(pst !=null && !pst.isClosed())	pst.close();
+			if(conn !=null && !conn.isClosed())	conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			projectId = 0;
+		} 
+		projectId =p.getId();
+		return projectId;
 	}
 }
