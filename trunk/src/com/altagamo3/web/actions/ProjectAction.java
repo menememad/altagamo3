@@ -18,131 +18,152 @@ public class ProjectAction extends BaseAction{
 
 	private static final long serialVersionUID = -736270398790301333L;
 	private Project project;
-	private ArrayList<Project> projectList;
+	private String projectID ;
+	private char active ;
+	private ArrayList<Project> arProjectList;
 	public String list(){
-		User loggedInUser = (User)session.get("userInfo");
-		if(loggedInUser.getRoleID()==1){
-			ProjectHelper prjHelp = ProjectHelper.getInstance();
-			try {
-				projectList = prjHelp.listProjects();
-				//session.put("projectsList", projectList);
-				System.out.println("Projects count: "+projectList.size());
-				return SUCCESS;
-			} catch (Exception e) {
-				e.printStackTrace();
-				addActionError(e.getMessage());
-				return NONE;
-			}
-		}else{
-			return NONE;
-		}
-	}
-
-/*	public String getPropertyDetails(){
-		PropertyHelper prpHelp = PropertyHelper.getInstance();
+//		User loggedInUser = (User)session.get("userInfo");
+//		if(loggedInUser.getRoleID()==1){
+//			ProjectHelper prjHelp = ProjectHelper.getInstance();
+//			try {
+//				projectList = prjHelp.listProjects();
+//				//session.put("projectsList", projectList);
+//				System.out.println("Projects count: "+projectList.size());
+//				return SUCCESS;
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				addActionError(e.getMessage());
+//				return NONE;
+//			}
+//		}else{
+//			return NONE;
+//		}
+		System.out.println("ProjectAction :: list() :: Start");
 		try {
-			System.out.println("GetDetails: Property ID: "+request.getParameter("propertyID"));
-			int propertyID = Integer.parseInt(request.getParameter("propertyID"));
-			property = prpHelp.getProperty(propertyID);
-			//property.setImageCount(prpHelp.getPropertyImagesCount(propertyID));
-			System.out.println("Property type: "+property.getPropertyType().getId());
-			
-			aprtSubtype = property.getSubtype();
-			villaSubtype = property.getSubtype();
-			return SUCCESS;
+			ProjectHelper prjHelp = ProjectHelper.getInstance();
+			arProjectList = prjHelp.listProjects();
+			System.out.println("ProjectAction :: list() ::"+arProjectList.size());
 		} catch (Exception e) {
 			e.printStackTrace();
-			addActionError(e.getMessage());
-			return INPUT;
+			return ERROR ;
 		}
+		System.out.println("ProjectAction :: list() :: Fininshed");
+		return SUCCESS ;
 	}
-*/
+	public String preEdit()
+	{
+		System.out.println("ProjectAction :: preEdit :: Started");
+		System.out.println("ProjectAction :: preEdit: projectID:"+projectID);
+		try {
+			File file = new File("testFile");
+			ProjectHelper projHelp = ProjectHelper.getInstance();
+			project = projHelp.getProjectDetails(Integer.parseInt(projectID));
+		   if(project.isActive())
+			   active = '1';
+		   else
+			   active = '0';
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+		System.out.println("ProjectAction :: preEdit :: Fininshed");
+		System.out.println("ProjectAction :: preEdit :: "+project.getDescription());
+		return SUCCESS ;
+	}
+	public String editProject(){
+		User loggedInUser = (User)session.get("userInfo");
+		int projID =0 ;
+		try {
+			   ProjectHelper projHelp = ProjectHelper.getInstance();
+			   if(active == '1')
+			      project.setActive(true);
+			   else
+				   project.setActive(false); 
+			   System.out.println("AAAAAAAAA"+projectID);
+			   project.setId(Integer.parseInt(projectID));
+			   project.setCreatedAt(new Date(System.currentTimeMillis()));
+			   projID =projHelp.editProject(project);	
+			
+			@SuppressWarnings("unchecked")
+			List<Image> attachedFiles = (List<Image>)session.get("attachedFiles");
+			if(attachedFiles!=null && attachedFiles.size()>0){
+				int imageCount = 0;
+				try {
+					//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
+					//String filePath = "/public_html/prop_img/"+propertyID+"/";
+					String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
+		            System.out.println("Server path:" + filePath);
+		            for (Image image : attachedFiles) {
+		            	imageCount++;
+						File fileToCreate = new File(filePath+imageCount+".jpg");
+						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
+					}
+				} catch (IOException e) {
+					return INPUT;
+				}
+				session.remove("attachedFiles");
+				projHelp.updateProjectImagesCount(projID, imageCount);
+			}
+		} catch (Exception e) {
+	           e.printStackTrace();
+	           return ERROR ;
+		     }
+		addActionMessage(getText("msg.add.property",new String[]{""+projectID}));
+		return SUCCESS;
+	}
 	public String preAdd(){
+		System.out.println("ProjectAction :: addProject() :: Start");
 		File file = new File("testFile");
+		active = '1' ;
 		System.out.println("FILE PATH ********************* "+file.getAbsolutePath());
+		System.out.println("ProjectAction :: addProject() :: Finished");
 		return SUCCESS;
 	}
 	
 	public String add(){
 		System.out.println("ProjectAction :: addProject() :: Start");
 		User loggedInUser = (User)session.get("userInfo");
-		ProjectHelper projHelp = ProjectHelper.getInstance();
-		project.setCreatedAt(new Date(System.currentTimeMillis()));
-		int projectID = projHelp.add(project);
-		if(!(projectID>0))
-			return INPUT;
-		@SuppressWarnings("unchecked")
-		List<Image> attachedFiles = (List<Image>)session.get("attachedFiles");
-		if(attachedFiles!=null && attachedFiles.size()>0){
-			int imageCount = 0;
-			try {
-				//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
-				//String filePath = "/public_html/prop_img/"+propertyID+"/";
-				String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
-	            System.out.println("Server path:" + filePath);
-	            for (Image image : attachedFiles) {
-	            	imageCount++;
-					File fileToCreate = new File(filePath+imageCount+".jpg");
-					FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
-				}
-			} catch (IOException e) {
+		int projectID =0 ;
+		try {
+			   ProjectHelper projHelp = ProjectHelper.getInstance();
+			   if(active == '1')
+			      project.setActive(true);
+			   else
+				   project.setActive(false); 
+			   project.setCreatedAt(new Date(System.currentTimeMillis()));
+				projectID = projHelp.add(project);	
+			if(!(projectID>0))
 				return INPUT;
-			}
-			session.remove("attachedFiles");
-			projHelp.updateProjectImagesCount(projectID, imageCount);
-		}
-		addActionMessage(getText("msg.add.property",new String[]{""+projectID}));
-		return SUCCESS;
-	}
-/*
-	public String editProperty(){
-		User loggedInUser = (User)session.get("userInfo");
-		if(loggedInUser.getRoleID()==1){
-			PropertyHelper prpHelp = PropertyHelper.getInstance();
-			if(request.getParameter("propertyID")!=null){
-				property = new Property();
-				property.setId(Integer.parseInt(request.getParameter("propertyID")));
-				if((Constants.PROPERTY_STATUS_AVAILABLE+"").equals(request.getParameter("status")))
-					property.setStatus(Constants.PROPERTY_STATUS_AVAILABLE);
-				prpHelp.approveProperty(property);
-			}else{
-				if(property.getPropertyType().getId()==Constants.PROPERTY_TYPE_APARTMENT)
-					property.setSubtype(aprtSubtype);
-				else if(property.getPropertyType().getId()==Constants.PROPERTY_TYPE_VILLA)
-					property.setSubtype(villaSubtype);
-				prpHelp.editProperty(property);
-			}
 			@SuppressWarnings("unchecked")
 			List<Image> attachedFiles = (List<Image>)session.get("attachedFiles");
 			if(attachedFiles!=null && attachedFiles.size()>0){
 				int imageCount = 0;
 				try {
-					int propertyID = property.getId();
-					//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
-					String filePath = "/public_html/prop_img/"+propertyID+"/";
-		            if(!FileUtils.deleteQuietly(new File(filePath)))
-		            	throw new IOException("Cannot delete old files/directory");
-					System.out.println("Server path:" + filePath);
+					//String filePath = context.getRealPath("/")+"prop_img/"+projectID+"/";
+					//String filePath = "/public_html/prop_img/"+projectID+"/";
+					String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
+		            System.out.println("Server path:" + filePath);
 		            for (Image image : attachedFiles) {
 		            	imageCount++;
-						File fileToCreate = new File(filePath, imageCount+".jpg");
-						System.out.println("Image File: "+image.getFile());
+						File fileToCreate = new File(filePath+imageCount+".jpg");
 						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
 					}
-				} catch (IOException ioe) {
-					addActionError(getText(ioe.getMessage()));
+				} catch (IOException e) {
 					return INPUT;
 				}
 				session.remove("attachedFiles");
-				prpHelp.updatePropertyImagesCount(property.getId(), imageCount);
+				projHelp.updateProjectImagesCount(projectID, imageCount);
 			}
-			addActionMessage(getText("msg.edit.property",new String[]{""+property.getId()}));
-			return SUCCESS;
-		}else{
-			return ERROR;
-		}
+		} catch (Exception e) {
+	           e.printStackTrace();
+	           return ERROR ;
+		     }
+		addActionMessage(getText("msg.add.property",new String[]{""+projectID}));
+		return SUCCESS;
 	}
-*/	
+
+
+	
 	public String deleteProperty(){
 		User loggedInUser = (User)session.get("userInfo");
 		if(loggedInUser.getRoleID()==1){
@@ -174,13 +195,27 @@ public class ProjectAction extends BaseAction{
 		this.project = project;
 	}
 
-	public ArrayList<Project> getProjectList() {
-		return projectList;
+	public ArrayList<Project> getArProjectList() {
+		return arProjectList;
 	}
 
-	public void setProjectList(ArrayList<Project> projectList) {
-		this.projectList = projectList;
+	public void setArProjectList(ArrayList<Project> arProjectList) {
+		this.arProjectList = arProjectList;
 	}
+	public char getActive() {
+		return active;
+	}
+	public void setActive(char active) {
+		this.active = active;
+	}
+	public String getProjectID() {
+		return projectID;
+	}
+	public void setProjectID(String projectID) {
+		this.projectID = projectID;
+	}
+
+
 
 //	public List<File> getImage() {
 //		return images;
