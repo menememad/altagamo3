@@ -4,8 +4,8 @@
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%String dir = request.getLocale().getLanguage().equals("en")?"ltr":"rtl"; %>
 <div id="container" dir='<%=dir%>'> 
-	<h2><s:text name="title.project.addNew" /></h2>
-	<s:form id="addProjectForm"  method="POST" theme="simple">
+	<h2><s:text name="title.project.Edit" /></h2>
+	<s:form id="editProjectForm"  method="POST" theme="simple">
 		<s:if test="hasFieldErrors()">
 		 	<img src="/images/signs/error.gif" /><h3 style="color: red"><s:text name="err.message" /></h3>
 		   	<s:fielderror />
@@ -52,7 +52,7 @@
 				<td colspan="6">
 					<sj:a href="openUploadAttachedFile" targets="openUploadAttachedFileID" >
 						<img border="0" src="images/attachement.jpg" width="16" height="16" />
-						//<s:text name="attach.file.title" />
+						<s:text name="attach.file.title" />
 					</sj:a>	
 					<sj:div id="openUploadAttachedFileID" ></sj:div>	
 				</td>
@@ -64,9 +64,10 @@
 			</tr>
 		</table>
 	</fieldset>
-	<s:url  action="addProject" id="addProjectURL"></s:url>
-<sj:a   formIds="addProjectForm" href="%{addProjectURL}" targets="bodyID" button="true">Submit</sj:a>
+	<s:url  action="editProject" id="editProjectURL"></s:url>
+<sj:a   formIds="editProjectForm" href="%{editProjectURL}" targets="bodyID" button="true">Submit</sj:a>
 <%--	<p class="submit"><sj:submit targets="bodyID" button="true" key="Submit" onclick="window.location.href='#top';"/></p> --%>
+<s:hidden name="projectID"></s:hidden>
 </s:form>	
 </div>
 <script>
