@@ -1,9 +1,11 @@
 package com.altagamo3.to;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Project {
+public class Project implements Serializable{
 
+	private static final long serialVersionUID = -883739873139941045L;
 	private int id;
 	private String title;
 	private String description;

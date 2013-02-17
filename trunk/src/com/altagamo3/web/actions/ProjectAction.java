@@ -55,7 +55,6 @@ public class ProjectAction extends BaseAction{
 		System.out.println("ProjectAction :: preEdit :: Started");
 		System.out.println("ProjectAction :: preEdit: projectID:"+projectID);
 		try {
-			File file = new File("testFile");
 			ProjectHelper projHelp = ProjectHelper.getInstance();
 			project = projHelp.getProjectDetails(Integer.parseInt(projectID));
 		   if(project.isActive())
@@ -71,7 +70,7 @@ public class ProjectAction extends BaseAction{
 		return SUCCESS ;
 	}
 	public String editProject(){
-		User loggedInUser = (User)session.get("userInfo");
+		User s = (User)session.get("userInfo");
 		int projID =0 ;
 		try {
 			   ProjectHelper projHelp = ProjectHelper.getInstance();
@@ -90,8 +89,8 @@ public class ProjectAction extends BaseAction{
 				int imageCount = 0;
 				try {
 					//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
-					//String filePath = "/public_html/prop_img/"+propertyID+"/";
-					String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
+					String filePath = "/public_html/proj_img/"+projectID+"/";
+					//String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
 		            System.out.println("Server path:" + filePath);
 		            for (Image image : attachedFiles) {
 		            	imageCount++;
@@ -140,8 +139,8 @@ public class ProjectAction extends BaseAction{
 				int imageCount = 0;
 				try {
 					//String filePath = context.getRealPath("/")+"prop_img/"+projectID+"/";
-					//String filePath = "/public_html/prop_img/"+projectID+"/";
-					String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
+					String filePath = "/public_html/prop_img/"+projectID+"/";
+					//String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
 		            System.out.println("Server path:" + filePath);
 		            for (Image image : attachedFiles) {
 		            	imageCount++;

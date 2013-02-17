@@ -14,9 +14,10 @@
 		<result name="success">/pages/projects/listProjects.jsp</result>
 	</action>
 	<action name="preAddProject" class="com.altagamo3.web.actions.ProjectAction" method="preAdd">			
+		<interceptor-ref name="defaultStack"/>	
 		<interceptor-ref name="scope">
 			<param name="type">start</param>
-			<param name="session">project,active</param>
+			<param name="session">project</param>
 		    <param name="autoCreateSession">true</param>
 		</interceptor-ref>	
 		<interceptor-ref name="defaultStack"/>
@@ -30,7 +31,7 @@
     	</interceptor-ref>		
     	<interceptor-ref name="defaultStack"/>
 		<result name="success">/confirm.jsp</result>
-	<result name="input">/pages/projects/addProject.jsp</result>
+		<result name="input">/pages/projects/addProject.jsp</result>
 	</action>
 	<action name="preEditProject" class="com.altagamo3.web.actions.ProjectAction" method="preEdit">
 		 <interceptor-ref name="scope">
