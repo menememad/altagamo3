@@ -88,10 +88,9 @@ public class ProjectAction extends BaseAction{
 			if(attachedFiles!=null && attachedFiles.size()>0){
 				int imageCount = 0;
 				try {
-					//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
-					String filePath = "/public_html/proj_img/"+projectID+"/";
-					//String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
-		            System.out.println("Server path:" + filePath);
+					String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
+					//String filePath = "/public_html/proj_img/"+projectID+"/";
+					System.out.println("Server path:" + filePath);
 		            for (Image image : attachedFiles) {
 		            	imageCount++;
 						File fileToCreate = new File(filePath+imageCount+".jpg");
@@ -111,16 +110,16 @@ public class ProjectAction extends BaseAction{
 		return SUCCESS;
 	}
 	public String preAdd(){
-		System.out.println("ProjectAction :: addProject() :: Start");
+		System.out.println("ProjectAction :: preAdd() :: Start");
 		File file = new File("testFile");
 		active = '1' ;
-		System.out.println("FILE PATH ********************* "+file.getAbsolutePath());
-		System.out.println("ProjectAction :: addProject() :: Finished");
+		LOG.debug("FILE PATH ********************* "+file.getAbsolutePath());
+		System.out.println("ProjectAction :: preAdd() :: Finished");
 		return SUCCESS;
 	}
 	
 	public String add(){
-		System.out.println("ProjectAction :: addProject() :: Start");
+		System.out.println("ProjectAction :: add() :: Start");
 		User loggedInUser = (User)session.get("userInfo");
 		int projectID =0 ;
 		try {
@@ -138,10 +137,9 @@ public class ProjectAction extends BaseAction{
 			if(attachedFiles!=null && attachedFiles.size()>0){
 				int imageCount = 0;
 				try {
-					//String filePath = context.getRealPath("/")+"prop_img/"+projectID+"/";
-					String filePath = "/public_html/prop_img/"+projectID+"/";
-					//String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
-		            System.out.println("Server path:" + filePath);
+					String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
+					//String filePath = "/public_html/proj_img/"+projectID+"/";
+					System.out.println("Server path:" + filePath);
 		            for (Image image : attachedFiles) {
 		            	imageCount++;
 						File fileToCreate = new File(filePath+imageCount+".jpg");
