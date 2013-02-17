@@ -67,7 +67,7 @@
 		         <param name="autoCreateSession">true</param>
 		     </interceptor-ref>
     		<interceptor-ref name="basicStack"/>     	       
-	         <result name="success" >fileUploadDetails.jsp</result>
+	         <result name="success">fileUploadDetails.jsp</result>
      </action>
 	
 	<!-- Image Displayer -->
