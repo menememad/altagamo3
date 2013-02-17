@@ -39,7 +39,7 @@ $.subscribe('onupdate', function(event,data) {
 </script>
  <s:form theme="simple"  id="ProjectListFormID" >
  <s:url id="preAddProjectURL" action="preAddProject"/>
-<sj:a href="%{preAddProjectURL}" targets="bodyID" >Add Project </sj:a>
+<sj:a href="%{preAddProjectURL}" targets="bodyID" ><s:text name="title.project.addNew" /></sj:a>
  <br/>
    <sj:div id="column1"  cssClass="column" sortable="true" sortableConnectWith=".column" cssStyle="width:100%;" sortablePlaceholder="ui-state-highlight" sortableForcePlaceholderSize="true"
 		                sortableHandle="div.ui-widget-header" sortableCursor="crosshair" sortableOnUpdateTopics="onupdate">
@@ -55,11 +55,11 @@ $.subscribe('onupdate', function(event,data) {
                                <s:param name="projectID"><s:property value="id"/> </s:param>
                                </s:url>
                                <sj:a href="%{editprojectURL}" targets="bodyID" indicator="indicator" >
-                                <s:if test="imageCount != 0 ">
+                                <s:if test="imageCount > 0 ">
 							      <img border="0" class="watermark" src='/proj_img/<s:property value="id" />/1.jpg' width="80" height="80" align="center"/>
 								</s:if>
 								<s:else> 
-							      <img border="0" src='/images/home.jpg' width="80" height="80" align="center"/>
+							      <img border="0" class="watermark" src='/images/home.jpg' width="80" height="80"/>
 						       </s:else>
 						       </sj:a> 
                            </td>

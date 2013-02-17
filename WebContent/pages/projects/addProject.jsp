@@ -21,27 +21,27 @@
 		<legend><s:text name="section.project.info" /></legend>
 		<table class="propertyForm">
 			<tr class="odd">
-				<td width="20%"><s:text name="title"/> <s:text name="required.flag" /></td>
+				<td width="20%"><s:text name="project.title"/> <s:text name="required.flag" /></td>
 				<td width="70%"><sj:textfield id="title" name="project.title" maxlength="100"/></td>
 				<td width="10%"><span class="hint"><s:text name="hint.title"/><span class="hint-pointer">&nbsp;</span></span></td>
 			</tr>
-		 	<tr class="even">
-				<td width="20%"><s:text name="order"/> <s:text name="required.flag" /></td>
+			<tr class="even">
+				<td width="30%"><s:text name="project.description"/> <s:text name="required.flag" /></td>
+				<td width="70%"><s:textarea id="description" name="project.description" resizable="true" rows="5" cols="50" /></td>
+			</tr>
+		 	<tr class="odd">
+				<td width="20%"><s:text name="project.order"/> <s:text name="required.flag" /></td>
 				<td width="70%"><%--<sj:textfield id="order" name="project.order" maxlength="100"/> --%>
 			 	    <sj:spinner name="project.order" id="spinner" mouseWheel="true" max="50" size="21" min="0" readonly="true" ></sj:spinner>
 				</td>
 				<td width="10%"><span class="hint"><s:text name="hint.order"/><span class="hint-pointer">&nbsp;</span></span></td>
 			</tr>
 			<tr class="even">
-				<td width="20%"><s:text name="Active flag"/> <s:text name="required.flag" /></td>
+				<td width="20%"><s:text name="project.status"/> <s:text name="required.flag" /></td>
 				<td width="70%">
 			 	     <s:radio name="active"  list="#{'1':'Active','0':'Inactive'}"  />
 				</td>
 				<td width="10%"><span class="hint"><s:text name="hint.order"/><span class="hint-pointer">&nbsp;</span></span></td>
-			</tr>
-			<tr class="odd">
-				<td width="30%"><s:text name="description"/> <s:text name="required.flag" /></td>
-				<td width="70%"><s:textarea id="description" name="project.description" resizable="true" rows="5" cols="50" /></td>
 			</tr>
 		</table>
 	</fieldset>
@@ -52,7 +52,7 @@
 				<td colspan="6">
 					<sj:a href="openUploadAttachedFile" targets="openUploadAttachedFileID" >
 						<img border="0" src="images/attachement.jpg" width="16" height="16" />
-						//<s:text name="attach.file.title" />
+						<s:text name="attach.file.title" />
 					</sj:a>	
 					<sj:div id="openUploadAttachedFileID" ></sj:div>	
 				</td>
