@@ -57,7 +57,7 @@
             <interceptor-ref name="validation">
                 <param name="excludeMethods">input,back,cancel,browse</param>
             </interceptor-ref>
-		     		<interceptor-ref name="basicStack"/>     	       
+		     		<interceptor-ref name="defaultStack"/>	   	       
 	         <result name="success" >fileUploadDetails.jsp</result>
 	         <result name="input">fileUploadDetails.jsp</result>
      </action>
