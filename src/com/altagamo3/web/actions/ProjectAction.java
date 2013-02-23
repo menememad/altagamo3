@@ -2,17 +2,26 @@ package com.altagamo3.web.actions;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 
 import com.altagamo3.helper.ProjectHelper;
 import com.altagamo3.helper.PropertyHelper;
 import com.altagamo3.to.Image;
 import com.altagamo3.to.Project;
 import com.altagamo3.to.User;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.opensymphony.xwork2.ActionContext;
 
 public class ProjectAction extends BaseAction{
 
@@ -21,6 +30,49 @@ public class ProjectAction extends BaseAction{
 	private String projectID ;
 	private char active ;
 	private ArrayList<Project> arProjectList;
+	
+	public String exportTOPDF()
+	{
+		System.out.println("ProjectAction :: exportTOPDF :: Started");
+		System.out.println("ProjectAction :: exportTOPDF :projectID:"+projectID);
+			try{
+				project = new Project();
+				ProjectHelper projHelp = ProjectHelper.getInstance();
+				project = projHelp.getProjectDetails(Integer.parseInt(projectID));
+			   if(project.isActive())
+				   active = '1';
+			   else
+				   active = '0';
+				HttpServletResponse response =  (HttpServletResponse) ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
+				response.setContentType("application/pdf"); // Code 1
+				Document document = new Document();
+
+				PdfWriter.getInstance(document, response.getOutputStream()); // Code 2
+				document.open();
+				document.add(new Paragraph("Simple Image"));
+				if (false) {
+					String path ="/proj_img/"+project.getId()+"/1.jpg"; 
+					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(path);
+					document.add(image);
+				}else {
+					//the path of Image
+					String parentPath = "D:/altagamo3workspace/altagamo3/WebContent";
+					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/images/home.jpg");
+					document.add(image);	
+				}	
+				document.add(new Paragraph("\n"+project.getDescription()));
+				document.add(new Paragraph("\n"));
+				document.add(new Paragraph("\n"+project.getVideoLink()));			
+				document.close(); 
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+		System.out.println("ProjectAction :: exportTOPDF :: Finished");
+		return SUCCESS;
+	}
+	
 	public String list(){
 //		User loggedInUser = (User)session.get("userInfo");
 //		if(loggedInUser.getRoleID()==1){
