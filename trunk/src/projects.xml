@@ -40,6 +40,10 @@
 		 <interceptor-ref name="defaultStack"/>
 		<result name="success">/pages/projects/edit.jsp</result>
 	</action>
+	<action name="exportTOPDF" class="com.altagamo3.web.actions.ProjectAction" method="exportTOPDF">
+		 <interceptor-ref name="defaultStack"/>
+		<result name="success">/pdfSample.jsp</result>
+	</action>
 	<action name="editProject" class="com.altagamo3.web.actions.ProjectAction" method="editProject">
     	<interceptor-ref name="scope">
 		 <param name="session">projectID</param>
