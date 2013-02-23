@@ -68,6 +68,10 @@ $.subscribe('onupdate', function(event,data) {
                             </td>
                              <td width="20%">
                                 <a  href="javascript:;"  onclick="formatLink('<s:property value="videoLink" />');" > <s:property value="videoLink" /> </a>                                 
+                            <!-- <s:url action="exportTOPDF" id="exportTOPDFURl"></s:url>
+                             <sj:a href="%{exportTOPDFURl}" targets="bodyID" >Export</sj:a>
+                              -->
+                              <a  onclick="exportWindow('<s:property value="id"/>')" href="javascript:;" >Export</a>
                              </td>
                         </tr>                  
                  </table>
@@ -75,6 +79,7 @@ $.subscribe('onupdate', function(event,data) {
     </div>
    </s:iterator>
     </sj:div> 
+    <s:hidden name="projectID" id="projectIND"></s:hidden>
  </s:form>
     <script type="text/javascript">
    function formatLink(obj)
@@ -82,4 +87,11 @@ $.subscribe('onupdate', function(event,data) {
 	   window.location.href = obj ;
    }
    $(".portlet-content").toggle();
-    </script>
+
+   function exportWindow(proID) {
+	  // alert(proID);
+	    //$('#projectIND').val(proID);
+	    var  linkAction = 'exportTOPDF?projectID='+proID;
+	    window.open(linkAction,'','toolbar=no,location=no,top=50,left=50,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=900,height=500');
+	} 
+   </script>
