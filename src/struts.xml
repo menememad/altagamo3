@@ -21,7 +21,7 @@
 <package name="default" namespace="/" extends="interceptors,tiles-default,json-default,i18n">
 	<global-results>
 		<result name="success">/confirm.jsp</result>
-		<result name="error" type="tiles">error</result>		
+		<result name="error" >/error.jsp</result>		
 		<result name="login">/index.html</result>
 		<result name="preChangePassword">/pages/security/changePassword.jsp</result>
 	</global-results>
@@ -51,12 +51,6 @@
 		         <param name="session">attachedFiles</param>
 		         <param name="autoCreateSession">true</param>
 		     </interceptor-ref>
-            <interceptor-ref name="params">
-                <param name="excludeParams">dojo\..*,^struts\..*</param>
-            </interceptor-ref>
-            <interceptor-ref name="validation">
-                <param name="excludeMethods">input,back,cancel,browse</param>
-            </interceptor-ref>
 		     		<interceptor-ref name="defaultStack"/>	   	       
 	         <result name="success" >fileUploadDetails.jsp</result>
 	         <result name="input">fileUploadDetails.jsp</result>
