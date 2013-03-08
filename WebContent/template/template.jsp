@@ -3,7 +3,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<sj:head jqueryui="true" ajaxhistory="true" ajaxcache="true"  jquerytheme="flick"/>
+<sj:head jqueryui="true" ajaxcache="false"  jquerytheme="flick"/>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -40,9 +40,10 @@ if("ar_EG".equals(lang))
 <div id="bodyID" dir='<%=dir%>'><tiles:insertAttribute name="body" /></div>
 <div id="detailsID"></div>
 <div id="footerID"><tiles:insertAttribute name="footer" /></div>
-
-<script>wmark.init();</script><!-- Initialize watermark -->
 </body>
-<script>$(document).watermark();</script><!-- Apply watermark -->
+<%--
+<script>wmark.init();</script><!-- Initialize watermark -->
 
+<script>$(document).watermark();</script><!-- Apply watermark -->
+ --%>
 </html>
