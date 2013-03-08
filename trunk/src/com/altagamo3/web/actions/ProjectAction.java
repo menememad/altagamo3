@@ -1,10 +1,9 @@
 package com.altagamo3.web.actions;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
+import java.io.*;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +18,6 @@ import com.altagamo3.to.Project;
 import com.altagamo3.to.User;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -29,15 +27,39 @@ public class ProjectAction extends BaseAction{
 	private Project project;
 	private String projectID ;
 	private char active ;
+    private File userImage;
+    private ArrayList<File> arProjImages  = new ArrayList<File>();
+    private ArrayList<String> arNameImages  = new ArrayList<String>();
+	private String userImageContentType;
+	private String userImageFileName;
 	private ArrayList<Project> arProjectList;
 	
+	public String openToUpload()
+	{
+		System.out.println("PATH: "+context.getRealPath("/"));
+		return SUCCESS;
+	}
+	public String readyToUpload()
+	{
+          System.out.println("userImage::"+userImage.getAbsolutePath());
+             File file = new File(context.getRealPath("/")+"projImg/"+userImageFileName);
+          arProjImages.add(userImage);
+          try {
+			FileUtils.copyFile(userImage, file);
+			System.out.println("XXXXXXXXXXXXXXXXXXXXXXXX");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+          arNameImages.add(userImageFileName);
+         return SUCCESS;
+	}
 	public String exportTOPDF()
 	{
 		System.out.println("ProjectAction :: exportTOPDF :: Started");
 		System.out.println("ProjectAction :: exportTOPDF :projectID:"+projectID);
 			try{
 				project = new Project();
-				ProjectHelper projHelp = ProjectHelper.getInstance();
+				ProjectHelper  projHelp = ProjectHelper.getInstance();
 				project = projHelp.getProjectDetails(Integer.parseInt(projectID));
 			   if(project.isActive())
 				   active = '1';
@@ -50,13 +72,15 @@ public class ProjectAction extends BaseAction{
 				PdfWriter.getInstance(document, response.getOutputStream()); // Code 2
 				document.open();
 				document.add(new Paragraph("Simple Image"));
+				// in deployment on server
+				//if (project.getImageCount()> 0){ 
 				if (false) {
 					String path ="/proj_img/"+project.getId()+"/1.jpg"; 
 					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(path);
 					document.add(image);
 				}else {
 					//the path of Image
-					String parentPath = "D:/altagamo3workspace/altagamo3/WebContent";
+					String parentPath = getText("image.path");
 					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/images/home.jpg");
 					document.add(image);	
 				}	
@@ -113,6 +137,8 @@ public class ProjectAction extends BaseAction{
 			   active = '1';
 		   else
 			   active = '0';
+		   
+			session.remove("attachedFiles");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ERROR;
@@ -134,26 +160,23 @@ public class ProjectAction extends BaseAction{
 			   project.setId(Integer.parseInt(projectID));
 			   project.setCreatedAt(new Date(System.currentTimeMillis()));
 			   projID =projHelp.editProject(project);	
-			
-			@SuppressWarnings("unchecked")
-			List<Image> attachedFiles = (List<Image>)session.get("attachedFiles");
-			if(attachedFiles!=null && attachedFiles.size()>0){
-				int imageCount = 0;
-				try {
-					String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
-					//String filePath = "/public_html/proj_img/"+projectID+"/";
-					System.out.println("Server path:" + filePath);
-		            for (Image image : attachedFiles) {
-		            	imageCount++;
-						File fileToCreate = new File(filePath+imageCount+".jpg");
-						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
-					}
-				} catch (IOException e) {
-					return INPUT;
-				}
-				session.remove("attachedFiles");
-				projHelp.updateProjectImagesCount(projID, imageCount);
-			}
+			   System.out.println("XXXXXXXXXXXXXXXXX"+arProjImages.size());
+
+		if (arNameImages != null && arNameImages.size() > 0) {
+			//String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
+			String filePath = "/public_html/proj_img/"+projID+"/";   
+			//String filePath = "c:\\home\\allamco1\\public_html\\proj_img\\"+projectID+"\\";
+				 int imageCount = 0;
+				 for (int i = 0 ;i<arNameImages.size() ; i++ ) { 
+					imageCount ++ ;	
+					 File fileToCreate = new File(filePath+imageCount+".jpg");
+					 File fileToCopy =  new File(context.getRealPath("/")+"projImg/"+arNameImages.get(i));
+					 FileUtils.copyFile(fileToCopy,fileToCreate);
+				 }
+				 FileUtils.deleteDirectory(new File(context.getRealPath("/")+"projImg"));
+				 projHelp.updateProjectImagesCount(projID, imageCount);
+		}
+					 
 		} catch (Exception e) {
 	           e.printStackTrace();
 	           return ERROR ;
@@ -161,8 +184,72 @@ public class ProjectAction extends BaseAction{
 		addActionMessage(getText("msg.add.property",new String[]{""+projectID}));
 		return SUCCESS;
 	}
+	public String openUploadAttachedImage()
+	{
+		System.out.println("ProjectAction :openUploadAttachedImage:: ");
+		arProjImages = new ArrayList<File>();
+		return SUCCESS;
+	}
+	public String uploadProjectImages()
+	{ 
+		System.out.println("ProjectAction :uploadProjectImages:: ");
+		try {
+			System.out.println("ProjectAction :uploadProjectImages:: "+userImageContentType);
+			System.out.println("ProjectAction :uploadProjectImages:: "+userImage.getCanonicalPath());
+			String path = "C:\\img\\ ";
+			try{
+				File destDir = new File(path+(arProjImages.size()+1)+".jpg");
+				FileUtils.copyFile(userImage, destDir);	
+				arProjImages.add(destDir); 								
+				}catch(IOException e){
+					e.printStackTrace();
+				return ERROR ;
+				}
+		} catch (Exception e) {
+		e.printStackTrace();
+		return ERROR ;
+		}
+		return SUCCESS;
+	}
+	public static byte[] readInputStream(InputStream inputStream) throws
+	 IOException {
+	         int bufSize = 1024 * 1024;
+	         byte[] content;
+	
+	         List<byte[]> parts = new LinkedList();
+	         InputStream in = new BufferedInputStream(inputStream);
+	
+	         byte[] readBuffer = new byte[bufSize];
+	         byte[] part = null;
+	         int bytesRead = 0;
+	
+	         // read everyting into a list of byte arrays
+	         while ((bytesRead = in.read(readBuffer, 0, bufSize)) != -1) {
+	             part = new byte[bytesRead];
+	             System.arraycopy(readBuffer, 0, part, 0, bytesRead);
+	             parts.add(part);
+	         }
+	
+	         // calculate the total size
+	         int totalSize = 0;
+	         for (byte[] partBuffer : parts) {
+	             totalSize += partBuffer.length;
+	         }
+	
+	         // allocate the array
+	         content = new byte[totalSize];
+	         int offset = 0;
+	         for (byte[] partBuffer : parts) {
+	             System.arraycopy(partBuffer, 0, content, offset,partBuffer.length);
+	             offset += partBuffer.length;
+	         }
+	
+	         return content;
+	     }
+
 	public String preAdd(){
 		System.out.println("ProjectAction :: preAdd() :: Start");
+		session.remove("attachedFiles");
 		File file = new File("testFile");
 		active = '1' ;
 		LOG.debug("FILE PATH ********************* "+file.getAbsolutePath());
@@ -173,7 +260,7 @@ public class ProjectAction extends BaseAction{
 	public String add(){
 		System.out.println("ProjectAction :: add() :: Start");
 		User loggedInUser = (User)session.get("userInfo");
-		int projectID =0 ;
+		int projID =0 ;
 		try {
 			   ProjectHelper projHelp = ProjectHelper.getInstance();
 			   if(active == '1')
@@ -181,27 +268,42 @@ public class ProjectAction extends BaseAction{
 			   else
 				   project.setActive(false); 
 			   project.setCreatedAt(new Date(System.currentTimeMillis()));
-				projectID = projHelp.add(project);	
-			if(!(projectID>0))
+			   projID = projHelp.add(project);	
+			if(!(projID>0))
 				return INPUT;
-			@SuppressWarnings("unchecked")
-			List<Image> attachedFiles = (List<Image>)session.get("attachedFiles");
-			if(attachedFiles!=null && attachedFiles.size()>0){
-				int imageCount = 0;
-				try {
-					String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
-					//String filePath = "/public_html/proj_img/"+projectID+"/";
-					System.out.println("Server path:" + filePath);
-		            for (Image image : attachedFiles) {
-		            	imageCount++;
-						File fileToCreate = new File(filePath+imageCount+".jpg");
-						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
-					}
-				} catch (IOException e) {
-					return INPUT;
-				}
-				session.remove("attachedFiles");
-				projHelp.updateProjectImagesCount(projectID, imageCount);
+//			@SuppressWarnings("unchecked")
+//			List<Image> attachedFiles = (List<Image>)session.get("attachedFiles");
+//			if(attachedFiles!=null && attachedFiles.size()>0){
+//				int imageCount = 0;
+//				try {
+//					//String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
+//					String filePath = "/public_html/proj_img/"+projID+"/";
+//					//String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
+//					System.out.println("Server path:" + filePath);
+//		            for (Image image : attachedFiles) { 
+//		            	imageCount++;
+//						File fileToCreate = new File(filePath+imageCount+".jpg");
+//						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
+//					}
+//				} catch (IOException e) {
+//					return INPUT;
+//				}
+//				session.remove("attachedFiles");
+//				projHelp.updateProjectImagesCount(projID, imageCount);
+//			}
+			if (arNameImages != null && arNameImages.size() > 0) {
+				//String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
+				String filePath = "/public_html/proj_img/"+projID+"/";   
+				//String filePath = "c:\\home\\allamco1\\public_html\\proj_img\\"+projectID+"\\";
+					 int imageCount = 0;
+					 for (int i = 0 ;i<arNameImages.size() ; i++ ) { 
+						imageCount ++ ;	
+						 File fileToCreate = new File(filePath+imageCount+".jpg");
+						 File fileToCopy =  new File(context.getRealPath("/")+"projImg/"+arNameImages.get(i));
+						 FileUtils.copyFile(fileToCopy,fileToCreate);
+					 }
+					 FileUtils.deleteDirectory(new File(context.getRealPath("/")+"projImg"));
+					 projHelp.updateProjectImagesCount(projID, imageCount);
 			}
 		} catch (Exception e) {
 	           e.printStackTrace();
@@ -264,31 +366,42 @@ public class ProjectAction extends BaseAction{
 		this.projectID = projectID;
 	}
 
+	public void setUserImage(File userImage) {
+		this.userImage = userImage;
+	}
 
+	public File getUserImage() {
+		return userImage;
+	}
 
-//	public List<File> getImage() {
-//		return images;
-//	}
-//
-//	public void setImage(List<File> images) {
-//		this.images = images;
-//	}
-//
-//	public List<String> getImageContentType() {
-//		return imageContentTypes;
-//	}
-//
-//	public void setImageContentType(List<String> imageContentTypes) {
-//		this.imageContentTypes = imageContentTypes;
-//	}
-//
-//	public List<String> getImageFileName() {
-//		return imageFileNames;
-//	}
-//
-//	public void setImageFileName(List<String> imageFileNames) {
-//		this.imageFileNames = imageFileNames;
-//	}
-//
+	public void setUserImageContentType(String userImageContentType) {
+		this.userImageContentType = userImageContentType;
+	}
+
+	public String getUserImageContentType() {
+		return userImageContentType;
+	}
+
+	public void setUserImageFileName(String userImageFileName) {
+		this.userImageFileName = userImageFileName;
+	}
+
+	public String getUserImageFileName() {
+		return userImageFileName;
+	}
+
+	public ArrayList<File> getArProjImages() {
+		return arProjImages;
+	}
+
+	public void setArProjImages(ArrayList<File> arProjImages) {
+		this.arProjImages = arProjImages;
+	}
+	public void setArNameImages(ArrayList<String> arNameImages) {
+		this.arNameImages = arNameImages;
+	}
+	public ArrayList<String> getArNameImages() {
+		return arNameImages;
+	}
 
 }

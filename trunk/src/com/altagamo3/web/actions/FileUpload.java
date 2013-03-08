@@ -91,7 +91,7 @@ public class FileUpload extends BaseAction {
 			Image file = new Image();
 			byte[] filedata = readInputStream(new FileInputStream(attachedFile));
 			file.setFileBytes(filedata);
-			LOG.debug("attachedFileContentType :: "+attachedFileContentType);
+			//log.debug("attachedFileContentType :: "+attachedFileContentType);
 			file.setContentType(attachedFileContentType);
 			file.setFileName(attachedFileFileName);
 			file.setFileSize(attachedFile.length());

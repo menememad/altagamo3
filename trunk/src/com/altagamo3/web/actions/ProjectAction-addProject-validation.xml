@@ -1,13 +1,15 @@
-<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.3//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
     <field name="project.description">
 		<field-validator type="requiredstring">
-			<message>${getText("err.required", {getText("description")})}</message>
+			<message>Required</message>
 		</field-validator>
 	</field>
 	<field name="project.title">
 		<field-validator type="requiredstring">
-			<message>${getText("err.required", {getText("title")})}</message>
+			<message>Required</message>
 		</field-validator>
 	</field>
 	
