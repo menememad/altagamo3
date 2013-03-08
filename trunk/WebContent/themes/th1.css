@@ -127,3 +127,12 @@ background-color: white;
 color: black;
 background-color: fca;
 }
+.actionBtns{padding:25px 0 15px;text-align:right;width:100%}
+.formTables{border:none;border-collapse:collapse;margin:0;padding:0;width:100%}
+.formTables tr{vertical-align:top; height:25px}
+.formTables th{background-color:#DDEBF8;color:#06c;font:bold 14px Verdana;padding:1px 0 11px 20px;text-align:left; text-transform: capitalize}
+.formTables tr td{color:#2e6e9e;font:bold 12px Verdana;margin:0;padding:5px 10px;white-space: nowrap; }
+.formTables td input[type=text],.formTables td textarea{padding:1px}
+.formTables td fieldset {background-color:#DDEBF8;}
+.formTables td fieldset table{background-color:#DDEBF8;}
+.formTables td input[type=text],.txtBox{#height:20px;color:#404040;font:normal 11px Verdana;padding:1px;}
