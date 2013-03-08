@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/th1.css" />
-<table dir="ltr" style="background-image: url('images/header/header-bg.jpg');background-repeat: repeat-x;height: 104;text-align: center;">
+<table dir="ltr" style="background-image: url('/images/header/header-bg.jpg');background-repeat: repeat-x;height: 104;text-align: center;">
 	<tr height="100" valign="top">
 		<td width="260">
 			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/welcome.action?src=logo"><img src="<%=request.getContextPath()%>/images/header/logo.jpg" align="middle" width="220" border="0"/></a>
