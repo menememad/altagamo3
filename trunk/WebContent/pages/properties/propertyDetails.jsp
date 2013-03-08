@@ -139,9 +139,10 @@
 		</table>
 	</fieldset>
 	</s:if>
+	
+	<s:if test="%{property.imageCount>0}">
         <script>
             Galleria.loadTheme('/galleria/themes/classic/galleria.classic.min.js');
             Galleria.run('#galleria');
-            wmark.init();
-            $(document).watermark();
         </script>
+    </s:if>    
