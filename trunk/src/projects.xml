@@ -13,8 +13,7 @@
 		 <interceptor-ref name="defaultStack"/>
 		<result name="success">/pages/projects/listProjects.jsp</result>
 	</action>
-	<action name="preAddProject" class="com.altagamo3.web.actions.ProjectAction" method="preAdd">			
-		<interceptor-ref name="defaultStack"/>	
+	<action name="preAddProject" class="com.altagamo3.web.actions.ProjectAction" method="preAdd">				
 		<interceptor-ref name="scope">
 			<param name="type">start</param>
 			<param name="session">project</param>
@@ -44,17 +43,33 @@
 		 <interceptor-ref name="defaultStack"/>
 		<result name="success">/pdfSample.jsp</result>
 	</action>
-	<action name="editProject" class="com.altagamo3.web.actions.ProjectAction" method="editProject">
+	<action name="editProject" class="com.altagamo3.web.actions.ProjectAction" method="editProject">		
     	<interceptor-ref name="scope">
-		 <param name="session">projectID</param>
-		 </interceptor-ref>
-    	<interceptor-ref name="fileUpload">         
-    		<param name="maximumSize">5242880</param>         
-    		<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>     
-    	</interceptor-ref>		
+    	<param name="session">arNameImages</param>
+    	</interceptor-ref>
     	<interceptor-ref name="defaultStack"/>
 		<result name="success">/confirm.jsp</result>
 	    <result name="input">/pages/projects/edit.jsp</result>
+	</action>
+	<action name="openToUpload" class="com.altagamo3.web.actions.ProjectAction" method="openToUpload">
+	    <interceptor-ref name="scope">
+	    <param name="type">start</param>		     	
+		         <param name="session">arProjImages,arNameImages</param>
+		         <param name="autoCreateSession">true</param>
+		 </interceptor-ref>
+	    <interceptor-ref name="defaultStack"/> 
+	    <result name="success">/pages/projects/upload.jsp</result>	
+	</action> 
+	<action name="readyToUpload" class="com.altagamo3.web.actions.ProjectAction" method="readyToUpload">
+	    <interceptor-ref name="fileUpload">
+		     	<param name="maximumSize">9999999</param>
+		 </interceptor-ref>
+		 <interceptor-ref name="scope">		     	
+		         <param name="session">arProjImages,arNameImages</param>
+		         <param name="autoCreateSession">true</param>
+		 </interceptor-ref>
+	    <interceptor-ref name="defaultStack"/> 
+	    <result name="success">/pages/projects/fileDetails.jsp</result>	
 	</action>
 </package>
 </struts>

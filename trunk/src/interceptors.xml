@@ -61,7 +61,6 @@ what we need rather than copied old one from struts-default . -->
                 <interceptor-ref name="scoped-model-driven"/>
                 <interceptor-ref name="model-driven"/>
 	            <interceptor-ref name="fileUpload">
-                    
                 </interceptor-ref>
                 <interceptor-ref name="checkbox"/>
                 <interceptor-ref name="static-params"/>
@@ -92,30 +91,6 @@ what we need rather than copied old one from struts-default . -->
                 <interceptor-ref name="json"/>     
                               
         </interceptor-stack>
- 		
- 		<interceptor-stack name="distributedStack">
- 				<interceptor-ref name="SecurityOfficer"/>
- 				<interceptor-ref name="servlet-config"/>
-                <interceptor-ref name="i18n"/>
-                <interceptor-ref name="params">
-                  <param name="excludeParams">dojo\..*</param>
-                </interceptor-ref>
-                <interceptor-ref name="conversionError"/>
-                <interceptor-ref name="validation">
-                    <param name="excludeMethods">input,back,cancel,browse</param>
-                </interceptor-ref>               
-		</interceptor-stack>
-		
-		<interceptor-stack name="noValidationStack">
-		 		<interceptor-ref name="SecurityOfficer"/>
- 				<interceptor-ref name="servlet-config"/>
-                <interceptor-ref name="i18n"/>
-                <interceptor-ref name="params">
-                  <param name="excludeParams">dojo\..*</param>
-                </interceptor-ref>
-                <interceptor-ref name="conversionError"/>               
-		</interceptor-stack>
-		
 		<interceptor-stack name="completeStack">
                 <interceptor-ref name="exception"/>
                 <interceptor-ref name="alias"/>
