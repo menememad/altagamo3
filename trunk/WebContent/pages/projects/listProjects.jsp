@@ -55,7 +55,7 @@ $.subscribe('onupdate', function(event,data) {
                                <s:param name="projectID"><s:property value="id"/> </s:param>
                                </s:url>
                                <sj:a href="%{editprojectURL}" targets="bodyID" indicator="indicator" >
-                                <s:if test="imageCount > 0 ">
+                                <s:if test="%{imageCount>0}"> 
 							      <img border="0" class="watermark" src='/proj_img/<s:property value="id" />/1.jpg' width="80" height="80" align="center"/>
 								</s:if>
 								<s:else> 
