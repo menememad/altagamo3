@@ -34,25 +34,7 @@ public class ProjectAction extends BaseAction{
 	private String userImageFileName;
 	private ArrayList<Project> arProjectList;
 	
-	public String openToUpload()
-	{
-		System.out.println("PATH: "+context.getRealPath("/"));
-		return SUCCESS;
-	}
-	public String readyToUpload()
-	{
-          System.out.println("userImage::"+userImage.getAbsolutePath());
-             File file = new File(context.getRealPath("/")+"projImg/"+userImageFileName);
-          arProjImages.add(userImage);
-          try {
-			FileUtils.copyFile(userImage, file);
-			System.out.println("XXXXXXXXXXXXXXXXXXXXXXXX");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-          arNameImages.add(userImageFileName);
-         return SUCCESS;
-	}
+	
 	public String exportTOPDF()
 	{
 		System.out.println("ProjectAction :: exportTOPDF :: Started");
@@ -71,17 +53,23 @@ public class ProjectAction extends BaseAction{
 
 				PdfWriter.getInstance(document, response.getOutputStream()); // Code 2
 				document.open();
-				document.add(new Paragraph("Simple Image"));
+				document.add(new Paragraph(project.getTitle()));
 				// in deployment on server
-				//if (project.getImageCount()> 0){ 
-				if (false) {
-					String path ="/proj_img/"+project.getId()+"/1.jpg"; 
+				System.out.println("ProjectAction :"+project.getImageCount());
+				if (project.getImageCount()> 0){ 
+			//	if (false) { 
+					String path ="/home/allamco1/public_html/proj_img/"+project.getId()+"/1.jpg"; 
 					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(path);
 					document.add(image);
-				}else {
+				}
+				else { 
 					//the path of Image
 					String parentPath = getText("image.path");
-					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/images/home.jpg");
+					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("/home/allamco1/public_html/images/home.jpg");
+					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/images/home.jpg");
+					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("C://Users/Public/Pictures/Sample Pictures/Desert.jpg");
+					image.scaleAbsoluteWidth(400f);
+					image.scaleAbsoluteHeight(400f);
 					document.add(image);	
 				}	
 				document.add(new Paragraph("\n"+project.getDescription()));
@@ -148,6 +136,7 @@ public class ProjectAction extends BaseAction{
 		return SUCCESS ;
 	}
 	public String editProject(){
+		System.out.println("ProjectAction :: preEdit :: "+project.getVideoLink());
 		User s = (User)session.get("userInfo");
 		int projID =0 ;
 		try {
@@ -159,24 +148,36 @@ public class ProjectAction extends BaseAction{
 			   System.out.println("AAAAAAAAA"+projectID);
 			   project.setId(Integer.parseInt(projectID));
 			   project.setCreatedAt(new Date(System.currentTimeMillis()));
+			   if (project.getVideoLink()!= null && !project.getVideoLink().trim().equals("".trim())) {
+				project.setVideoLink("http://www.youtube.com/watch?v="+project.getVideoLink());
+			}
 			   projID =projHelp.editProject(project);	
-			   System.out.println("XXXXXXXXXXXXXXXXX"+arProjImages.size());
 
-		if (arNameImages != null && arNameImages.size() > 0) {
-			//String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
-			String filePath = "/public_html/proj_img/"+projID+"/";   
-			//String filePath = "c:\\home\\allamco1\\public_html\\proj_img\\"+projectID+"\\";
-				 int imageCount = 0;
-				 for (int i = 0 ;i<arNameImages.size() ; i++ ) { 
-					imageCount ++ ;	
-					 File fileToCreate = new File(filePath+imageCount+".jpg");
-					 File fileToCopy =  new File(context.getRealPath("/")+"projImg/"+arNameImages.get(i));
-					 FileUtils.copyFile(fileToCopy,fileToCreate);
-				 }
-				 FileUtils.deleteDirectory(new File(context.getRealPath("/")+"projImg"));
-				 projHelp.updateProjectImagesCount(projID, imageCount);
-		}
-					 
+			   @SuppressWarnings("unchecked")
+			List<Image> attachedFiles = (List<Image>)session.get("attachedFiles");
+				if(attachedFiles!=null && attachedFiles.size()>0){
+					int imageCount = 0;
+					try {
+						//String filePath = context.getRealPath("/")+"proj_img/"+propertyID+"/";
+						//String filePath = "/public_html/proj_img/"+propertyID+"/";
+						String filePath = "/home/allamco1/public_html/proj_img/"+projID+"/";
+						
+						FileUtils.deleteQuietly(new File(filePath));
+			             
+						System.out.println("Server path:" + filePath);
+			            for (Image image : attachedFiles) {
+			            	imageCount++;
+							File fileToCreate = new File(filePath, imageCount+".jpg");
+							System.out.println("Image File: "+image.getFile());
+							FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
+						} 
+					} catch (IOException ioe) {
+						addActionError(getText(ioe.getMessage()));
+						return INPUT;
+					}
+					session.remove("attachedFiles");
+					projHelp.updateProjectImagesCount(projID, imageCount);
+				}
 		} catch (Exception e) {
 	           e.printStackTrace();
 	           return ERROR ;
@@ -268,42 +269,49 @@ public class ProjectAction extends BaseAction{
 			   else
 				   project.setActive(false); 
 			   project.setCreatedAt(new Date(System.currentTimeMillis()));
+			   if (project.getVideoLink()!= null && !project.getVideoLink().trim().equals("".trim())) {
+					project.setVideoLink("http://www.youtube.com/watch?v="+project.getVideoLink());
+				}
 			   projID = projHelp.add(project);	
 			if(!(projID>0))
 				return INPUT;
-//			@SuppressWarnings("unchecked")
-//			List<Image> attachedFiles = (List<Image>)session.get("attachedFiles");
-//			if(attachedFiles!=null && attachedFiles.size()>0){
+//			if (arNameImages != null && arNameImages.size() > 0) {
+//				//String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
+//				String filePath = "/home/allamco1/public_html/proj_img/"+projID+"/";   
+//				//String filePath = "c:\\home\\allamco1\\public_html\\proj_img\\"+projectID+"\\";
+//					
 //				int imageCount = 0;
-//				try {
-//					//String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
-//					String filePath = "/public_html/proj_img/"+projID+"/";
-//					//String filePath = "/home/allamco1/public_html/proj_img/"+projectID+"/";
-//					System.out.println("Server path:" + filePath);
-//		            for (Image image : attachedFiles) { 
-//		            	imageCount++;
-//						File fileToCreate = new File(filePath+imageCount+".jpg");
-//						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
-//					}
-//				} catch (IOException e) {
-//					return INPUT;
-//				}
-//				session.remove("attachedFiles");
-//				projHelp.updateProjectImagesCount(projID, imageCount);
+//					 for (int i = 0 ;i<arNameImages.size() ; i++ ) { 
+//						imageCount ++ ;	
+//						 File fileToCreate = new File(filePath+imageCount+".jpg");
+//						 File fileToCopy =  new File("/home/allamco1/public_html/"+"projImgTemp/"+arNameImages.get(i));
+//						 FileUtils.copyFile(fileToCopy,fileToCreate);
+//					 }
+//					 FileUtils.deleteDirectory(new File("/home/allamco1/public_html/"+"projImgTemp/"));
+//					 projHelp.updateProjectImagesCount(projID, imageCount);
 //			}
-			if (arNameImages != null && arNameImages.size() > 0) {
-				//String filePath = context.getRealPath("/")+"proj_img/"+projectID+"/";
-				String filePath = "/public_html/proj_img/"+projID+"/";   
-				//String filePath = "c:\\home\\allamco1\\public_html\\proj_img\\"+projectID+"\\";
-					 int imageCount = 0;
-					 for (int i = 0 ;i<arNameImages.size() ; i++ ) { 
-						imageCount ++ ;	
-						 File fileToCreate = new File(filePath+imageCount+".jpg");
-						 File fileToCopy =  new File(context.getRealPath("/")+"projImg/"+arNameImages.get(i));
-						 FileUtils.copyFile(fileToCopy,fileToCreate);
-					 }
-					 FileUtils.deleteDirectory(new File(context.getRealPath("/")+"projImg"));
-					 projHelp.updateProjectImagesCount(projID, imageCount);
+			@SuppressWarnings("unchecked")
+			List<Image> attachedFiles = (List<Image>)session.get("attachedFiles");
+			if(attachedFiles!=null && attachedFiles.size()>0){
+				int imageCount = 0;
+				try {
+					//String filePath = context.getRealPath("/")+"proj_img/"+propertyID+"/";
+					//String filePath = "/public_html/proj_img/"+propertyID+"/";
+					String filePath = "/home/allamco1/public_html/proj_img/"+projID+"/";
+					 
+					System.out.println("Server path:" + filePath);
+		            for (Image image : attachedFiles) {
+		            	imageCount++;
+						File fileToCreate = new File(filePath, imageCount+".jpg");
+						System.out.println("Image File: "+image.getFile());
+						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
+					}
+				} catch (IOException ioe) {
+					addActionError(getText(ioe.getMessage()));
+					return INPUT;
+				}
+				session.remove("attachedFiles");
+				projHelp.updateProjectImagesCount(projID, imageCount);
 			}
 		} catch (Exception e) {
 	           e.printStackTrace();

@@ -85,8 +85,8 @@ public class PropertyAction extends BaseAction{
 			int imageCount = 0;
 			try {
 				//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
-				String filePath = "/public_html/prop_img/"+propertyID+"/";
-				//String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
+				//String filePath = "/public_html/prop_img/"+propertyID+"/";
+				String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
 	            System.out.println("Server path:" + filePath);
 	            for (Image image : attachedFiles) {
 	            	imageCount++;
@@ -127,9 +127,11 @@ public class PropertyAction extends BaseAction{
 				try {
 					int propertyID = property.getId();
 					//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
-					String filePath = "/public_html/prop_img/"+propertyID+"/";
-		            if(!FileUtils.deleteQuietly(new File(filePath)))
-		            	throw new IOException("Cannot delete old files/directory");
+					//String filePath = "/public_html/prop_img/"+propertyID+"/";
+					String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
+					
+					FileUtils.deleteQuietly(new File(filePath));
+		             
 					System.out.println("Server path:" + filePath);
 		            for (Image image : attachedFiles) {
 		            	imageCount++;
