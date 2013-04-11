@@ -44,11 +44,11 @@ h4
 <body>
 <s:form theme="simple">
 <s:url id="preAddProjectURL" action="preAddProject"/>
-<sj:a href="%{preAddProjectURL}" targets="bodyID" >Add Project </sj:a>
+<sj:a href="%{preAddProjectURL}" indicator="indicator" targets="bodyID" >Add Project </sj:a>
 </s:form>
 <s:if test="%{#session.userInfo!=null && #session.userInfo.roleID==1}">
 <s:url var="listProjects" action="listProjects"/>
-<sj:a href="%{listProjects}" targets="bodyID" button="true">Project Management</sj:a>
+<sj:a href="%{listProjects}" indicator="indicator" targets="bodyID" button="true">Project Management</sj:a>
 </s:if>				
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
 	<tr>
