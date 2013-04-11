@@ -17,25 +17,6 @@
 		<s:elseif test="hasActionMessages()">
 		   <img src="/images/signs/success.gif" /><h3 style="color: green"><s:actionmessage /></h3>
 		</s:elseif> 
-<fieldset>
-	<legend><s:text name="project.upload.image"/></legend>
-		<s:if test="%{project.imageCount>0}">
-			<center>
-			<div class="content">
-		        <div id="galleria" style="width: 500px;">
-		        <s:iterator var="index" begin="1" end="project.imageCount">
-		            <img  border="0" name="myImage" src='/proj_img/<s:property value="project.id" />/${index}.jpg' />
-		        </s:iterator>    
-		        </div>
-			</div>  
-			</center>      
-		</s:if>
-		<s:if test="%{project.videoLink!=null && project.videoLink.length>0}">
-			<center>
-				<iframe id="player" width="640" height="390" src='http://www.youtube.com/embed/<s:property value="project.videoLink" />?enablejsapi=1&origin=http://www.altagamo3.com' frameborder="0" ></iframe>
-		  	</center>
-	  	</s:if>
-</fieldset>
 	<fieldset>
 		<legend><s:text name="section.project.info" /></legend>
 		<table class="formTables">
@@ -62,33 +43,26 @@
 				<td><s:text name="videolink"/></td>
 				<td colspan="3" width="30%">http://www.youtube.com/watch?v=<s:textfield name="project.videoLink" maxlength="30"/></td>
 			</tr>	
-		</table>
+		</table> 
 	</fieldset>
-	<fieldset>
+	<fieldset  >
 		<legend><s:text name="project.upload.image"/></legend>
-		<table class="formTables">
-			<tr class="even">
-				<td colspan="6">
-					<sj:a href="openToUpload" targets="openUploadAttachedFileID" >
+	<table class="formTables">
+		<tr class="even">
+				<td colspan="2">
+					<sj:a indicator="indicator" href="openUploadAttachedFile" targets="openUploadAttachedFileID" >
 						<img border="0" src="images/attachement.jpg" width="16" height="16" />
 						<s:text name="attach.file.title" />
-					</sj:a>	 
+					</sj:a>	
 					<sj:div id="openUploadAttachedFileID" ></sj:div>	
-				</td> 
-			</tr>
+				</td>
+		</tr>
 		</table>
-	</fieldset>
+	</fieldset> 
 	<div align="right">
-	<sj:submit  href="editProject" targets="bodyID" formIds="editProjectForm" button="true" ></sj:submit>
+	<sj:submit  href="editProject" indicator="indicator" targets="bodyID" formIds="editProjectForm" button="true" ></sj:submit>
 
        </div>
 <s:hidden name="projectID"></s:hidden>
 </s:form>	
 </div>
-           <s:if test="%{project.imageCount>0}">
-
- <script>
-            Galleria.loadTheme('/galleria/themes/classic/galleria.classic.min.js');
-            Galleria.run('#galleria');
-</script>
-            </s:if>

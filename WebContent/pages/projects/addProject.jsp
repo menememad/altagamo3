@@ -4,7 +4,7 @@
 <%String dir = request.getLocale().getLanguage().equals("en")?"ltr":"rtl"; %>
 <div id="container" dir='<%=dir%>' style="width:100%"> 
 <s:form id="addProjectForm"   theme="simple">
-		<h2><s:text name="title.project.addNew" /></h2>
+<table width="100%"><tr><td align="center"> <h2 style="color:blue;"><em><s:text name="title.project.addNew" /></em></h2> </td></tr></table>
 <s:if test="hasFieldErrors()">
 		 	<img src="/images/signs/error.gif" /><h3 style="color: red"><s:text name="err.message" /></h3>
 		   	<s:fielderror />
@@ -37,7 +37,7 @@
 			</tr>
 			<tr class="odd">
 			<td><s:text name="videolink"/></td>
-			<td>http://www.youtube.com/watch?v=<s:textfield name="project.videoLink" maxlength="30"/></td>
+			<td><s:textfield name="project.videoLink" maxlength="30"/> Ex <em>:http://www.youtube.com/watch?v=</em> </td>
 			</tr>
 		</table>
 </fieldset>
@@ -47,7 +47,7 @@
 	<table class="formTables">
 		<tr class="even">
 				<td colspan="2">
-					<sj:a href="openToUpload" formIds="addProjectForm" targets="openUploadAttachedFileID" >
+					<sj:a indicator="indicator" href="openUploadAttachedFile" targets="openUploadAttachedFileID" >
 						<img border="0" src="images/attachement.jpg" width="16" height="16" />
 						<s:text name="attach.file.title" />
 					</sj:a>	
@@ -57,8 +57,8 @@
 		</table>
 	</fieldset>
 <div class="actionBtns" align="right" >
-    <sj:a  formIds="addProjectForm" href="addProject" targets="bodyID" indicator="indicator"  button="true">Submit</sj:a>
- 
+    <sj:a  formIds="addProjectForm" href="addProject" targets="bodyID" indicator="indicator"  button="true" > Submit </sj:a>
+
 </div>	
 </s:form>	
 </div>
