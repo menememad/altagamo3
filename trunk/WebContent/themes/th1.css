@@ -136,3 +136,4 @@ background-color: fca;
 .formTables td fieldset {background-color:#DDEBF8;}
 .formTables td fieldset table{background-color:#DDEBF8;}
 .formTables td input[type=text],.txtBox{#height:20px;color:#404040;font:normal 11px Verdana;padding:1px;}
+.ui-effects-wrapper { display: inline-block;}
