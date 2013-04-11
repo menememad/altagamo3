@@ -604,6 +604,7 @@ public class PropertyHelper {
 				e.printStackTrace();
 			}
 		}
+		propertyID =p.getId();
 		return propertyID;
 	}
 
@@ -870,6 +871,7 @@ public class PropertyHelper {
 				p.setNoOfBathRooms(rs.getInt("property.bathroomsNo"));
 				p.setFloorNo(rs.getInt("property.floorNo"));
 				p.setImageCount(rs.getInt("property.img_count"));
+				System.out.println("CCCCCCCCCCCCCCC"+rs.getInt("property.img_count")); 
 				p.setSubtype(rs.getInt("property.subtype"));
 				p.setPropertyType(new PropertyType(rs.getInt("prop_type.id"), rs.getString("prop_type.name_ar"), rs.getString("prop_type.name_en")));
 				p.setCountry(new Location(rs.getInt("country.id"),rs.getString("country.name_ar"),rs.getString("country.name_en")));
