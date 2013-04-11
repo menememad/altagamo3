@@ -39,7 +39,7 @@ if("ar_EG".equals(lang))
 <img id="myDefaultIndicator" src="/images/indicator.gif" alt="Loading..." style="display:none;border: 0;"/>
 <div id="bodyID" dir='<%=dir%>'><tiles:insertAttribute name="body" /></div>
 <div id="detailsID"></div>
-<div id="footerID"><tiles:insertAttribute name="footer" /></div>
+<div id="footerID" style="bottom: 0"><tiles:insertAttribute name="footer" /></div>
 </body>
 <%--
 <script>wmark.init();</script><!-- Initialize watermark -->
