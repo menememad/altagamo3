@@ -227,58 +227,58 @@ lsp=b;b[w]=qm_oo;if(w==e)b.onmouseover=function(event){clearTimeout(qm_tt);qm_tt
 <s:if test="%{#session.userInfo!=null}" >
 	<li><a class="qmparent" href="javascript:void(0);"><s:text name="menu.myProfile" /></a>
 		<ul>
-			<li><sj:a href="viewUser" targets="bodyID"><s:text name="menu.myProfile.view" /></sj:a></li>
-			<li><sj:a href="preEditUser" targets="bodyID"><s:text name="menu.myProfile.edit" /></sj:a></li>
+			<li><sj:a href="viewUser" indicator="indicator" targets="bodyID"><s:text name="menu.myProfile.view" /></sj:a></li>
+			<li><sj:a href="preEditUser" indicator="indicator" targets="bodyID"><s:text name="menu.myProfile.edit" /></sj:a></li>
 			<li><span class="qmdivider qmdividerx" ></span></li>
 			<li><span class="qmtitle" ><s:text name="menu.myItems"/></span></li>
-			<li><sj:a href="preListFavorites" targets="bodyID"><s:text name="menu.myItems.myFav"/></sj:a></li>
-			<li><sj:a href="preListAds" targets="bodyID"><s:text name="menu.myItems.myAds"/></sj:a></li>
+			<li><sj:a href="preListFavorites" indicator="indicator" targets="bodyID"><s:text name="menu.myItems.myFav"/></sj:a></li>
+			<li><sj:a href="preListAds" indicator="indicator" targets="bodyID"><s:text name="menu.myItems.myAds"/></sj:a></li>
 		</ul>
 	</li>
-	<li><sj:a href="preSearchProperty" targets="bodyID"><s:text name="menu.search"/></sj:a></li>
+	<li><sj:a href="preSearchProperty" indicator="indicator" targets="bodyID"><s:text name="menu.search"/></sj:a></li>
 	<li><a class="qmparent" href="javascript:void(0);"><s:text name="menu.property" /></a>
 		<ul>
 		<s:if test="%{#session.userInfo.roleID==1}" ><!-- Admins only -->
 			<li><span class="qmtitle" ><s:text name="menu.list"/></span></li>
 			<li>
-				<sj:a href="searchAllProperties" targets="bodyID"><s:text name="menu.property.listAll" /></sj:a>
+				<sj:a href="searchAllProperties" indicator="indicator" targets="bodyID"><s:text name="menu.property.listAll" /></sj:a>
 			</li>
 			<li id="listNew">
-				<sj:a href="searchPropertyByStatus?status=1" targets="bodyID"><s:text name="menu.property.list.1" /></sj:a>
+				<sj:a href="searchPropertyByStatus?status=1" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.1" /></sj:a>
 			</li>
 			<li id="listApproved">
-				<sj:a href="searchPropertyByStatus?status=2" targets="bodyID"><s:text name="menu.property.list.2" /></sj:a>
+				<sj:a href="searchPropertyByStatus?status=2"  indicator="indicator" targets="bodyID"><s:text name="menu.property.list.2" /></sj:a>
 			</li>
 			<li id="listSold">
-				<sj:a href="searchPropertyByStatus?status=3" targets="bodyID"><s:text name="menu.property.list.3" /></sj:a>
+				<sj:a href="searchPropertyByStatus?status=3" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.3" /></sj:a>
 			</li>
 			<li id="listRented">
-				<sj:a href="searchPropertyByStatus?status=4" targets="bodyID"><s:text name="menu.property.list.4" /></sj:a>
+				<sj:a href="searchPropertyByStatus?status=4" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.4" /></sj:a>
 			</li>
 			<li id="listInactive">
-				<sj:a href="searchPropertyByStatus?status=5" targets="bodyID"><s:text name="menu.property.list.5" /></sj:a>
+				<sj:a href="searchPropertyByStatus?status=5" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.5" /></sj:a>
 			</li>
 			<li><span class="qmdivider qmdividerx" ></span></li>
 			<li><span class="qmtitle" ><s:text name="menu.action"/></span></li>
 		</s:if>
-			<li><sj:a href="preAddProperty" targets="bodyID"><s:text name="menu.property.add" /></sj:a></li>
-			<li><sj:a href="searchMyProperties" targets="bodyID"><s:text name="menu.property.list.ads" /></sj:a></li>
-			<li><sj:a href="searchMyFavorites" targets="bodyID"><s:text name="menu.property.list.fav" /></sj:a></li>
+			<li><sj:a href="preAddProperty" indicator="indicator" targets="bodyID"><s:text name="menu.property.add" /></sj:a></li>
+			<li><sj:a href="searchMyProperties" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.ads" /></sj:a></li>
+			<li><sj:a href="searchMyFavorites" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.fav" /></sj:a></li>
 		</ul>
 	</li>
 </s:if>
 <s:if test="%{#session.userInfo.roleID==1}" ><!-- Admins only -->
 	<li><a class="qmparent" href="javascript:void(0);"><s:text name="menu.project" /></a>
 		<ul>
-			<li><sj:a href="listProjects" targets="bodyID"><s:text name="menu.project.listAll" /></sj:a></li>
-			<li><sj:a href="preAddProject" targets="bodyID"><s:text name="menu.project.add" /></sj:a></li>
+			<li><sj:a href="listProjects" indicator="indicator" targets="bodyID"><s:text name="menu.project.listAll" /></sj:a></li>
+			<li><sj:a href="preAddProject" indicator="indicator" targets="bodyID"><s:text name="menu.project.add" /></sj:a></li>
 		</ul>
 	</li>
 	<li><a class="qmparent" href="javascript:void(0);"><s:text name="menu.user" /></a>
 		<ul>
-			<li><sj:a href="preListUsers" targets="bodyID"><s:text name="menu.user.listAll" /></sj:a></li>
-			<li><sj:a href="preAddUser" targets="bodyID"><s:text name="menu.user.add" /></sj:a></li>
-			<li><sj:a href="/pages/security/forgotPassword.jsp" targets="bodyID"><s:text name="menu.user.resetPassword" /></sj:a></li>
+			<li><sj:a href="preListUsers" indicator="indicator" targets="bodyID"><s:text name="menu.user.listAll" /></sj:a></li>
+			<li><sj:a href="preAddUser" indicator="indicator" targets="bodyID"><s:text name="menu.user.add" /></sj:a></li>
+			<li><sj:a href="/pages/security/forgotPassword.jsp" indicator="indicator" targets="bodyID"><s:text name="menu.user.resetPassword" /></sj:a></li>
 		</ul>
 	</li>
 </s:if>
@@ -286,28 +286,28 @@ lsp=b;b[w]=qm_oo;if(w==e)b.onmouseover=function(event){clearTimeout(qm_tt);qm_tt
 <s:if test="%{#session.userInfo.roleID!=3}" ><!-- Staff only -->
 	<li><a class="qmparent" href="javascript:void(0);"><s:text name="menu.lookup" /></a>
 		<ul>
-			<li><sj:a href="/pages/lookups/country.jsp" targets="bodyID"><s:text name="menu.lookup.country" /></sj:a></li>
-			<li><sj:a href="/pages/lookups/state.jsp" targets="bodyID"><s:text name="menu.lookup.state" /></sj:a></li>
-			<li><sj:a href="/pages/lookups/city.jsp" targets="bodyID"><s:text name="menu.lookup.city" /></sj:a></li>
-			<li><sj:a href="/pages/lookups/compound.jsp" targets="bodyID"><s:text name="menu.lookup.compound" /></sj:a></li>
-			<li><sj:a href="#" targets="bodyID"><s:text name="menu.lookup.district" /></sj:a></li>
-			<li><sj:a href="#" targets="bodyID"><s:text name="menu.lookup.zone" /></sj:a></li>
-			<li><sj:a href="/pages/lookups/subarea.jsp" targets="bodyID"><s:text name="menu.lookup.subarea" /></sj:a></li>
+			<li><sj:a href="/pages/lookups/country.jsp" indicator="indicator" targets="bodyID"><s:text name="menu.lookup.country" /></sj:a></li>
+			<li><sj:a href="/pages/lookups/state.jsp" indicator="indicator" targets="bodyID"><s:text name="menu.lookup.state" /></sj:a></li>
+			<li><sj:a href="/pages/lookups/city.jsp" indicator="indicator" targets="bodyID"><s:text name="menu.lookup.city" /></sj:a></li>
+			<li><sj:a href="/pages/lookups/compound.jsp" indicator="indicator" targets="bodyID"><s:text name="menu.lookup.compound" /></sj:a></li>
+			<li><sj:a href="#" targets="bodyID" indicator="indicator"><s:text name="menu.lookup.district" /></sj:a></li>
+			<li><sj:a href="#" targets="bodyID" indicator="indicator"><s:text name="menu.lookup.zone" /></sj:a></li>
+			<li><sj:a href="/pages/lookups/subarea.jsp" indicator="indicator" targets="bodyID"><s:text name="menu.lookup.subarea" /></sj:a></li>
 		</ul>
 	</li>
 </s:if>
 <s:if test="%{#session.userInfo!=null}" >
 	<li><a class="qmparent" href="javascript:void(0);"><s:text name="menu.security" /></a>
 		<ul>
-			<li><sj:a href="/pages/security/changePassword.jsp" targets="bodyID"><s:text name="menu.security.changePassword" /></sj:a></li>
+			<li><sj:a href="/pages/security/changePassword.jsp" indicator="indicator" targets="bodyID"><s:text name="menu.security.changePassword" /></sj:a></li>
 			<li><s:a href="logout"><s:text name="menu.security.logout" /></s:a></li>
 		</ul>
 	</li>
 	<li><a class="qmparent" href="javascript:void(0);"><s:text name="menu.help" /></a>
 		<ul>
-		<li><sj:a href="/pages/about/AboutUs.htm" targets="bodyID"><s:text name="menu.help.about" /></sj:a></li>
-		<li><sj:a href="/pages/about/ContactUs.htm" targets="bodyID"><s:text name="menu.help.contact" /></sj:a></li>
-		<li><sj:a href="/pages/about/feedback.jsp" targets="bodyID"><s:text name="menu.help.feedback" /></sj:a></li>
+		<li><sj:a href="/pages/about/AboutUs.htm" indicator="indicator" targets="bodyID"><s:text name="menu.help.about" /></sj:a></li>
+		<li><sj:a href="/pages/about/ContactUs.htm" indicator="indicator" targets="bodyID"><s:text name="menu.help.contact" /></sj:a></li>
+		<li><sj:a href="/pages/about/feedback.jsp" indicator="indicator" targets="bodyID"><s:text name="menu.help.feedback" /></sj:a></li>
 		</ul>
 	</li>
 </s:if>
