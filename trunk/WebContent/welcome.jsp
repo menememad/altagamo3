@@ -2,6 +2,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <title>Welcome to AlTagamo3.com Website</title>
+
 <div id="welcome-part1" dir="ltr">
 	<table>
 		<tr>
@@ -141,13 +142,13 @@
 			<td valign="top" width="260">
 				<table height="285">
 					<tr>
-						<td bgcolor="#99DDE0" valign="top" height="285">
+						<td bgcolor="#99DDE0" valign="top" height="285" >
 						<s:form action="login" method="POST" theme="simple" focusElement="username">
 						<table height="100%">
 							<tr>
 								<td>&nbsp;</td>
 								<td bgcolor="#FFB00F" width="220" valign="top">
-								<table cellpadding="7" height="100%">
+								<table  id="box1" cellpadding="7" height="100%" class="ui-corner-all">
 									<tr>
 										<td style="font-family: Tahoma;font-size: 15pt;color: #AD7400;font-weight: bold;text-align: center;">
 										<s:text name="welcome.membersarea" /></td>
@@ -337,3 +338,7 @@
 	</tr>
 	</table>
 </div>
+<script>
+//$('#box1').animate({boxShadow: '0 0 30px #44f'});
+$('#box1').corner();
+</script>
