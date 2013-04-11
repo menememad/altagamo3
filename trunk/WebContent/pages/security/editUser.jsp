@@ -49,7 +49,7 @@
 			<dt style="width: 200px;"><s:text name="security.address" /></dt>
 			<dd style="width: 500px;"><s:textarea name="address" cols="50" rows="5" /></dd>
 		</dl>
-		<sj:submit targets="bodyID" />
+		<sj:submit indicator="indicator" targets="bodyID" />
 	</fieldset>
 </s:form>
 <script>

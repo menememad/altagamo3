@@ -3,7 +3,7 @@
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 
-<sj:a href="preAddUser" targets="bodyID" id="addUserLink" button="true">Add New User</sj:a>
+<sj:a href="preAddUser" indicator="indicator" targets="bodyID" id="addUserLink" button="true">Add New User</sj:a>
 <br/>
     <s:url id="remoteurl" action="listUsers" method="listUsers"/>
     <sjg:grid 
