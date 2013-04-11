@@ -71,5 +71,14 @@
 	    <interceptor-ref name="defaultStack"/> 
 	    <result name="success">/pages/projects/fileDetails.jsp</result>	
 	</action>
+	<action name="viewProjectDetails" class="com.altagamo3.web.actions.ProjectAction" method="preEdit">
+		 <interceptor-ref name="scope">
+		 <param name="type">start</param>		     	
+		         <param name="session">project</param>
+		         <param name="autoCreateSession">true</param>
+		 </interceptor-ref>
+	    <interceptor-ref name="defaultStack"/> 
+	    <result name="success">/pages/projects/view.jsp</result>	
+	</action>
 </package>
 </struts>

@@ -16,7 +16,7 @@
 	</action>	
 	<action name="addProperty" class="com.altagamo3.web.actions.PropertyAction" method="addProperty">
     	<interceptor-ref name="fileUpload">         
-    		<param name="maximumSize">5242880</param>         
+    		<param name="maximumSize">9999999999</param>         
     		<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>     
     	</interceptor-ref>		
     	<interceptor-ref name="defaultStack"/>
@@ -35,7 +35,7 @@
 	</action>	
 	<action name="editProperty" class="com.altagamo3.web.actions.PropertyAction" method="editProperty">
     	<interceptor-ref name="fileUpload">         
-    		<param name="maximumSize">5242880</param>         
+    		<param name="maximumSize">99999999999</param>         
     		<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>     
     	</interceptor-ref>		
 	    <interceptor-ref name="defaultStack"/>
