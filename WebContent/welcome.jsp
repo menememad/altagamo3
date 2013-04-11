@@ -112,9 +112,9 @@
 											<tr>
 												<td>
 												<p align="center">
-												<sj:submit targets="bodyID" type="image" src="/images/buttons/btn_search.jpg" /><br />
+												<sj:submit targets="bodyID" indicator="indicator" type="image" src="/images/buttons/btn_search.jpg" /><br />
 												<s:url var="preSearch" action="preSearchProperty" method="preSearchProperty"/>
-												<sj:a href="%{preSearch}" targets="bodyID"><s:text name="welcome.advancedsearch" /></sj:a>
+												<sj:a indicator="indicator" href="%{preSearch}" targets="bodyID"><s:text name="welcome.advancedsearch" /></sj:a>
 												</td>
 											</tr>
 										</table>
@@ -131,7 +131,7 @@
 				<table height="285">
 					<tr>
 						<td bgcolor="#99DDE0" width="220">
-						<sj:a href="/pages/about/Consultant.htm" targets="bodyID">
+						<sj:a indicator="indicator" href="/pages/about/Consultant.htm" targets="bodyID">
 							<img border="0" src="images/welcome/allam-consult.jpg" width="489" height="258">
 						</sj:a>
 						</td>
@@ -177,12 +177,12 @@
 									<tr>
 										<td>
 										<p align="center">
-										<sj:submit type="image" src="/images/buttons/btn_login.jpg"/></td>
+										<sj:submit indicator="indicator" type="image" src="/images/buttons/btn_login.jpg"/></td>
 									</tr>
 									<tr>
 										<td align="center">
 										<font face="Arial" color="#FFFFFF" size="2">
-										<sj:a href="/pages/security/forgotPassword.jsp" targets="bodyID"><s:text name="global.forgotpassword" /></sj:a> | <sj:a href="preAddUser" targets="bodyID"><s:text name="global.registernow" /></sj:a></font></td>
+										<sj:a indicator="indicator" href="/pages/security/forgotPassword.jsp" targets="bodyID"><s:text name="global.forgotpassword" /></sj:a> | <sj:a href="preAddUser" targets="bodyID"><s:text name="global.registernow" /></sj:a></font></td>
 									</tr>
 								</table>
 								</td>
@@ -212,7 +212,7 @@
 			<s:url var="searchLand" action="searchPropertyType" method="searchPropertyType">
 				<s:param name="propertyType" value="10" />
 			</s:url>
-			<sj:a href="%{searchLand}" targets="bodyID" onmouseover="">
+			<sj:a href="%{searchLand}" indicator="indicator" targets="bodyID" onmouseover="">
 			<img border="0" src="images/welcome/big-property01.jpg" width="179" height="225">
 			</sj:a></td>
 			
@@ -220,7 +220,7 @@
 			<s:url var="searchApartment" action="searchPropertyType" method="searchPropertyType">
 				<s:param name="propertyType" value="1" />
 			</s:url>
-			<sj:a href="%{searchApartment}" targets="bodyID">
+			<sj:a href="%{searchApartment}" indicator="indicator" targets="bodyID">
 			<img border="0" src="images/welcome/big-property02.jpg" width="180" height="225">
 			</sj:a></td>
 			<td align="center">
@@ -228,21 +228,21 @@
 				<s:param name="propertyType" value="1" />
 				<s:param name="subType" value="3" />
 			</s:url>
-			<sj:a href="%{searchDuplex}" targets="bodyID">
+			<sj:a href="%{searchDuplex}" indicator="indicator" targets="bodyID">
 			<img border="0" src="images/welcome/big-property03.jpg" width="180" height="225">
 			</sj:a></td>
 			<td align="center">
 			<s:url var="searchVilla" action="searchPropertyType" method="searchPropertyType">
 				<s:param name="propertyType" value="2" />
 			</s:url>
-			<sj:a href="%{searchVilla}" targets="bodyID">
+			<sj:a href="%{searchVilla}" indicator="indicator" targets="bodyID">
 			<img border="0" src="images/welcome/big-property04.jpg" width="181" height="225">
 			</sj:a></td>
 			<td align="center">
 			<s:url var="searchBusiness" action="searchPropertyType" method="searchPropertyType">
 				<s:param name="propertyType" value="13" />
 			</s:url>
-			<sj:a href="%{searchBusiness}" targets="bodyID">
+			<sj:a href="%{searchBusiness}" indicator="indicator" targets="bodyID">
 			<img border="0" src="images/welcome/big-property05.jpg" width="182" height="225">
 			</sj:a></td>
 		</tr>
