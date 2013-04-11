@@ -29,7 +29,7 @@ th{
 }
 </style>
 <s:url var="preSearch" action="preSearchProperty" method="preSearchProperty"/>
-<sj:a id="advSearchTop" href="%{preSearch}" targets="bodyID" button="true"><s:text name="welcome.advancedsearch" /></sj:a>
+<sj:a id="advSearchTop"  indicator="indicator" href="%{preSearch}" targets="bodyID" button="true"><s:text name="welcome.advancedsearch" /></sj:a>
 <hr>
 <s:if test="hasActionMessages()">
    <h3 style="color: green"><s:actionmessage /></h3>
@@ -42,12 +42,12 @@ th{
 <s:else>
 <s:if test="%{#session.userInfo!=null && #session.userInfo.roleID==1}">
 <span style="width:100%">
-<sj:submit id="addToFavTop" value="%{getText('action.addToFavorites')}" targets="bodyID" onclick="changeStatus(-1)"/>
-<sj:submit id="activateTop" value="%{getText('action.activate')}" targets="bodyID" onclick="changeStatus(1)"/>
-<sj:submit id="approveTop" value="%{getText('action.approve')}" targets="bodyID" onclick="changeStatus(2)" />
-<sj:submit id="sellTop" value="%{getText('action.sell')}" targets="bodyID" onclick="changeStatus(3)"/>
-<sj:submit id="rentTop" value="%{getText('action.rent')}" targets="bodyID" onclick="changeStatus(4)"/>
-<sj:submit id="deactivateTop" value="%{getText('action.deactivate')}" targets="bodyID" onclick="changeStatus(5)"/>
+<sj:submit id="addToFavTop" indicator="indicator" value="%{getText('action.addToFavorites')}" targets="bodyID" onclick="changeStatus(-1)"/>
+<sj:submit id="activateTop" indicator="indicator" value="%{getText('action.activate')}" targets="bodyID" onclick="changeStatus(1)"/>
+<sj:submit id="approveTop" indicator="indicator" value="%{getText('action.approve')}" targets="bodyID" onclick="changeStatus(2)" />
+<sj:submit id="sellTop"  indicator="indicator" value="%{getText('action.sell')}" targets="bodyID" onclick="changeStatus(3)"/>
+<sj:submit id="rentTop"  indicator="indicator" value="%{getText('action.rent')}" targets="bodyID" onclick="changeStatus(4)"/>
+<sj:submit id="deactivateTop" indicator="indicator" value="%{getText('action.deactivate')}" targets="bodyID" onclick="changeStatus(5)"/>
 </span>
 </s:if>
 <hr />
@@ -92,24 +92,24 @@ th{
 			<input type="checkbox" name="propertyID" value='<s:property value="%{id}" />' /><br/>
 			<sj:a href="%{preEditProperty}" targets="bodyID" indicator="indicator"><s:text name="action.edit" /></sj:a><br/>
 			<s:if test="%{status==1}">
-				<sj:a href="%{approveProperty}" targets="bodyID"><s:text name="action.approve" /></sj:a><br/>
+				<sj:a href="%{approveProperty}" indicator="indicator" targets="bodyID"><s:text name="action.approve" /></sj:a><br/>
 			</s:if>
 			<s:if test="%{status==2}">
-				<sj:a href="%{sellProperty}" targets="bodyID"><s:text name="action.sell" /></sj:a><br/>
-				<sj:a href="%{rentProperty}" openDialog="rental" targets="bodyID"><s:text name="action.rent" /></sj:a><br/>
+				<sj:a href="%{sellProperty}" indicator="indicator" targets="bodyID"><s:text name="action.sell" /></sj:a><br/>
+				<sj:a href="%{rentProperty}" indicator="indicator" openDialog="rental" targets="bodyID"><s:text name="action.rent" /></sj:a><br/>
 			</s:if>
 			<s:if test="%{status==5}">
-				<sj:a href="%{activateProperty}" targets="bodyID"><s:text name="action.activate" /></sj:a><br/>
-				<sj:a href="%{deleteProperty}" targets="bodyID" onclick="return confirmDelete();"><s:text name="action.delete" /></sj:a><br/>
+				<sj:a href="%{activateProperty}" indicator="indicator" targets="bodyID"><s:text name="action.activate" /></sj:a><br/>
+				<sj:a href="%{deleteProperty}" indicator="indicator"  targets="bodyID" onclick="return confirmDelete();"><s:text name="action.delete" /></sj:a><br/>
 			</s:if>
 			<s:if test="%{status!=5}">
-				<sj:a href="%{deactivateProperty}" targets="bodyID"><s:text name="action.deactivate" /></sj:a>
+				<sj:a href="%{deactivateProperty}" indicator="indicator" targets="bodyID"><s:text name="action.deactivate" /></sj:a>
 			</s:if>
 		</s:if>
 		</td>
 		<td rowspan="4" width="160">
-			<sj:a href="%{getPropertyDetails}" targets="bodyID">
-				<%-- <img border="0" class="watermark" src='displayPropertyImage!displayPropertyImage?prpID=<s:property value="id" />&imgNo=1' width="160" height="160" align="right"/> --%>
+			<sj:a href="%{getPropertyDetails}" indicator="indicator" targets="bodyID">
+		<%-- <img border="0" class="watermark" src='displayPropertyImage!displayPropertyImage?prpID=<s:property value="id" />&imgNo=1' width="160" height="160" align="right"/> --%>
 				<s:if test="%{imageCount>0}">
 					<img border="0" class="watermark" src='/prop_img/<s:property value="id" />/1.jpg' width="160" height="160" align="right"/>
 				</s:if>
@@ -130,7 +130,7 @@ th{
 	</tr>
 	<tr>
 		<td colspan="2">
-			<sj:a href="%{getPropertyDetails}" targets="bodyID">
+			<sj:a href="%{getPropertyDetails}" indicator="indicator" targets="bodyID">
 				<s:text name="property.moreInfo" />
 			</sj:a>
 		</td>

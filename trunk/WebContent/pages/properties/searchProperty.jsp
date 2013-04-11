@@ -257,7 +257,7 @@ width: 200px;
 		</table>
 	</fieldset>
 </s:if>	
-	<p class="submit"><sj:submit targets="bodyID" value="Search" /></p>
+	<p class="submit"><sj:submit targets="bodyID" indicator="indicator" value="Search" /></p>
 </s:form>	
 
 <tr><th colspan="6"></th></tr>

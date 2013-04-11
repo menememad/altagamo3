@@ -8,5 +8,5 @@
 <s:form id="defineRentalPeriod" theme="xhtml">
 <sj:datepicker id="rentStart" name="rentStart" label="Show Years only from 2008 until 2012" yearRange="2008:2012" changeYear="true"/>
 <sj:datepicker id="rentEnd" name="rentEnd" label="Show Years only from 2008 until 2012" yearRange="2012:2100" changeYear="true"/>
-<sj:submit value="Submit" />
+<sj:submit value="Submit" indicator="indicator" />
 </s:form>

@@ -78,7 +78,7 @@
 		<table class="propertyForm">
 			<tr class="odd">
 				<td colspan="6">
-					<sj:a href="openUploadAttachedFile" targets="openUploadAttachedFileID" >
+					<sj:a indicator="indicator" href="openUploadAttachedFile" targets="openUploadAttachedFileID" >
 						<img border="0" src="images/attachement.jpg" width="16" height="16" />
 						<s:text name="attach.file.title" />
 					</sj:a>	
@@ -173,7 +173,7 @@
 			</tr>
 		</table>
 	</fieldset>
-	<p class="submit"><sj:submit targets="bodyID" button="true" key="Submit" onclick="window.location.href='#top';"/></p>
+	<p class="submit"><sj:submit indicator="indicator" targets="bodyID" button="true" key="Submit" onclick="window.location.href='#top';"/></p>
 </s:form>	
 </div>
 <tr><th colspan="6"></th></tr>
