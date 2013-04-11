@@ -18,7 +18,7 @@
 	<include file="lookups.xml" />
 	<include file="projects.xml" />
 			
-<package name="default" namespace="/" extends="interceptors,tiles-default,json-default,i18n">
+<package name="default" namespace="/" extends="tiles-default,json-default">
 	<global-results>
 		<result name="success">/confirm.jsp</result>
 		<result name="error" >/error.jsp</result>		
