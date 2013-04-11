@@ -2,7 +2,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 
-<script type="text/javascript" src="/easypaginate/js/easypaginate.js"></script>
+<script type="text/javascript" src="/easypaginate/js/easypaginate.min.js"></script>
 <script type="text/javascript">
 jQuery(function($){
 	$('div#items').easyPaginate({

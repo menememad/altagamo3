@@ -137,3 +137,23 @@ background-color: fca;
 .formTables td fieldset table{background-color:#DDEBF8;}
 .formTables td input[type=text],.txtBox{#height:20px;color:#404040;font:normal 11px Verdana;padding:1px;}
 .ui-effects-wrapper { display: inline-block;}
+.projects-locations-container{margin-top:10px;position:relative}
+.tabs-container{border-bottom:1px solid #0077ba;height:25px;position:relative}
+.tabs-container .locations-tabs{list-style:none;height:23px;padding:0 15px;position:absolute;right:0;top:2px}
+.ltr .tabs-container .locations-tabs{right:auto;left:0}
+.tabs-container .locations-tabs li{display:inline;float:right;margin-right:5px;-webkit-border-radius:2px 2px 0px 0px;border-radius:2px 2px 0px 0px}
+.ltr .tabs-container .locations-tabs li{float:left}
+.tabs-container .locations-tabs li a{display:inline-block;background-color:#0077BA;color:#fff;padding:3px 10px;font-weight:bold;-webkit-border-radius:2px 2px 0px 0px;border-radius:2px 2px 0px 0px}
+.tabs-container .locations-tabs li a:hover{background-color:#EE7501}
+.tabs-container .locations-tabs li.active{border:1px solid #0077ba;border-bottom:none}
+.tabs-container .locations-tabs li.active a{color:#0077BA;background:#fff;padding-bottom:2px}
+.projects-container{border:1px solid #0077ba;border-top:none;min-height:100px}
+.projects{}
+.projects li{list-style-type: none;float:right;width:265px;min-height:260px;font-size:8pt;}.ltr .projects li{float:left}
+.projects .project-name{font-size:16px;color:#666464;margin-top:10px}
+.projects .photo{float:right;overflow:hidden;width:100%;height:140px;text-align:center}
+.ltr .projects .photo{float:left}.projects li p{margin:0;text-align:inherit}
+.add-project{background-color:#ee7501;-webkit-border-radius:2px 2px 0px 0px;border-radius:2px 2px 0px 0px;color:#FFFFFF;padding:4px 10px;font-weight:bold}
+.rtl .add-project{float:left;margin-left:15px}.ltr .add-project{float:right;margin-right:15px}
+.price{color:#ee7501}
+

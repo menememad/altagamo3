@@ -28,7 +28,7 @@ $(function() {
 
 
 </script>
-<img id="indicator" src="<%=request.getContextPath()%>/images/indicator.gif" align="middle" />
+<img id="indicator" src="<%=request.getContextPath()%>/images/loading.gif" align="middle"/>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/th1.css" />
 <table dir="ltr" style="background-image: url('/images/header/header-bg.jpg');background-repeat:repeat-x;height: 104;text-align: center;">
 	<tr height="100" valign="top">
