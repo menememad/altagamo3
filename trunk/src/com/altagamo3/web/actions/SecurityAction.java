@@ -11,9 +11,9 @@ import com.altagamo3.helper.SecurityHelper;
 import com.altagamo3.to.User;
 import com.altagamo3.utils.Constants;
 import com.altagamo3.utils.Utils;
-import com.googlecode.scopeplugin.ScopeType;
-import com.googlecode.scopeplugin.annotations.In;
-import com.googlecode.scopeplugin.annotations.Out;
+//import com.googlecode.scopeplugin.ScopeType;
+//import com.googlecode.scopeplugin.annotations.In;
+//import com.googlecode.scopeplugin.annotations.Out;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SecurityAction extends ActionSupport implements ServletRequestAware, SessionAware{
@@ -190,22 +190,22 @@ public class SecurityAction extends ActionSupport implements ServletRequestAware
 		this.password = password;
 	}
 
-	@In(scope=ScopeType.COOKIE)
+	//@In(scope=ScopeType.COOKIE)
 	public void setSavedUserName(String savedUserName) {
 		this.savedUserName = savedUserName;
 	}
 
-	@In(scope=ScopeType.COOKIE)
+	//@In(scope=ScopeType.COOKIE)
 	public void setSavedPassword(String savedPassword) {
 		this.savedPassword = savedPassword;
 	}
 
-	@Out(scope=ScopeType.COOKIE)
+	//@Out(scope=ScopeType.COOKIE)
 	public String getSavedUserName() {
 		return this.savedUserName;
 	}
 
-	@Out(scope=ScopeType.COOKIE)
+	//@Out(scope=ScopeType.COOKIE)
 	public String getSavedPassword() {
 		return this.savedPassword;
 	}
