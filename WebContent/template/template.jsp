@@ -3,7 +3,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<sj:head jqueryui="true" ajaxcache="false"  jquerytheme="flick"/>
+<sj:head />
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="/scripts/noty/layouts/topRight.js"></script>
 <!-- You can add more layouts if you want -->
 
-<script type="text/javascript" src="js/noty/themes/default.js"></script><%--<script src="/scripts/watermark.jquery.js" type="text/javascript"></script>--%>
+<%--<script src="/scripts/watermark.jquery.js" type="text/javascript"></script>--%>
 <script type="text/javascript">
   //<![CDATA[[
   $SA={s:12560,asynch:1};
