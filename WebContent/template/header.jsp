@@ -37,21 +37,21 @@ $(function() {
 		</td>
 		<td width="800" align="center" valign="top" height="100">
 			<div style="background-color: #FFFFFF;height: 98;">
-				<sj:a href="/pages/about/AboutUs.htm" targets="bodyID">
+				<sj:a href="/pages/about/AboutUs.htm" indicator="indicator" targets="bodyID">
 				<img  class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/header/menu-aboutus.jpg" width="113" height="89"></sj:a>&nbsp;
 				<s:url var="searchRent" action="searchPropertyFor" method="searchPropertyFor">
 					<s:param name="propertyFor" value="2" />
 				</s:url>
-				<sj:a href="%{searchRent}" targets="bodyID">
+				<sj:a href="%{searchRent}" indicator="indicator" targets="bodyID">
 				<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/header/menu-rent.jpg" width="113" height="89"></sj:a>&nbsp;
 				<s:url var="searchSale" action="searchPropertyFor" method="searchPropertyFor">
 					<s:param name="propertyFor" value="1" />
 				</s:url>
-				<sj:a href="%{searchSale}" targets="bodyID">
+				<sj:a href="%{searchSale}" indicator="indicator" targets="bodyID">
 				<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/header/menu-sale.jpg" width="113" height="89"></sj:a>&nbsp;
 				    <s:url action="listProjects" id="listProjectsURL"></s:url>
 				<!-- /pages/about/Projects.jsp -->
-				<sj:a href="%{listProjectsURL}" targets="bodyID">
+				<sj:a href="%{listProjectsURL}"  indicator="indicator" targets="bodyID">
 				<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/header/menu-projects.jpg" width="113" height="89"></sj:a>
 			&nbsp;<sj:a href="/pages/about/Consultant.htm" targets="bodyID">
 			<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/header/menu-consultant.jpg" width="113" height="89"></sj:a>
@@ -60,7 +60,7 @@ $(function() {
 		<td width="5">&nbsp;</td>
 		<td align="center" width="150" valign="top">
 			<div style="background-color: #FFFFFF;text-align: center;font: 9pt;color: #05598F;font-family: Arial;height: 18;">
-				<sj:a href="/pages/about/ContactUs.htm" targets="bodyID">Contact Us</sj:a>
+				<sj:a href="/pages/about/ContactUs.htm" indicator="indicator" targets="bodyID">Contact Us</sj:a>
 				&nbsp;&nbsp; |&nbsp;&nbsp;
 				<a href="?request_locale=ar_EG" ><s:text name="locale.arabic" /></a>
 				<a href="?request_locale=en" ><s:text name="locale.english"/></a>	
