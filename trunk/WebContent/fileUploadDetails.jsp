@@ -11,10 +11,7 @@
 			<s:url action="deleteUploadFile" var="deleteUploadURL" encode="true">
 				<s:param name="index"><s:property value="#stat.index" /></s:param>
 			</s:url>
-		<sj:a href="%{deleteUploadURL}" targets="uploadDivID"><s:text name="attach.file.remove"/></sj:a></td>
+		<sj:a href="%{deleteUploadURL}" indicator="indicator" targets="uploadDivID"><s:text name="attach.file.remove"/></sj:a></td>
 	</tr>	
 </s:iterator>
 </table>
-<script>
-$('#resetResultID').click();
-</script>

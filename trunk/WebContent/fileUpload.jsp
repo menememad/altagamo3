@@ -17,7 +17,7 @@
 					buttonIcon="ui-icon-refresh" cssStyle="display:none" formIds="uploadFileFormID">									
 				</sj:submit>
 				
-	<input id="resetResultID"  style="display:none;" type="reset"/>
+				
 </s:form>
 </div>
 
@@ -37,7 +37,7 @@
 			<s:url action="deleteUploadFile" var="deleteUploadURL" encode="true">
 				<s:param name="index"><s:property value="#stat.index" /></s:param>
 			</s:url>
-		<sj:a href="%{deleteUploadURL}" targets="uploadDivID"><s:text name="attach.file.remove"/></sj:a></td>
+		<sj:a indicator="indicator" href="%{deleteUploadURL}" targets="uploadDivID"><s:text name="attach.file.remove"/></sj:a></td>
 	</tr>	
 		
 </s:iterator>
@@ -47,9 +47,14 @@
 </div>
 <script>
 function changed(){
+	//alert('changed');
 	$('#sumitFileId').focus();
 	$('#sumitFileId').click();
-
+//	$('#ajax-loaderID2').show();	
+	//document.getElementById('uploadedfileID').value = "";
+	//$('#uploadedfileID').value('');
+	//alert('submited');
+	
 }
 </script>
 
