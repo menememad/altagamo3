@@ -1,4 +1,5 @@
 @CHARSET "ISO-8859-1";
+*{font-family:Droid Sans Arabic, Tahoma; text-decoration: none; }
 .loginBtn{
 	background-image: url("/images/btn_login.jpg");
 	background-repeat: no-repeat;
@@ -157,3 +158,10 @@ background-color: fca;
 .rtl .add-project{float:left;margin-left:15px}.ltr .add-project{float:right;margin-right:15px}
 .price{color:#ee7501}
 
+.footerItem { float: left; background-color: #0D4559; color: white; height: 120px;clear: right;}
+/* .footerItem { display:inline-block; white-space:nowrap; background-color: #0D4559; color: white; height: 120px;overflow: hidden;}
+ */.footerItemFirst{position: absolute;}
+.footerLine{background-color: #0D4559;}
+img{border: 0;}
+a{text-decoration: none;}
+div.footerItem p a{color: white;}

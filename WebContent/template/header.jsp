@@ -23,6 +23,16 @@ $(function() {
     }, function () {
        counter = 0;
     });
+    $('.shake-class').hover(function() {
+        if (counter == 0) {
+     	 //  alert('test');
+     	   $( this ).effect( 'shake', {times:0}, 500 );
+     	  // alert('test2');
+        }
+        counter = 1;
+     }, function () {
+        counter = 0;
+     });
  });
 
 
@@ -30,10 +40,10 @@ $(function() {
 </script>
 <img id="indicator" src="<%=request.getContextPath()%>/images/loading.gif" align="middle"/>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/themes/th1.css" />
-<table dir="ltr" style="background-image: url('/images/header/header-bg.jpg');background-repeat:repeat-x;height: 104;text-align: center;">
+<table dir="ltr" style="height: 104;text-align: center;">
 	<tr height="100" valign="top">
 		<td width="260">
-			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/welcome.action?src=logo"><img src="<%=request.getContextPath()%>/images/header/logo.jpg" align="middle" width="220" border="0"/></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/welcome.action?src=logo"><img class="bounce-class" src="<%=request.getContextPath()%>/images/header/logo.jpg" align="middle" width="220" border="0"/></a>
 		</td>
 		<td width="800" align="center" valign="top" height="100">
 			<div style="background-color: #FFFFFF;height: 98;">
@@ -68,11 +78,11 @@ $(function() {
 			<div style="background-color: #FFFFFF;height: 5;">&nbsp;</div>
 			<div style="background-color: #FFFFFF;vertical-align: bottom;height: 42;">
 				<a target="_blank" href="https://www.facebook.com/altagamo3">
-					<img border="0" src="<%=request.getContextPath()%>/images/social/facebook.jpg" width="32" height="32"></a>
+					<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/social/facebook.jpg" width="32" height="32"></a>
 				<a target="_blank" href="https://plus.google.com/u/0/b/114002517545550561732/114002517545550561732/">
-					<img border="0" src="<%=request.getContextPath()%>/images/social/googleplus.jpg" width="32" height="32"></a>
+					<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/social/googleplus.jpg" width="32" height="32"></a>
 				<a target="_blank" href="https://twitter.com/AlTagamo3">
-					<img border="0" src="<%=request.getContextPath()%>/images/social/twitter.jpg" width="32" height="32"></a>
+					<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/social/twitter.jpg" width="32" height="32"></a>
 			</div>
 			<s:if test="%{#session.userInfo!=null}" >
 			<div style="background-color: #FFFFFF;vertical-align: top;height: 5;"><a href='<s:url action="logout" method="logout" />' id="logoutLink">Logout</a></div>
