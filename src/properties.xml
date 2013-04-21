@@ -28,6 +28,11 @@
 	    <result name="success">/pages/properties/propertyDetails.jsp</result>
 	    <result name="input">/pages/properties/searchResult.jsp</result>
 	</action>
+	<action name="getAdverDetails" class="com.altagamo3.web.actions.PropertyAction" method="getPropertyDetails">
+		<interceptor-ref name="defaultStack"/>			
+	    <result name="success" type="tiles">getAdverDetails</result>
+	    <result name="input" type="tiles">getAdverDetails</result>
+	</action>
 	<action name="preEditProperty" class="com.altagamo3.web.actions.PropertyAction" method="getPropertyDetails">
 		<interceptor-ref name="defaultStack"/>			
 		<result name="success">/pages/properties/editProperty.jsp</result>
