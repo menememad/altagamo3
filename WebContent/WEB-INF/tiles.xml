@@ -8,10 +8,12 @@
 	<definition name="baseLayout" template="/template/template.jsp">
     	<put-attribute name="header"  value="/template/header.jsp"/>
     	<put-attribute name="menu"  value="/template/menu.jsp"/>
+    	<put-attribute name="title"  value="Allamco"/>
       	<put-attribute name="body"  value="/template/body.jsp"/>
       	<put-attribute name="footer"  value="/template/footer.jsp"/>
 	</definition>
    	<definition name="welcome" extends="baseLayout">
+   	<put-attribute name="title"  value="Allamco"/>
     	<put-attribute name="body"  value="/welcome.jsp"/>
     </definition>
     <definition name="internalLayout" extends="baseLayout">
@@ -35,5 +37,8 @@
     
     <definition name="propertyDetails" extends="baseLayout">
         <put-attribute name="body"  value="/pages/properties/propertyDetails.jsp"/>
+    </definition>
+    <definition name="getAdverDetails"  extends="baseLayout">
+        <put-attribute name="body" value="/pages/properties/propertyDetails.jsp"></put-attribute>
     </definition>
 </tiles-definitions>	 
