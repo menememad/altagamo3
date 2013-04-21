@@ -157,7 +157,7 @@ background-color: fca;
 .add-project{background-color:#ee7501;-webkit-border-radius:2px 2px 0px 0px;border-radius:2px 2px 0px 0px;color:#FFFFFF;padding:4px 10px;font-weight:bold}
 .rtl .add-project{float:left;margin-left:15px}.ltr .add-project{float:right;margin-right:15px}
 .price{color:#ee7501}
-
+.ltr.dropdown-login-form{right:20px!important;left:auto!important;}.ltr .dropdown-login-form p{text-align:left!important;}
 .footerItem { float: left; background-color: #0D4559; color: white; height: 120px;clear: right;}
 /* .footerItem { display:inline-block; white-space:nowrap; background-color: #0D4559; color: white; height: 120px;overflow: hidden;}
  */.footerItemFirst{position: absolute;}
