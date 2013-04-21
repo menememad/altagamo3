@@ -33,18 +33,36 @@ if("ar_EG".equals(lang))
 
 
 <body id="templateID" style="margin: 0 0 0 0;" dir='<%=dir%>'>
-<a name="top"></a>
-<div id="headerID"><tiles:insertAttribute name="header"/></div>
-<div id="menuID" dir='<%=dir%>'><tiles:insertAttribute name="menu"/></div>
-<img id="myDefaultIndicator" src="/images/indicator.gif" alt="Loading..." style="display:none;border: 0;"/>
-<div id="bodyID" dir='<%=dir%>'><tiles:insertAttribute name="body" /></div>
-<div id="detailsID"></div>
-<div id="footerID"><tiles:insertAttribute name="footer" /></div>
-<div class="footerLine">&nbsp;</div>
+<table  height="100%">
+    <tr>
+         <td><a name="top"></a>
+			 <div id="headerID"><tiles:insertAttribute name="header"/></div></td>
+    </tr>
+    <tr>
+         <td> <img id="myDefaultIndicator" src="/images/indicator.gif" alt="Loading..." style="display:none;border: 0;"/>
+				<div id="bodyID" dir='<%=dir%>'><tiles:insertAttribute name="body" /></div>
+				<div id="detailsID"></div></td>
+    <div id="menuID" dir='<%=dir%>'><tiles:insertAttribute name="menu"/></div> 
+    </tr>
+    <tr>
+         <td><div id="footerID"><tiles:insertAttribute name="footer" /></div>
+             <div class="footerLine">&nbsp;</div></td>
+    </tr>
+</table>
 </body>
-<%--
-<script>wmark.init();</script><!-- Initialize watermark -->
-
-<script>$(document).watermark();</script><!-- Apply watermark -->
- --%>
+<script type="text/javascript">
+ $(document).ready(function() {
+$('.login-btn').click(function(e){
+     e.preventDefault();
+     $('.dropdown-login-form').toggle('fast',function(){$('#username').focus();});
+     $(this).toggleClass("btn-login-on");return false;});
+     $('#top-menu .login-btn').mousedown(function(){return false;});
+     $(document).mousedown(function(e)
+             {if($(e.target).parents('.dropdown-login-form').length==0)
+                {$('.btn-login-on').removeClass('btn-login-on');
+                  $('.dropdown-login-form').hide('fast');
+                };
+             });   
+     });        
+</script>
 </html>

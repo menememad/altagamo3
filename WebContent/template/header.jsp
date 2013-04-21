@@ -7,7 +7,7 @@
     #button { padding: .5em 1em; text-decoration: none; }
     #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
     #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
-    .ui-effects-transfer { border: 2px dotted gray; }
+    .ui-effects-transfer { border: 2px dotted gray; } 
   </style>
 <script>
 $(function() {
@@ -88,9 +88,56 @@ $(function() {
 			<div style="background-color: #FFFFFF;vertical-align: top;height: 5;"><a href='<s:url action="logout" method="logout" />' id="logoutLink">Logout</a></div>
 			</s:if>
 			<s:else> 
-			<div style="background-color: #FFFFFF;height: 5;vertical-align: top;"><sj:a href="preLogin" targets="bodyID" id="loginLink">Login</sj:a>&nbsp;&nbsp;|&nbsp;&nbsp;<sj:a href="preAddUser" targets="bodyID" id="registerLink">Sign Up</sj:a></div>
+			<div style="background-color: #FFFFFF;height: 5;vertical-align: top;"><a href="javascript:;" class="login-btn" id="loginLink">Login</a>
+			
+			&nbsp;&nbsp;|&nbsp;&nbsp;<sj:a href="preAddUser" targets="bodyID" id="registerLink">Sign Up</sj:a>
+			<div class="dropdown-login-form"  style="display: none;position: relative;outline-style: ridge;">
+					<fieldset   style="background-color: #FFB00F;">
+						<s:form action="login" method="POST" theme="simple" focusElement="username">
+								<table  id="box1" cellpadding="7" height="100%" bgcolor="#FFB00F" class="ui-corner-all">
+									<tr>
+										<td style="font-family: Tahoma;font-size: 15pt;color: #AD7400;font-weight: bold;text-align: center;">
+										<s:text name="welcome.membersarea" /></td>
+									</tr>
+									<tr>
+										<td align="center">
+										<font face="Arial" color="#FFFFFF" ><s:text name="global.username" /></font></td>
+									</tr>
+									<tr>
+										<td align="center">
+										<s:textfield id="username" name="username" size="29"/></td>
+									</tr>
+									<tr>
+										<td align="center" height="32">
+										<font face="Arial" color="#FFFFFF"><s:text name="global.password" /></font></td>
+									</tr>
+									<tr>
+										<td align="center">
+										<s:password name="password" size="29"/></td>
+									</tr>
+									<tr>
+										<td align="center">
+										<font face="Arial" color="#FFFFFF"><s:checkbox name="remember" /><s:text name="global.rememberMe" /></font>
+										<font face="Arial" style="font-size: 10pt; font-weight: 700" color="red"><s:fielderror /></font>
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<p align="center">
+										<sj:submit indicator="indicator" type="image" src="/images/buttons/btn_login.jpg"/></td>
+									</tr>
+									<tr>
+										<td align="center">
+										<font face="Arial" color="#FFFFFF" size="2">
+										<sj:a indicator="indicator" href="/pages/security/forgotPassword.jsp" targets="bodyID"><s:text name="global.forgotpassword" /></sj:a> | <sj:a href="preAddUser" targets="bodyID"><s:text name="global.registernow" /></sj:a></font></td>
+									</tr>
+								</table>	
+						</s:form> 
+						</fieldset>
+			</div>
+			</div>
 			</s:else>
 		</td>
-		<td width="5">&nbsp;</td>
+		<td width="5"></td>
 	</tr>
 </table>
