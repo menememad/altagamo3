@@ -10,6 +10,7 @@ public class Property implements Serializable{
 	
 	private static final long serialVersionUID = 8417219923229702703L;
 	private Integer id;
+	private String title;
 	private PropertyType propertyType;
 	private Integer propertyFor;
 	private String description;
@@ -284,4 +285,11 @@ public class Property implements Serializable{
 	public void setImageCount(int imageCount) {
 		this.imageCount = imageCount;
 	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
 }
