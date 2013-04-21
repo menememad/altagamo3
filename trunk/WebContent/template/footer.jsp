@@ -3,13 +3,13 @@
     <img id="addressImg" src="/images/footer/address.png" alt="117B 4th Area, 4th district, El Tagamoa El Khames, New Cairo City, Cairo, Egypt." title="117B 4th Area, 4th district, El Tagamoa El Khames, New Cairo City, Cairo, Egypt." style="background-position: bottom;"/>
 </div>
 <div class="footerItem" style="width: 22%">
-    <p style="vertical-align: text-top;"><b>Visit Us</b><br />117B 4th Area, 4th district,<br />El Tagamo3 El Khames,<br />New Cairo City, Cairo, Egypt.</p>&nbsp;&nbsp;&nbsp;&nbsp;
+    <p style="vertical-align: text-top;"><b>Visit Us</b><br />117B 4th Area, 4th district,<br />El Tagamoa El Khames,<br />New Cairo City, Cairo, Egypt.</p>&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 <div class="footerItem" style="width: 3%">
     <img id="phoneImg" src="/images/footer/phone.png" alt="Tel: (+202) 2617 1967, Mob: 011 1664 9998" title="Tel: (+202) 2617 1967, Mob: 011 1664 9998"/>&nbsp;&nbsp;
 </div>
 <div class="footerItem" style="width: 22%">
-    <p><b>Call Us</b> <br />Tel: (+202) 2617 1967<br />Mob: 011 1664 9998</p>&nbsp;&nbsp;
+    <p><b>Call Us</b> <br />Tel: +2 02 2617 1967<br />Fax: +2 02 2619 0231<br />Mob: +2 0111 664 9998</p>&nbsp;&nbsp;
 </div>
 <div class="footerItem" style="width: 5%">
     <img id="emailImg" src="/images/footer/email.png" alt="info@altagamo3.com" title="info@altagamo3.com" style="background-position: bottom;"/>&nbsp;&nbsp;
