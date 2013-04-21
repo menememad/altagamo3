@@ -3,7 +3,7 @@
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <title>Welcome to AlTagamo3.com Website</title>
 
-<div id="welcome-part1" dir="ltr">
+<div id="welcome-part1" dir="ltr">			
 	<table>
 		<tr>
 			<td valign="top" width="260">
@@ -127,83 +127,27 @@
 						</td>
 					</tr>
 				</table>
-			</td>
-			<td bgcolor="#F0FAFF" width="488" align="left" valign="top">
-				<table height="285">
+			</td> 
+			<td  width="488" align="left" valign="top">
+				<table height="285" >
 					<tr>
-						<td bgcolor="#99DDE0" width="220">
-						<sj:a indicator="indicator" href="/pages/about/Consultant.htm" targets="bodyID">
-							<img border="0" src="images/welcome/allam-consult.jpg" width="489" height="258">
+						<td bgcolor="#99DDE0" width="220" >
+						<sj:a indicator="indicator"  href="/pages/about/Consultant.htm" targets="bodyID">
+							<img border="0" src="images/welcome/allam-consult.jpg" width="620" height="258"> 
 						</sj:a>
 						</td>
 					</tr>
 				</table>
 		</td>
-			<td valign="top" width="260">
-				<table height="285">
-					<tr>
-						<td bgcolor="#99DDE0" valign="top" height="285" >
-						<s:form action="login" method="POST" theme="simple" focusElement="username">
-						<table height="100%">
-							<tr>
-								<td>&nbsp;</td>
-								<td bgcolor="#FFB00F" width="220" valign="top">
-								<table  id="box1" cellpadding="7" height="100%" class="ui-corner-all">
-									<tr>
-										<td style="font-family: Tahoma;font-size: 15pt;color: #AD7400;font-weight: bold;text-align: center;">
-										<s:text name="welcome.membersarea" /></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<font face="Arial" color="#FFFFFF" ><s:text name="global.username" /></font></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<s:textfield id="username" name="username" size="29"/></td>
-									</tr>
-									<tr>
-										<td align="center" height="32">
-										<font face="Arial" color="#FFFFFF"><s:text name="global.password" /></font></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<s:password name="password" size="29"/></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<font face="Arial" color="#FFFFFF"><s:checkbox name="remember" /><s:text name="global.rememberMe" /></font>
-										<font face="Arial" style="font-size: 10pt; font-weight: 700" color="red"><s:fielderror /></font>
-										</td>
-									</tr>
-									<tr>
-										<td>
-										<p align="center">
-										<sj:submit indicator="indicator" type="image" src="/images/buttons/btn_login.jpg"/></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<font face="Arial" color="#FFFFFF" size="2">
-										<sj:a indicator="indicator" href="/pages/security/forgotPassword.jsp" targets="bodyID"><s:text name="global.forgotpassword" /></sj:a> | <sj:a href="preAddUser" targets="bodyID"><s:text name="global.registernow" /></sj:a></font></td>
-									</tr>
-								</table>
-								</td>
-								<td>&nbsp;</td>
-							</tr>
-						</table>
-						</s:form>
-						</td>
-					</tr>
-				</table>
-			</td>
+			
 		</tr>
 	</table>
 </div>
 <div id="welcome-part2" dir="ltr">
 <s:url var="marquee" action="displayMarqueeData" method="displayMarqueeData" />
 <marquee truespeed="truespeed" behavior="scroll" direction="right" loop="true" style="text-align: center;background-color: #E9E9E9;height: 37;width: 100%;font: Tahoma;font-size: 10pt" onmouseover="this.setAttribute('scrollamount', 0, 0);" onmouseout="this.setAttribute('scrollamount', 6, 0);">
-<font face="Tahoma" style="font-size: 10pt"><sj:div href="%{marquee}" name="marqueeAds" /></font></marquee>
-
-</div>
+<font face="Tahoma" style="font-size: 10pt"><sj:div href="%{marquee}" name="marqueeAds" targets="bodyID"/></font></marquee>
+</div>  
 <div id="welcome-part3" dir="ltr">
 	<table border="0" width="100%" cellspacing="0" cellpadding="0">
 		<tr>
@@ -322,7 +266,7 @@
 		<td width="20%" bgcolor="#F0FAFF" valign="top" align="center" height="108">
 		<table border="0" width="25%" cellpadding="2" height="196">
 			<tr>
-				<td>
+				<td> 
 				<p align="center">
 				<img border="0" src="images/welcome/property5.jpg" width="168" height="104"></td>
 			</tr>
@@ -338,7 +282,7 @@
 	</tr>
 	</table>
 </div>
-<script>
+<script type="text/javascript">
 //$('#box1').animate({boxShadow: '0 0 30px #44f'});
 $('#box1').corner();
 </script>
