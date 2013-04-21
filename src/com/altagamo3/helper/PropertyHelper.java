@@ -45,91 +45,92 @@ public class PropertyHelper {
 		try {
 			System.out.println("Property: "+p);
 			System.out.println("Desc: "+p.getDescription());
-			String strSQL = "INSERT INTO property(property_type_id,description,country_id,state_id,city_id,district_id,compound_id,zone_id,subarea_id,prp_for,price," +
+			String strSQL = "INSERT INTO property(property_type_id,title,description,country_id,state_id,city_id,district_id,compound_id,zone_id,subarea_id,prp_for,price," +
 					"rental_period,pay_type,pay_in_advance,inst_total_duration,created_by,finish_status,furn_status," +
 					"area,subtype,floorNo,bedroomsNo,hallroomsNo,bathroomsNo,video_link, c_name,c_phone,c_email,c_address)" +
-					"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+					"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 					//CURRENT_TIMESTAMP
 			PreparedStatement pst = conn.prepareStatement(strSQL);
 			pst.setInt(1, p.getPropertyType().getId());
-			pst.setString(2, p.getDescription());
-			pst.setInt(3, p.getCountry().getId());
-			pst.setInt(4, p.getState().getId());
-			pst.setInt(5, p.getCity().getId());
+			pst.setString(2, p.getTitle());
+			pst.setString(3, p.getDescription());
+			pst.setInt(4, p.getCountry().getId());
+			pst.setInt(5, p.getState().getId());
+			pst.setInt(6, p.getCity().getId());
 			if(p.getDistrict().getId()<=0)
-				pst.setNull(6, Types.INTEGER);
-			else
-				pst.setInt(6, p.getDistrict().getId());
-			if(p.getCompound().getId()<=0)
 				pst.setNull(7, Types.INTEGER);
 			else
-				pst.setInt(7, p.getCompound().getId());
-			if(p.getZone().getId()<=0)
+				pst.setInt(7, p.getDistrict().getId());
+			if(p.getCompound().getId()<=0)
 				pst.setNull(8, Types.INTEGER);
 			else
-				pst.setInt(8, p.getZone().getId());
+				pst.setInt(8, p.getCompound().getId());
+			if(p.getZone().getId()<=0)
+				pst.setNull(9, Types.INTEGER);
+			else
+				pst.setInt(9, p.getZone().getId());
 			if(p.getSubarea().getId()<=0)
-				pst.setNull(9, Types.VARCHAR);
+				pst.setNull(10, Types.VARCHAR);
 			else
-				pst.setInt(9, p.getSubarea().getId());
+				pst.setInt(10, p.getSubarea().getId());
 
-			pst.setInt(10, p.getPropertyFor());
+			pst.setInt(11, p.getPropertyFor());
 			if(p.getPrice()==null)
-				pst.setNull(11, Types.INTEGER);
-			else
-				pst.setInt(11, p.getPrice());
-			if(p.getRentalPeriod()==null)
 				pst.setNull(12, Types.INTEGER);
 			else
-				pst.setInt(12, p.getRentalPeriod());
-			pst.setInt(13, p.getPaymentType());
-			if(p.getPaymentInAdvance()==null)
-				pst.setNull(14, Types.INTEGER);
+				pst.setInt(12, p.getPrice());
+			if(p.getRentalPeriod()==null)
+				pst.setNull(13, Types.INTEGER);
 			else
-				pst.setInt(14, p.getPaymentInAdvance());
-			if(p.getInstallmentTotalDuration()==null)
+				pst.setInt(13, p.getRentalPeriod());
+			pst.setInt(14, p.getPaymentType());
+			if(p.getPaymentInAdvance()==null)
 				pst.setNull(15, Types.INTEGER);
 			else
-				pst.setInt(15, p.getInstallmentTotalDuration());
-			pst.setInt(16, p.getCreatedBy().getId());
-			if(p.getFinishingStatus()==null)
-				pst.setNull(17, Types.INTEGER);
+				pst.setInt(15, p.getPaymentInAdvance());
+			if(p.getInstallmentTotalDuration()==null)
+				pst.setNull(16, Types.INTEGER);
 			else
-				pst.setInt(17, p.getFinishingStatus());
-			if(p.getFurnitureStatus()==null)
+				pst.setInt(16, p.getInstallmentTotalDuration());
+			pst.setInt(17, p.getCreatedBy().getId());
+			if(p.getFinishingStatus()==null)
 				pst.setNull(18, Types.INTEGER);
 			else
-				pst.setInt(18, p.getFurnitureStatus());
-			if(p.getArea()==null)
+				pst.setInt(18, p.getFinishingStatus());
+			if(p.getFurnitureStatus()==null)
 				pst.setNull(19, Types.INTEGER);
 			else
-				pst.setInt(19, p.getArea());
-			if(p.getSubtype()==null)
+				pst.setInt(19, p.getFurnitureStatus());
+			if(p.getArea()==null)
 				pst.setNull(20, Types.INTEGER);
 			else
-				pst.setInt(20, p.getSubtype());
-			if(p.getFloorNo()==null)
+				pst.setInt(20, p.getArea());
+			if(p.getSubtype()==null)
 				pst.setNull(21, Types.INTEGER);
 			else
-				pst.setInt(21, p.getFloorNo());
-			if(p.getNoOfBedRooms()==null)
+				pst.setInt(21, p.getSubtype());
+			if(p.getFloorNo()==null)
 				pst.setNull(22, Types.INTEGER);
 			else
-				pst.setInt(22, p.getNoOfBedRooms());
-			if(p.getNoOfHallRooms()==null)
+				pst.setInt(22, p.getFloorNo());
+			if(p.getNoOfBedRooms()==null)
 				pst.setNull(23, Types.INTEGER);
 			else
-				pst.setInt(23, p.getNoOfHallRooms());
-			if(p.getNoOfBathRooms()==null)
+				pst.setInt(23, p.getNoOfBedRooms());
+			if(p.getNoOfHallRooms()==null)
 				pst.setNull(24, Types.INTEGER);
 			else
-				pst.setInt(24, p.getNoOfBathRooms());
-			pst.setString(25, p.getVideoLink());
+				pst.setInt(24, p.getNoOfHallRooms());
+			if(p.getNoOfBathRooms()==null)
+				pst.setNull(25, Types.INTEGER);
+			else
+				pst.setInt(25, p.getNoOfBathRooms());
+			pst.setString(26, p.getVideoLink());
 			//pst.setInt(26, p.getCreatedBy().getId());
-			pst.setString(26, p.getClient().getUsername());
-			pst.setString(27, p.getClient().getMobile());
-			pst.setString(28, p.getClient().getEmail());
-			pst.setString(29, p.getClient().getAddress());
+			pst.setString(27, p.getClient().getUsername());
+			pst.setString(28, p.getClient().getMobile());
+			pst.setString(29, p.getClient().getEmail());
+			pst.setString(30, p.getClient().getAddress());
 
 			pst.executeUpdate();
 			// Get the newly generated property ID..
@@ -507,7 +508,7 @@ public class PropertyHelper {
 		try {
 			System.out.println("Property: "+p);
 			System.out.println("Desc: "+p.getDescription());
-			String strSQL = "UPDATE property SET property_type_id = ?, description=?, " +
+			String strSQL = "UPDATE property SET property_type_id = ?, title = ?, description=?, " +
 			"country_id=?, state_id=?, city_id=?, district_id=?, compound_id=?, zone_id=? ,subarea_id=?, " +
 			"prp_for=?, price=?, rental_period=?, pay_type=?, pay_in_advance=?, inst_total_duration=?, " +
 			"finish_status=?, furn_status=?, area=?, subtype=?, floorNo=?, bedroomsNo=?, hallroomsNo=?, bathroomsNo=?, " +
@@ -515,83 +516,84 @@ public class PropertyHelper {
 			pst = conn.prepareStatement(strSQL);
 			pst.setInt(1, p.getPropertyType().getId());
 			pst.setString(2, p.getDescription());
-			pst.setInt(3, p.getCountry().getId());
-			pst.setInt(4, p.getState().getId());
-			pst.setInt(5, p.getCity().getId());
+			pst.setString(3, p.getDescription());
+			pst.setInt(4, p.getCountry().getId());
+			pst.setInt(5, p.getState().getId());
+			pst.setInt(6, p.getCity().getId());
 			if(p.getDistrict().getId()<=0)
-				pst.setNull(6, Types.INTEGER);
-			else
-				pst.setInt(6, p.getDistrict().getId());
-			if(p.getCompound().getId()<=0)
 				pst.setNull(7, Types.INTEGER);
 			else
-				pst.setInt(7, p.getCompound().getId());
-			if(p.getZone().getId()<=0)
+				pst.setInt(7, p.getDistrict().getId());
+			if(p.getCompound().getId()<=0)
 				pst.setNull(8, Types.INTEGER);
 			else
-				pst.setInt(8, p.getZone().getId());
-			if(p.getSubarea().getId()<=0)
+				pst.setInt(8, p.getCompound().getId());
+			if(p.getZone().getId()<=0)
 				pst.setNull(9, Types.INTEGER);
 			else
-				pst.setInt(9, p.getSubarea().getId());
-
-			pst.setInt(10, p.getPropertyFor());
-			if(p.getPrice()==null)
-				pst.setNull(11, Types.INTEGER);
+				pst.setInt(9, p.getZone().getId());
+			if(p.getSubarea().getId()<=0)
+				pst.setNull(10, Types.INTEGER);
 			else
-				pst.setInt(11, p.getPrice());
-			if(p.getRentalPeriod()==null)
+				pst.setInt(10, p.getSubarea().getId());
+
+			pst.setInt(11, p.getPropertyFor());
+			if(p.getPrice()==null)
 				pst.setNull(12, Types.INTEGER);
 			else
-				pst.setInt(12, p.getRentalPeriod());
-			pst.setInt(13, p.getPaymentType());
-			if(p.getPaymentInAdvance()==null)
-				pst.setNull(14, Types.INTEGER);
+				pst.setInt(12, p.getPrice());
+			if(p.getRentalPeriod()==null)
+				pst.setNull(13, Types.INTEGER);
 			else
-				pst.setInt(14, p.getPaymentInAdvance());
-			if(p.getInstallmentTotalDuration()==null)
+				pst.setInt(13, p.getRentalPeriod());
+			pst.setInt(14, p.getPaymentType());
+			if(p.getPaymentInAdvance()==null)
 				pst.setNull(15, Types.INTEGER);
 			else
-				pst.setInt(15, p.getInstallmentTotalDuration());
-			if(p.getFinishingStatus()==null)
+				pst.setInt(15, p.getPaymentInAdvance());
+			if(p.getInstallmentTotalDuration()==null)
 				pst.setNull(16, Types.INTEGER);
 			else
-				pst.setInt(16, p.getFinishingStatus());
-			if(p.getFurnitureStatus()==null)
+				pst.setInt(16, p.getInstallmentTotalDuration());
+			if(p.getFinishingStatus()==null)
 				pst.setNull(17, Types.INTEGER);
 			else
-				pst.setInt(17, p.getFurnitureStatus());
-			if(p.getArea()==null)
+				pst.setInt(17, p.getFinishingStatus());
+			if(p.getFurnitureStatus()==null)
 				pst.setNull(18, Types.INTEGER);
 			else
-				pst.setInt(18, p.getArea());
-			if(p.getSubtype()==null)
+				pst.setInt(18, p.getFurnitureStatus());
+			if(p.getArea()==null)
 				pst.setNull(19, Types.INTEGER);
 			else
-				pst.setInt(19, p.getSubtype());
-			if(p.getFloorNo()==null)
+				pst.setInt(19, p.getArea());
+			if(p.getSubtype()==null)
 				pst.setNull(20, Types.INTEGER);
 			else
-				pst.setInt(20, p.getFloorNo());
-			if(p.getNoOfBedRooms()==null)
+				pst.setInt(20, p.getSubtype());
+			if(p.getFloorNo()==null)
 				pst.setNull(21, Types.INTEGER);
 			else
-				pst.setInt(21, p.getNoOfBedRooms());
-			if(p.getNoOfHallRooms()==null)
+				pst.setInt(21, p.getFloorNo());
+			if(p.getNoOfBedRooms()==null)
 				pst.setNull(22, Types.INTEGER);
 			else
-				pst.setInt(22, p.getNoOfHallRooms());
-			if(p.getNoOfBathRooms()==null)
+				pst.setInt(22, p.getNoOfBedRooms());
+			if(p.getNoOfHallRooms()==null)
 				pst.setNull(23, Types.INTEGER);
 			else
-				pst.setInt(23, p.getNoOfBathRooms());
-			pst.setString(24, p.getVideoLink());
+				pst.setInt(23, p.getNoOfHallRooms());
+			if(p.getNoOfBathRooms()==null)
+				pst.setNull(24, Types.INTEGER);
+			else
+				pst.setInt(24, p.getNoOfBathRooms());
+			pst.setString(25, p.getVideoLink());
 			//pst.setInt(26, p.getCreatedBy().getId());
-			pst.setString(25, p.getClient().getUsername());
-			pst.setString(26, p.getClient().getMobile());
-			pst.setString(27, p.getClient().getEmail());
-			pst.setString(28, p.getClient().getAddress());
-			pst.setInt(29, p.getId());
+			pst.setString(26, p.getClient().getUsername());
+			pst.setString(27, p.getClient().getMobile());
+			pst.setString(28, p.getClient().getEmail());
+			pst.setString(29, p.getClient().getAddress());
+			pst.setInt(30, p.getId());
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
