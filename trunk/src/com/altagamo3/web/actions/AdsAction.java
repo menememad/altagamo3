@@ -21,7 +21,8 @@ public class AdsAction extends ActionSupport {
 		cond.setOrderByColumn("property.id");
 		cond.isOrderAscending(false);
 		for (Property  prp: prpHelp.searchProperties(prpSrch, cond, null)) {
-			marqueeAds+="  ---  <a href=\'getPropertyDetails!getPropertyDetails?propertyID="+prp.getId()+"' >"+prp.getDescription()+"</a>";
+//			marqueeAds+="  ---  <a href=\'getPropertyDetails!getPropertyDetails?propertyID="+prp.getId()+"' >"+prp.getDescription()+"</a>";
+			marqueeAds+="  ---  <a href=\'getAdverDetails?propertyID="+prp.getId()+"' target='bodyID' >"+prp.getDescription()+"</a>";
 		}
 		return SUCCESS;
 	}
