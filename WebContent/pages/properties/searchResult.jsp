@@ -27,6 +27,7 @@ th{
 	background-color: blue;
 	color: white;
 }
+.more-div{display: none;}
 </style>
 <s:url var="preSearch" action="preSearchProperty" method="preSearchProperty"/>
 <sj:a id="advSearchTop"  indicator="indicator" href="%{preSearch}" targets="bodyID" button="true"><s:text name="welcome.advancedsearch" /></sj:a>
@@ -53,7 +54,7 @@ th{
 <hr />
 <div id="items">
 <s:iterator value="propertiesList">
-<table>
+<table >
 	<s:url var="approveProperty" action="approveProperty" method="approveProperty">
 		<s:param name="propertyID" value="%{id}" />
 	</s:url>
@@ -118,7 +119,7 @@ th{
 				</s:else>
 			</sj:a>
 		</td>
-		<td rowspan="4" style="padding: 5 5 5 5;width: 400px"><s:property value="description" /></td>
+		<td rowspan="4" style="padding: 5 5 5 5;width: 400px;" > <div style="overflow: hidden;max-height:160px;max-width:370px;"> <s:property value="description" /> </div> </td>
 		<td><s:text name="area" />: <s:property value="area" /> <s:text name="area.unit" /></td>
 		<td><s:text name="price" />: <s:property value="price" /> <s:text name="price.unit" /></td>
 	</tr>
@@ -130,13 +131,64 @@ th{
 	</tr>
 	<tr>
 		<td colspan="2">
-			<sj:a href="%{getPropertyDetails}" indicator="indicator" targets="bodyID">
-				<s:text name="property.moreInfo" />
-			</sj:a>
+			<sj:a href="%{getPropertyDetails}" indicator="indicator" targets="bodyID"></sj:a>
+			<b id="moreID_<s:property value="id" />" onclick="showHideDetails(this)"><s:text name="property.moreInfo" /></b>
+			
 		</td>
-	</tr>
+	</tr>	
 </table>
-
+<div>
+<div class="more-div ui-widget-content ui-corner-all" id="div_moreID_<s:property value="id" />"  >
+		<table class="formTables">
+			<tr >
+				<th><s:text name="propertyType"/></th>
+				<td><s:property value="propertyType.fullName" /></td>
+				<th><s:text name="propertyFor" /></th>
+				<td><s:property value="getText('propertyfor.'+propertyFor)" /></td>
+			</tr>
+			<s:if test="%{propertyType.id==1}">
+			<tr >	
+				<th><s:text name="subtype"/></th>
+				<td colspan="3"><s:property value="getText('aprt.subtype.'+subtype)" /></td>
+			</tr>
+			</s:if>
+			<s:elseif test="%{propertyType.id==2}">
+			<tr >	
+				<th><s:text name="subtype"/></th>
+				<td colspan="3"><s:property value="getText('villa.subtype.'+subtype)" /></td>
+			</tr>
+			</s:elseif>
+			<tr >	
+				<th><s:text name="desciption" /></th>
+				<td width="500px"><s:property value="description" /></td>
+				<th><s:text name="area" /></th>
+				<td><s:property value="area" /></td>
+			</tr>
+			<tr >
+				<th><s:text name="floorNo" /></th>
+				<td><s:property value="floorNo" /></td>
+				<th><s:text name="bedrooms.No" /></th>
+				<td><s:property value="noOfBedRooms" /></td>
+			</tr>
+			<tr >
+				<th><s:text name="hallrooms.No" /></th>
+				<td><s:property value="noOfHallRooms" /></td>
+				<th><s:text name="bathrooms.No" /></th>
+				<td><s:property value="noOfBathRooms" /></td>
+			</tr>
+			<tr >
+				<th><s:text name="furn.sts"/></th>
+				<td><s:property value="getText('aprt.furn.sts.'+furnitureStatus)" /></td>
+				<th><s:text name="finish.sts"/></th>
+				<td><s:property value="getText('finish.sts.'+finishingStatus)" /></td>
+			</tr>
+			<tr >
+				<th><s:text name="price"/></th>
+				<td colspan="3"><s:property value="price"/> <s:text name="price.unit" /></td>
+			</tr>
+		</table>
+</div>
+</div>
 </s:iterator> 
 </div><br />   		
 <hr />
@@ -153,6 +205,7 @@ th{
 </s:else>
 </s:form>
 <hr>
+
 <script>
 function confirmDelete(){
 	return confirm('You are about to delete this item forever!');
@@ -160,4 +213,11 @@ function confirmDelete(){
 function changeStatus(newStatus){
 	document.getElementById('action').value=newStatus;
 }
+ 
+    function showHideDetails(S_H_obj)
+    {
+    //alert(S_H_obj.id);
+     $('#div_'+S_H_obj.id).toggle('fast',function(){});
+     $(this).toggleClass('#'+S_H_obj);return false;
+    } 
 </script>  
