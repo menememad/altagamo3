@@ -3,40 +3,12 @@
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%String dir = request.getLocale().getLanguage().equals("en")?"ltr":"rtl"; %>
 
-<link href="/assets/css/style.css" rel="stylesheet" /> 
-<link href="/assets/css/animate.css" rel="stylesheet" /> 
-<script src="/assets/js/script.js"></script> 
-
+<script src="/scripts/jquery.slides.min.js"></script> 
 <div id="container" dir='<%=dir%>'> 
 	<s:form id="ViewProjectForm"  theme="simple"> 
 		
 <fieldset >
-	<center ><legend ><h2><s:property value="project.title" /></h2></legend></center>
-		<s:if test="%{project.imageCount>0}">
-			<center>
-			<!--<div class="content">
-		        <div id="galleria" style="width: 500px;">-->
-		       <ul id="photos">
-		        <s:iterator var="index" begin="1" end="project.imageCount">
-		           <li> <img  border="0" name="myImage" src='/proj_img/<s:property value="project.id" />/${index}.jpg' /> </li>
-		        </s:iterator>
-		        </ul>   
-		       <!-- </div> 
-			</div>  --> 
-			
-  <a href="#" class="arrow previous"></a>  
-  <a href="#" class="arrow next"></a> 
-			
-			</center>      
-		</s:if>
-		<s:else>
-			<ul id="photos">
-			<li>
-							  <img border="0"  src='/images/home.jpg' />
-	          </li></ul> 
-			  <a href="#" class="arrow previous"></a>  
-           <a href="#" class="arrow next"></a> 
-			</s:else>
+	<center ><legend ><h1><s:property value="project.title" /></h1></legend></center>
 		<s:if test="%{project.videoLink!=null && project.videoLink.length>0}">
 			<center>
 				<iframe id="player" width="640" height="390" src='http://www.youtube.com/embed/<s:property value="project.videoLink" />?enablejsapi=1&origin=http://www.altagamo3.com' frameborder="0" ></iframe>
@@ -64,8 +36,26 @@
                </p>
                </td>
 			</tr>	
-		</table> 
-	</fieldset>
+		</table>
+</fieldset>
+<s:if test="%{project.imageCount>0}">
+<fieldset>		
+<div id="slides">
+		        <s:iterator var="index" begin="1" end="project.imageCount">
+		         <img  border="0" class="slidesjs-slide" src='/proj_img/<s:property value="project.id" />/${index}.jpg' /> 
+		        </s:iterator> 
+</div>  
+</fieldset>
+</s:if>
+<%-- 
+<s:else>
+<fieldset style="margin:10px 140px 30px 140px;">
+<div id="slides">
+	<img border="0" class="slidesjs-slide" src='/images/home.jpg' />
+</div> 
+</fieldset>
+</s:else> 
+--%>
 </s:form>
 	
 </div>
@@ -75,5 +65,11 @@
 	    var  linkAction = 'exportTOPDF?projectID='+proID;
 	    window.open(linkAction,'','toolbar=no,location=no,top=50,left=50,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=900,height=500');
 	} 
+	 $(function(){
+      $("#slides").slidesjs({
+        width: 940,
+        height: 528
+      });
+    });
 </script>            
  
