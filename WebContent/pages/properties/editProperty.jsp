@@ -24,7 +24,7 @@
 		<table class="propertyForm">
 			<tr class="even">
 				<td width="10%"><s:text name="propertyTitle"/> <s:text name="required.flag" /></td>
-				<td width="30%"><s:textfield id="title" name="property.title" /></td>
+				<td width="30%"><s:textfield id="title" name="property.title" maxlength="70"/></td>
 				<td width="60%"><span class="hint"><s:text name="hint.propertyTitle"/><span class="hint-pointer">&nbsp;</span></span></td>
 			</tr>
 			<tr class="odd">

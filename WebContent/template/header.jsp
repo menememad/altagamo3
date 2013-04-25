@@ -47,6 +47,9 @@ $(function() {
 		</td>
 		<td width="800" align="center" valign="top" height="100">
 			<div style="background-color: #FFFFFF;height: 98;">
+				<a href="?request_locale=ar_EG" ><s:text name="locale.arabic" /></a>
+				<a href="?request_locale=en" ><s:text name="locale.english"/></a>	
+				&nbsp;&nbsp;
 				<sj:a href="/pages/about/AboutUs.htm" indicator="indicator" targets="bodyID">
 				<img  class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/header/menu-aboutus.jpg" width="113" height="89"></sj:a>&nbsp;
 				<s:url var="searchRent" action="searchPropertyFor" method="searchPropertyFor">
@@ -59,23 +62,16 @@ $(function() {
 				</s:url>
 				<sj:a href="%{searchSale}" indicator="indicator" targets="bodyID">
 				<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/header/menu-sale.jpg" width="113" height="89"></sj:a>&nbsp;
-				    <s:url action="listProjects" id="listProjectsURL"></s:url>
 				<!-- /pages/about/Projects.jsp -->
-				<sj:a href="%{listProjectsURL}"  indicator="indicator" targets="bodyID">
+				<sj:a href="listProjects"  indicator="indicator" targets="bodyID">
 				<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/header/menu-projects.jpg" width="113" height="89"></sj:a>
-			&nbsp;<sj:a href="/pages/about/Consultant.htm" targets="bodyID">
+			&nbsp;<sj:a href="/pages/about/consultant.html" targets="bodyID">
 			<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/header/menu-consultant.jpg" width="113" height="89"></sj:a>
 			</div>
 		</td>
 		<td width="5">&nbsp;</td>
 		<td align="center" width="150" valign="top">
-			<div style="background-color: #FFFFFF;text-align: center;font: 9pt;color: #05598F;font-family: Arial;height: 18;">
-				<sj:a href="/pages/about/ContactUs.htm" indicator="indicator" targets="bodyID">Contact Us</sj:a>
-				&nbsp;&nbsp; |&nbsp;&nbsp;
-				<a href="?request_locale=ar_EG" ><s:text name="locale.arabic" /></a>
-				<a href="?request_locale=en" ><s:text name="locale.english"/></a>	
-			</div>
-			<div style="background-color: #FFFFFF;height: 5;">&nbsp;</div>
+			<div style="background-color: #FFFFFF;height: 30px;">&nbsp;</div>
 			<div style="background-color: #FFFFFF;vertical-align: bottom;height: 42;">
 				<a target="_blank" href="https://www.facebook.com/altagamo3">
 					<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/social/facebook.jpg" width="32" height="32"></a>
@@ -85,56 +81,10 @@ $(function() {
 					<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/images/social/twitter.jpg" width="32" height="32"></a>
 			</div>
 			<s:if test="%{#session.userInfo!=null}" >
-			<div style="background-color: #FFFFFF;vertical-align: top;height: 5;"><a href='<s:url action="logout" method="logout" />' id="logoutLink">Logout</a></div>
+				<div style="background-color: #FFFFFF;vertical-align: top;height: 5;"><a href="logout"  id="logoutLink"  >Logout </a> </div>
 			</s:if>
 			<s:else> 
 			<div style="background-color: #FFFFFF;height: 5;vertical-align: top;"><a href="javascript:;" class="login-btn" id="loginLink">Login</a>
-			
-			&nbsp;&nbsp;|&nbsp;&nbsp;<sj:a href="preAddUser" targets="bodyID" id="registerLink">Sign Up</sj:a>
-			<div class="dropdown-login-form"  style="display: none;position: relative;outline-style: ridge;">
-					<fieldset   style="background-color: #FFB00F;">
-						<s:form action="login" method="POST" theme="simple" focusElement="username">
-								<table  id="box1" cellpadding="7" height="100%" bgcolor="#FFB00F" class="ui-corner-all">
-									<tr>
-										<td style="font-family: Tahoma;font-size: 15pt;color: #AD7400;font-weight: bold;text-align: center;">
-										<s:text name="welcome.membersarea" /></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<font face="Arial" color="#FFFFFF" ><s:text name="global.username" /></font></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<s:textfield id="username" name="username" size="29"/></td>
-									</tr>
-									<tr>
-										<td align="center" height="32">
-										<font face="Arial" color="#FFFFFF"><s:text name="global.password" /></font></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<s:password name="password" size="29"/></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<font face="Arial" color="#FFFFFF"><s:checkbox name="remember" /><s:text name="global.rememberMe" /></font>
-										<font face="Arial" style="font-size: 10pt; font-weight: 700" color="red"><s:fielderror /></font>
-										</td>
-									</tr>
-									<tr>
-										<td>
-										<p align="center">
-										<sj:submit indicator="indicator" type="image" src="/images/buttons/btn_login.jpg"/></td>
-									</tr>
-									<tr>
-										<td align="center">
-										<font face="Arial" color="#FFFFFF" size="2">
-										<sj:a indicator="indicator" href="/pages/security/forgotPassword.jsp" targets="bodyID"><s:text name="global.forgotpassword" /></sj:a> | <sj:a href="preAddUser" targets="bodyID"><s:text name="global.registernow" /></sj:a></font></td>
-									</tr>
-								</table>	
-						</s:form> 
-						</fieldset>
-			</div>
 			</div>
 			</s:else>
 		</td>

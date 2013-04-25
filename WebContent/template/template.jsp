@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <%@page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
@@ -6,11 +6,10 @@
 <sj:head />
 <html>
 <head>
+<meta name="description" content="AlTagamo3: All you need to know about properties in new cairo">
+<meta name="keywords" content="properties, property, egypt, real estate,عقارات, للبيع, للإيجار, تمليك, شقه, التجمع, الخامس, القاهرة الجديدة">
+<meta name="robots" content="index,follow">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="/scripts/noty/jquery.noty.js"></script>
-<script type="text/javascript" src="/scripts/noty/layouts/top.js"></script>
-<script type="text/javascript" src="/scripts/noty/layouts/topLeft.js"></script>
-<script type="text/javascript" src="/scripts/noty/layouts/topRight.js"></script>
 <!-- You can add more layouts if you want -->
 
 <%--<script src="/scripts/watermark.jquery.js" type="text/javascript"></script>--%>
@@ -52,9 +51,9 @@ if("ar_EG".equals(lang))
 </body>
 <script type="text/javascript">
  $(document).ready(function() {
-$('.login-btn').click(function(e){
+	 $('.login-btn').click(function(e){
      e.preventDefault();
-     $('.dropdown-login-form').toggle('fast',function(){$('#username').focus();});
+     $('.dropdown-login-form').toggle('fast',function(){$('#username').focus();}).css('display','inline-block');
      $(this).toggleClass("btn-login-on");return false;});
      $('#top-menu .login-btn').mousedown(function(){return false;});
      $(document).mousedown(function(e)
@@ -62,7 +61,7 @@ $('.login-btn').click(function(e){
                 {$('.btn-login-on').removeClass('btn-login-on');
                   $('.dropdown-login-form').hide('fast');
                 };
-             });   
+             });
      });        
 </script>
 </html>
