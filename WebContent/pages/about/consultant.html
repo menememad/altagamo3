@@ -1,24 +1,31 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 <title>AlTagamo3.com: Consultation Services</title>
 <meta name="description" content="AlTagamo3: All you need to know about properties in new cairo">
 <meta name="keywords" content="consultant, consultants, projects, property, egypt, real estate,عقارات, شقه, التجمع, الخامس, القاهرة الجديدة">
+<meta charset="utf-8" />
 <meta name="robots" content="index,follow">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-<script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
   $(function() {
-    $( "#accordion" ).accordion();
+    var icons = {
+      header: "ui-icon-circle-arrow-e",
+      activeHeader: "ui-icon-circle-arrow-s"
+    };
+    $( "#accordion" ).accordion({icons: icons,collapsible: true,heightStyle: "content"});
+    $( "#accordion2" ).accordion({icons: icons,collapsible: true,heightStyle: "content"});
+    $( "#accordion3" ).accordion({icons: icons,collapsible: true,heightStyle: "content"});
   });
-</script>
+  </script>
 <style>
 *{font-family: Tahoma;}
 BODY{margin: 100px 100px 100px 100px;}
-FIELDSET{margin-bottom: 80px;}
-LEGEND{font-family: Tahoma;font-size: 24pt;}
+FIELDSET{margin-bottom: 80px; margin-left: 20px;margin-right: 20px;padding-left: 10px;padding-right: 10px;}
+LEGEND{font-family: Tahoma;font-size: 20pt;}
 P{}
 LI{display: inline-block;}
 table.consult{margin-bottom: 50px;} 
@@ -45,7 +52,7 @@ table.consult tbody tr th,td{text-align: left;}
 </fieldset>
 <fieldset>
 	<legend>Our Staff Members' CVs</legend>
-<div id="accordion">
+<div id="accordion2">
 	<h3>Prof. Dr. Mohammed Hilal Riad's CV</h3>
   	<div>
   	<table class="consult">
@@ -79,7 +86,6 @@ table.consult tbody tr th,td{text-align: left;}
   		<tr><th>June 1987 – Present:</th><td>Own Consulting Office (see attached list of projects)</td></tr>
   	</tbody>
   	</table>
-
   </div>
 
   <h3>Dr. Amr Hilal Riad's CV</h3>
@@ -169,7 +175,8 @@ table.consult tbody tr th,td{text-align: left;}
 </fieldset>
 <fieldset>
 	<legend>List of some projects performed&nbsp; by our office</legend>
-	<h3>1- Hotels and Resorts:</h3>
+	<div id="accordion3">
+	<h3>1- Hotels and Resorts</h3>
 	<div>
 		<p>- Revision of design and supervison of Hall (5) Cairo International Conference Center in Nasr City (2010).</p>
 		<p>- Structural design of "Wadi ElKamar" hotel and resort in Hurgada with a total of 6 five storey buildings on an area of 60000 m2. (2010)</p>
@@ -190,7 +197,7 @@ table.consult tbody tr th,td{text-align: left;}
 		<img border=0 width=444 height=333 src="/images/consultant/image014.jpg" />
 		<p>Hall 5 – Conference Hall – Nasr City – Cairo</p>
 	</div>
-	<h3>2- Industrial Buildings:</h3>
+	<h3>2- Industrial Buildings</h3>
 	<div>
 		<p>- Plastic Factory owned by Mr. Ismail Sorour on an area of 3500 m2. (2010)</p>
 		<p>- Textile Factory in Obour City owned by Mr. Hossam Mohab on an area of 40000m2. (2008)</p>
@@ -202,7 +209,7 @@ table.consult tbody tr th,td{text-align: left;}
 		<p>- Masr El-Nour Plastics Factory with an area of 3000m2 in 10th of Ramadan City –Egypt. (2004)</p>
 		<p>- El-Delta rice factory at the new Damitta City. Egypt (1996)</p>
 	</div>
-	<h3>3- Educational Buildings &amp; Hospitals:</h3>
+	<h3>3- Educational Buildings &amp; Hospitals</h3>
 	<div>
 		<p>- Alyateem Hospital – Sana'a Yemen (2010)</p>
 		<p>- Royal Office Building – Giza – Egypt. (2007)</p>
@@ -227,28 +234,28 @@ table.consult tbody tr th,td{text-align: left;}
 		<img border=0 width=577 height=307 src="/images/consultant/image024.jpg" />
 		<p>Dr. Nabil Abdel-Maksoud Hospital 6 October City</p>	
 	</div>
-	<h3>4- Mosques:</h3>
+	<h3>4- Mosques</h3>
 	<div>
-		<p>-  Al-rahma Al-mohdah mosque – Matariya – Cairo. (2006)</p>
-		<p>- Mokattam mosque – Cairo. (2005)</p>
-		<p>- Belal Mosque – Menia. (2004)</p>
-		<p>- Osman Mosque – North Coast – Egypt. (2003)</p>
-		<p>- Almasged alkabeer – Aga – Dakahlia – Egypt. (1996)</p>
-		<p>- Nasr City Club Mosque. (1996)</p>
+		<p>- Al Rahma Al Mohdaah Mosque, Matariya, Cairo. (2006)</p>
+		<p>- Mokattam Mosque, Cairo. (2005)</p>
+		<p>- Belal Mosque, Menia. (2004)</p>
+		<p>- Osman Mosque, North Coast, Egypt. (2003)</p>
+		<p>- Al Masjid Al Kabeer, Aga, Dakahlia, Egypt. (1996)</p>
+		<p>- Nasr City Club Mosque, Cairo. (1996)</p>
 	</div>
-	<h3>5- Sports Buildings:</h3>
+	<h3>5- Sports Buildings</h3>
 	<div>
-		<p>- Dubai Sports Mall – Dubai - UAE. (2007)</p>
-		<p>- Karate and Ballet Hall - Nasr City Club – Cairo. (2006)</p>
+		<p>- Dubai Sports Mall, Dubai, UAE. (2007)</p>
+		<p>- Karate and Ballet Hall, Nasr City Club, Cairo. (2006)</p>
 		<p>- Swimming Pool and Cafeteria in General Helwan Sporting Club. (2003)</p>
-		<p>- Training Swimming Pool Nasr City Club – Cairo. (2002)</p>
+		<p>- Training Swimming Pool Nasr City Club, Cairo. (2002)</p>
 		<p>- Swimming Pool and Cafeteria in New Helwan Youth Center. (2000)</p>
 	</div>
-	<h3>6- Residental Buildings:</h3>
+	<h3>6- Residental Buildings</h3>
 	<div>
 		<p>These are some examples of the residential buildings designed by the office:</p>
-		<p>- Al-Haifa'a residential complex – Jeddah – Saudi Arabia (2011)</p>
-		<p>- Al-Masoud Nile View Tower footprint area 1500m2. Cairo Corniche Egypt. (2011)</p>
+		<p>- Al Haifa'a residential complex, Jeddah, Saudi Arabia (2011)</p>
+		<p>- Al Masoud Nile View Tower footprint area 1500m2, Cairo Corniche Egypt. (2011)</p>
 		<p>- Several residential towers owned by El-Rowda Company for real estate development. (2000 - 2010)</p>
 		<p>- Bogshan Villas ( Jeddah – Saudi Arabia) 3 private villas. (2009)</p>
 		<p>- Several residential towers owned by Lotus Company for construction. (1992-2010)</p>
@@ -260,8 +267,9 @@ table.consult tbody tr th,td{text-align: left;}
 		<p>o   El-Safwa 1 building on an area of 1200 m2.</p>
 		<p>o   El-Safwa 2 building on an area of 3000 m2.</p>
 		<p>o   El-Safwa 5 building on an area of 5000 m2.</p>
-		<p>-  A commercial and residential building owned by Dr. Mohsen El-Hennawi on an area of 5000m2 - Zagazig. (2001)</p>
+		<p>-  A commercial and residential building owned by Dr. Mohsen El-Hennawi on an area of 5000m2, Zagazig. (2001)</p>
 		<p>- Also some villas and smaller buildings in new Cairo City.</p>
+	</div>
 	</div>
 	</fieldset>
 <fieldset>
@@ -270,20 +278,20 @@ table.consult tbody tr th,td{text-align: left;}
 		<p>- Sunset Hills Alareen Bahrain including redesign and adding to existing structures of 7 types of residential buildings on 13000 m2. (2009)</p>
 		<p>- El-Shams residential buildings 6 October City including several types of 5 storey buildings. (2008-2009)</p>
 		<p>- Several residential buildings in Doha- Quatar with areas between 500-2000m2, in corporation with "Al-Jazeerah Consulting Engineering Office". (2003)</p>
-		<p>- 29-storey residential building in "Juffair"– Manama – Bahrain.</p>
-		<p>- Check of Prestressed concrete building in Riyad -KSA.</p>
-		<p>- Design proposal for a 40-storey Tower in Jeddah – KSA, owned by El-Sheikh Talaat El-Lami area of 1500 m2.</p>
-		<p>- 21- Storey tower (MARVIDA TOWER) Manama – Bahrain area of 900 m2. </p>
+		<p>- 29-storey residential building in "Juffair", Manama, Bahrain.</p>
+		<p>- Check of Prestressed concrete building in Riyad, KSA.</p>
+		<p>- Design proposal for a 40-storey Tower in Jeddah, KSA, owned by El-Sheikh Talaat El-Lami area of 1500 m2.</p>
+		<p>- 21- Storey tower (MARVIDA TOWER), Manama, Bahrain area of 900 m2. </p>
 		<p>- Also some villas and smaller buildings in new Cairo City.</p>
 		<p>- Revision of Union Air Administrative Building in 6 October City. </p>
-		<p>- Masr El-Nour Plastics Factory with an area of 3000m2 in 10th of Ramadan City –Egypt.</p>
-		<p>- Revision of design of Futoon Center Shopping Mall footprint area 8000m2 – Masquat – Oman.</p>
+		<p>- Masr El-Nour Plastics Factory with an area of 3000m2 in 10th of Ramadan City, Egypt.</p>
+		<p>- Revision of design of Futoon Center Shopping Mall footprint area 8000m2, Masquat, Oman.</p>
 		<p>- Also some villas and smaller buildings in new Cairo City.</p>
 		<img border=0 width=480 height=360 src="/images/consultant/image026.jpg" />
-		<p>Villa Nasser El-Dash Sheikh Zayed City – Cairo – Egypt</p>
+		<p>Villa Nasser El-Dash Sheikh Zayed City, Cairo, Egypt</p>
 		<img border=0 width=485 height=322 src="/images/consultant/image028.jpg" />
 		<img border=0 width=445 height=297 src="/images/consultant/image030.jpg" />
-		<p>Private Villa – Owned by Mr. Adel Khalil – Mansoureya – Egypt</p>
+		<p>Private Villa – Owned by Mr. Adel Khalil, Mansoureya, Egypt</p>
 		<img border=0 width=412 height=309 src="/images/consultant/image032.jpg" />
 		<p>Zayed Residence Alexandria Egypt</p>
 		<img border=0 width=306 height=353 src="/images/consultant/image034.jpg" />
@@ -293,7 +301,7 @@ table.consult tbody tr th,td{text-align: left;}
 		<img border=0 width=459 height=236 src="/images/consultant/image038.jpg" />
 		<p>Social Club University of Emirates- Dubai –Co. Al-Burj Office</p>
 		<img border=0 width=459 height=238 src="/images/consultant/image040.jpg" />
-		<p>QamarDin Hotel – Burj Dubai – Dubai</p>
+		<p>QamarDin Hotel, Burj Dubai, Dubai</p>
 		<img border=0 width=349 height=238 src="/images/consultant/image042.jpg" />
 		<p>Fairmont Jumaira - Co. Al-Burj Office</p>
 		<p>Al-Nakheel Tower – King Fahd Road Riyad</p>
