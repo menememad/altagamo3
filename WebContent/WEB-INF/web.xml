@@ -19,6 +19,14 @@
 		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
 		<param-value>/WEB-INF/tiles.xml</param-value>
 	</context-param>
+	<context-param>
+		<param-name>PROPERTY_IMAGE_PATH</param-name>
+		<param-value>/home/allamco1/public_html/prop_img/</param-value>
+	</context-param>
+	<context-param>
+		<param-name>PROJECT_IMAGE_PATH</param-name>
+		<param-value>/home/allamco1/public_html/proj_img/</param-value>
+	</context-param>
 	<listener>
 		<listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
 	</listener>

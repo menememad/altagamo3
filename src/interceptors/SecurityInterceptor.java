@@ -25,8 +25,8 @@ public class SecurityInterceptor implements Interceptor{
 		String stReturn ;
 		//Action action=(Action)invocation.getAction();
 		if(session==null ||  session.get("userInfo")==null){
-			System.out.println("Your Session is invalid OR you are not logged in ... Please Login first . ");
-			return "login";
+		System.out.println("Your Session is invalid OR you are not logged in ... Please Login first . ");
+		return "login";
 		}
 		else
 			 stReturn = invocation.invoke() ;			

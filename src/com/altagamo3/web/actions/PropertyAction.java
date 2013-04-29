@@ -86,8 +86,9 @@ public class PropertyAction extends BaseAction{
 			try {
 				//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
 				//String filePath = "/public_html/prop_img/"+propertyID+"/";
-				String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
-	            System.out.println("Server path:" + filePath);
+				//String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
+				String filePath = request.getServletContext().getInitParameter(BaseAction.PROPERTY_IMAGE_PATH)+propertyID;
+				//System.out.println("Server path:" + filePath);
 	            for (Image image : attachedFiles) {
 	            	imageCount++;
 					File fileToCreate = new File(filePath+imageCount+".jpg");
@@ -127,9 +128,8 @@ public class PropertyAction extends BaseAction{
 				try {
 					int propertyID = property.getId();
 					//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
-					//String filePath = "/public_html/prop_img/"+propertyID+"/";
-					String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
-					
+					//String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
+					String filePath = request.getServletContext().getInitParameter(BaseAction.PROPERTY_IMAGE_PATH)+propertyID;
 					FileUtils.deleteQuietly(new File(filePath));
 		             
 					System.out.println("Server path:" + filePath);
