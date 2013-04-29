@@ -20,9 +20,19 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,Ses
 	protected HttpServletRequest request;
 	protected Map<String, Object> session;
 	protected ServletContext context; 	
-	
+	protected static final String PROPERTY_IMAGE_PATH = "PROPERTY_IMAGE_PATH"; 
+	protected static final String PROJECT_IMAGE_PATH = "PROJECT_IMAGE_PATH"; 
 	 public BaseAction()
 	 {
+			// Get current size of heap in bytes
+			long heapSize = Runtime.getRuntime().totalMemory(); 
+			// Get maximum size of heap in bytes. The heap cannot grow beyond this size.// Any attempt will result in an OutOfMemoryException.
+			long heapMaxSize = Runtime.getRuntime().maxMemory();
+			 // Get amount of free memory within the heap in bytes. This size will increase // after garbage collection and decrease as new objects are created.
+			long heapFreeSize = Runtime.getRuntime().freeMemory();		
+			System.out.println("TOTAL HEAP: "+heapSize);
+			System.out.println("MAX HEAP: "+heapMaxSize);
+			System.out.println("FREE HEAP: "+heapFreeSize);
 		// PropertyConfigurator.configure("c:\\log4j.properties");
 
 		 
