@@ -84,8 +84,10 @@ $(function() {
 				<div style="background-color: #FFFFFF;vertical-align: top;height: 5;"><a href="logout"  id="logoutLink"  >Logout </a> </div>
 			</s:if>
 			<s:else> 
-			<div style="background-color: #FFFFFF;height: 5;vertical-align: top;"><a href="javascript:;" class="login-btn" id="loginLink">Login</a>
-			</div>
+			<div style="background-color: #FFFFFF;height: 5;vertical-align: top;">
+		<!-- <a href="javascript:;" class="login-btn" id="loginLink">Login</a> -->	
+			<sj:a openDialog="loginDialog" href="javascript:;" >Login</sj:a>
+			</div><s:fielderror />
 			</s:else>
 		</td>
 		<td width="5"></td>
