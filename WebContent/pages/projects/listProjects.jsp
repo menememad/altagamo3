@@ -24,26 +24,23 @@
 <s:url action="viewProjectDetails" var="viewprojectURL">
  <s:param name="projectID"><s:property value="id"/> </s:param>
 </s:url>
-<table width="100%" height="100%">
-<tr><th >	
+<div>
 <s:if test="%{#session.userInfo.roleID==1}" >
           <sj:a href="%{editprojectURL}" targets="bodyID" indicator="indicator" >
-                <h1 style="color:#F87217;"><s:property  value="title"/></h1>
+                <h1 align="center" style="color:#F87217;"><s:property  value="title"/></h1>
              </sj:a> 
 </s:if><s:else>
-                <h1 style="color:#F87217; "><s:property  value="title"/></h1>
+                <h1 align="center" style="color:#F87217; "><s:property  value="title"/></h1>
 </s:else>             
-</th></tr> 
-<tr><td >
+ <br>
 <sj:a href="%{viewprojectURL}" targets="bodyID" indicator="indicator" >
      <s:if test="%{imageCount>0}"> 
-			<img border="0" class="slidesjs-slide"  src='/proj_img/<s:property value="id" />/1.jpg' />
+			<img border="0" class="slidesjs-slide"  align="middle" src='/proj_img/<s:property value="id" />/1.jpg' />
 	</s:if><s:else> 
-			<img border="0" class="slidesjs-slide" src='/images/home.jpg' />
+			<img border="0" class="slidesjs-slide"  align="middle" src='/images/home.jpg' />
 	</s:else>
 </sj:a>
-</td></tr>
-</table>
+</div>
 </s:iterator>	
 </div>		
 </fieldset>

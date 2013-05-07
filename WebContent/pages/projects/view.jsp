@@ -61,7 +61,7 @@
 </div>
 <script type="text/javascript">
    function exportWindow(proID) {
-   alert(proID);
+   //alert(proID);
 	    var  linkAction = 'exportTOPDF?projectID='+proID;
 	    window.open(linkAction,'','toolbar=no,location=no,top=50,left=50,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=900,height=500');
 	} 
