@@ -41,7 +41,7 @@
 	</action>
 	<action name="exportTOPDF" class="com.altagamo3.web.actions.ProjectAction" method="exportTOPDF">
 		 <interceptor-ref name="defaultStack"/>
-		<result name="success">/pdfSample.jsp</result>
+		<result name="success"></result>
 	</action>
 	<action name="editProject" class="com.altagamo3.web.actions.ProjectAction" method="editProject">		
     	<interceptor-ref name="scope">
