@@ -31,24 +31,17 @@ if("ar_EG".equals(lang))
 %>
 
 
-<body id="templateID" style="margin: 0 0 0 0;" dir='<%=dir%>'>
-<table  height="100%">
-    <tr>
-         <td><a name="top"></a>
-			 <div id="headerID"><tiles:insertAttribute name="header"/></div></td>
-    </tr>
-    <tr>
-         <td> <img id="myDefaultIndicator" src="/images/indicator.gif" alt="Loading..." style="display:none;border: 0;"/>
-				<div id="bodyID" dir='<%=dir%>'><tiles:insertAttribute name="body" /></div>
-				<div id="detailsID"></div></td>
+<body id="templateID" style="margin:0;padding:0;height:100%;" dir='<%=dir%>'>
+<img id="myDefaultIndicator" src="/images/indicator.gif" alt="Loading..." style="display:none;border: 0;"/>
+<div id="container" style="min-height: 100%;position:relative;">
+	<a name="top"></a>
+	<div id="headerID"><tiles:insertAttribute name="header"/></div>
     <div id="menuID" dir='<%=dir%>'><tiles:insertAttribute name="menu"/></div> 
-    </tr>
-    <tr>
-         <td><div id="footerID"><tiles:insertAttribute name="footer" /></div>
-             <div class="footerLine">&nbsp;</div></td>
-    </tr>
-</table>
-</body>
+	<div id="bodyID" dir='<%=dir%>'><tiles:insertAttribute name="body"/></div>
+	<div id="detailsID"></div>
+    <div data-role="footer" id="footerID"><tiles:insertAttribute name="footer" /></div>
+    <div class="footerLine" style="height: auto;bottom:0;">&nbsp;</div>
+</div>
 <script type="text/javascript">
  $(document).ready(function() {
 	 $('.login-btn').click(function(e){
@@ -64,4 +57,5 @@ if("ar_EG".equals(lang))
              });
      });        
 </script>
+</body>
 </html>
