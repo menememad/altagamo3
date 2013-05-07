@@ -1,0 +1,1 @@
+drop DATABASE `allamco1_altagamo3`

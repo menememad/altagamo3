@@ -20,8 +20,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,Ses
 	protected HttpServletRequest request;
 	protected Map<String, Object> session;
 	protected ServletContext context; 	
-	protected static final String PROPERTY_IMAGE_PATH = "PROPERTY_IMAGE_PATH"; 
-	protected static final String PROJECT_IMAGE_PATH = "PROJECT_IMAGE_PATH"; 
+	protected static final String IMAGE_PATH = "IMAGE_PATH"; 
 	 public BaseAction()
 	 {
 			// Get current size of heap in bytes

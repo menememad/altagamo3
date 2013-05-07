@@ -22,7 +22,8 @@
 		</buildCommand>
 		<buildCommand>
 			<name>org.eclipse.wst.common.project.facet.core.builder</name>
-			<arguments></arguments>
+			<arguments>
+			</arguments>
 		</buildCommand>
 		<buildCommand>
 			<name>org.eclipse.wst.validation.validationbuilder</name>
