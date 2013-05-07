@@ -110,15 +110,15 @@
 			</tr>
 			<tr class="even">
 				<td width="10%"><s:text name="location.city" /> <s:text name="required.flag" /></td>
-				<td width="30%"><sj:select href="listCities" id="city" name="property.city.id" list="citiesList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select City --" headerKey="-1" reloadTopics="reloadCitiesList" onSuccessTopics="reloadCompoundsAndDistrictsList" onChangeTopics="reloadCompoundsAndDistrictsList" required="true"/></td>
+				<td width="30%"><sj:select href="listCities" id="city" name="property.city.id" list="citiesList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select City --" headerKey="-1" reloadTopics="reloadCitiesList" onSuccessTopics="reloadCompoundsAndDistrictsList" onChangeTopics="reloadCompoundsList,reloadDistrictsList" required="true"/></td>
 				<td width="10%"><s:fielderror fieldName="property.city.id" /><span class="hint"><s:text name="hint.location.city"/><span class="hint-pointer">&nbsp;</span></span></td>
 				<td width="10%"><s:text name="location.compound" /></td>
-				<td width="30%"><sj:select href="listCompounds" id="compound" name="property.compound.id" list="compoundsList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select Compound --" headerKey="0" reloadTopics="reloadCompoundsAndDistrictsList" onSuccessTopics="disableAllOthers" onChangeTopics="disableAllOthers"/></td>
+				<td width="30%"><sj:select href="listCompounds" id="compound" name="property.compound.id" list="compoundsList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select Compound --" headerKey="0" reloadTopics="reloadCompoundsList" onSuccessTopics="disableAllOthers" onChangeTopics="disableAllOthers"/></td>
 				<td width="10%"><span class="hint"><s:text name="hint.location.compound"/><span class="hint-pointer">&nbsp;</span></span></td>
 			</tr>
 			<tr class="odd otherLocationData">
 				<td width="10%"><s:text name="location.district" /></td>
-				<td width="30%"><sj:select href="listDistricts" id="district" name="property.district.id" list="districtsList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select District --" headerKey="-1" reloadTopics="reloadCompoundsAndDistrictsList" onSuccessTopics="reloadZonesList" onChangeTopics="reloadZonesList" /></td>
+				<td width="30%"><sj:select href="listDistricts" id="district" name="property.district.id" list="districtsList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select District --" headerKey="-1" reloadTopics="reloadDistrictsList" onSuccessTopics="reloadZonesList" onChangeTopics="reloadZonesList" /></td>
 				<td width="10%"><span class="hint"><s:text name="hint.location.district"/><span class="hint-pointer">&nbsp;</span></span></td>
 				<td width="10%"><s:text name="location.zone" /></td>
 				<td width="30%"><sj:select href="listZones" id="zone" name="property.zone.id" list="zonesList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select Zone --" headerKey="-1" reloadTopics="reloadZonesList" onChangeTopics="reloadSubareasList" /></td>
