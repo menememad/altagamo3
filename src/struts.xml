@@ -30,7 +30,7 @@
 			<param name="session">userInfo</param>
 		    <param name="autoCreateSession">true</param>
 		</interceptor-ref>	
-		<result name="success">/pages/security/login.jsp</result>
+		<result name="success">/welcome.jsp</result>
 	</action>	
 
 	<action name="openUploadAttachedFile" class="com.altagamo3.web.actions.FileUpload" method="openUploadAttachedFile">

@@ -4,12 +4,12 @@
 <title>AlTagamo3.com - التجمع.كوم</title>
 
 <div id="welcome-part1" style="direction: ltr; background-image: url('/images/welcome/allam-consult.jpg');background-repeat: no-repeat;background-position: center;height: 505px;">			
-	<div class="ui-corner-all ui-widget-content" style="display: inline-block;">
+	<div class="ui-corner-all ui-widget-content" style="display: inline-block;margin: 5px;">
 	<s:url var="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
 	<s:form id="searchPropertyForm" action="fastSearch" method="POST" cssStyle="width: 250px;">
 	<div style="margin-left: 10px;font: Tahoma;font-size: 16pt;font-weight: bold;"><s:text name="welcome.fastsearch" /></div>
-	<div style="margin-left: 10px;"><sj:select id="propertyType" label="Property Type" name="propertyTypeID" href="%{listPropertiesData}" list="propertyTypesMap" /></div>
-	<div style="margin-left: 10px;"><s:select name="propertyFor" id="propertyFor" list="#{1:getText('propertyfor.'+1),2:getText('propertyfor.'+2),3:getText('propertyfor.'+3)}"/></div>
+	<sj:select id="propertyType" label="Property Type" name="propertyTypeID" href="%{listPropertiesData}" list="propertyTypesMap" />
+	<s:select name="propertyFor" id="propertyFor" list="#{1:getText('propertyfor.'+1),2:getText('propertyfor.'+2),3:getText('propertyfor.'+3)}"/>
 	<s:url id="listCairoLocations" action="listLocations" method="listLocations" />
 	<s:hidden name="property.country.id" value="1" />
 	<s:hidden name="property.state.id" value="1" />
@@ -79,9 +79,8 @@
 		        />
 	</div>								
 	<div style="margin-left: 10px;">
-		<sj:submit targets="bodyID" indicator="indicator" type="image" src="/images/buttons/btn_search.jpg"/><br />
-		<s:url var="preSearch" action="preSearchProperty" method="preSearchProperty"/>
-		<sj:a indicator="indicator" href="%{preSearch}" targets="bodyID"><s:text name="welcome.advancedsearch" /></sj:a>
+		<sj:submit targets="bodyID" indicator="indicator" button="true" value="Search"/>
+		<sj:a indicator="indicator" href="preSearchProperty" button="true" targets="bodyID"><s:text name="welcome.advancedsearch" /></sj:a>
 	</div>
 	
 	</s:form>								
