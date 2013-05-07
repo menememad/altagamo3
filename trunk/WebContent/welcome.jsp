@@ -86,50 +86,27 @@
 	
 	</s:form>								
 </div>
-
-	<div class="dropdown-login-form ui-corner-all ui-widget-content"  style="display: none;position: relative;background-color: #FFB00F;">
+	<sj:dialog id="loginDialog" autoOpen="false"  showEffect="puff" 
+    	hideEffect="explode"  title="%{getText('welcome.membersarea')}" modal="true" width="400">
+	<sj:div>
 				<s:form action="login" method="POST" theme="simple" focusElement="username">
-						<table id="box1" style="height: 100%;background-color: #FFB00F;padding: 5 5 5 5;">
-							<tr>
-								<td style="font-size: 15pt;color: #AD7400;font-weight: bold;text-align: center;">
-								<s:text name="welcome.membersarea" /></td>
-							</tr>
-							<tr>
-								<td>
-								<font face="Arial" color="#FFFFFF" ><s:text name="global.username" /></font></td>
-							</tr>
-							<tr>
-								<td align="center">
-								<s:textfield id="username" name="username" size="29" cssClass="ui-corner-all ui-widget-content"/></td>
-							</tr>
-							<tr>
-								<td height="32">
-								<font face="Arial" color="#FFFFFF"><s:text name="global.password" /></font></td>
-							</tr>
-							<tr>
-								<td align="center">
-								<s:password name="password" size="29" cssClass="ui-corner-all ui-widget-content"/></td>
-							</tr>
-							<tr>
-								<td>
-								<font face="Arial" color="#FFFFFF"><s:checkbox name="remember" /><s:text name="global.rememberMe" /></font>
+								<font face="Arial" ><s:text name="global.username" /></font>
+								<s:textfield id="username" name="username" size="29" cssClass="ui-corner-all ui-widget-content"/>
+					<br><br>		
+								<font face="Arial" ><s:text name="global.password" />&nbsp;&nbsp;</font>
+								<s:password name="password" size="29" cssClass="ui-corner-all ui-widget-content"/>
+						<br><!--<br>	
+								<font face="Arial" ><s:checkbox name="remember" /><s:text name="global.rememberMe" /></font>
 								<font face="Arial" style="font-size: 10pt; font-weight: 700" color="red"><s:fielderror /></font>
-								</td>
-							</tr>
-							<tr>
-								<td>
-								<p align="center">
-								<sj:submit indicator="indicator" type="image" src="/images/buttons/btn_login.jpg"/></td>
-							</tr>
-							<tr>
-								<td align="center">
-								<font face="Arial" color="#FFFFFF" size="2">
-								<sj:a indicator="indicator" href="/pages/security/forgotPassword.jsp" targets="bodyID"><s:text name="global.forgotpassword" /></sj:a> | <sj:a href="preAddUser" targets="bodyID"><s:text name="global.registernow" /></sj:a></font></td>
-							</tr>
-						</table>	
+							--><br>
+								<center>
+								<sj:submit indicator="indicator"   button="true" value="Login"/>  </center>
+						<center>								<font face="Arial"  size="2">
+								<sj:a indicator="indicator" href="/pages/security/forgotPassword.jsp" targets="bodyID"><s:text name="global.forgotpassword" /></sj:a> | <sj:a href="preAddUser" targets="bodyID"><s:text name="global.registernow" /></sj:a></font>
+								</center>	
 				</s:form> 
-	</div>
-
+</sj:div>
+</sj:dialog>
 </div>
 
 <div id="welcome-part2" dir="ltr">
