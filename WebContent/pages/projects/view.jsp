@@ -37,11 +37,11 @@
                </td>
 			</tr>	
 		</table>
-</fieldset>
+</fieldset> 
 <s:if test="%{project.imageCount>0}">
-<fieldset>		
+<fieldset style="margin:20px 140px 150px 140px;">		
 <div id="slides">
-		        <s:iterator var="index" begin="1" end="project.imageCount">
+		        <s:iterator var="index" begin="1" end="project.imageCount"> 
 		         <img  border="0" class="slidesjs-slide" src='/proj_img/<s:property value="project.id" />/${index}.jpg' /> 
 		        </s:iterator> 
 </div>  
@@ -62,12 +62,12 @@
 <script type="text/javascript">
    function exportWindow(proID) {
    //alert(proID);
-	    var  linkAction = 'exportTOPDF?projectID='+proID;
-	    window.open(linkAction,'','toolbar=no,location=no,top=50,left=50,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=900,height=500');
+	    var  linkAction = 'exportTOPDF?projectID='+proID; 
+	    window.open(linkAction,'','toolbar=no,location=no,top=50,left=50,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,copyhistory=yes,width=900,height=500');
 	} 
 	 $(function(){
       $("#slides").slidesjs({
-        width: 940,
+        width: 940, 
         height: 528
       });
     });

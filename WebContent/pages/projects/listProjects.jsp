@@ -16,7 +16,7 @@
  <sj:a href="%{preAddProjectURL}" indicator="indicator" targets="bodyID" ><s:text name="title.project.addNew" /></sj:a>
  </s:if>
 <fieldset style="margin:20px 140px 150px 140px;">
-<div id="slides"> 
+<div id="slides">  
  <s:iterator value="arProjectList" >
 <s:url action="preEditProject" var="editprojectURL" >
  <s:param name="projectID"><s:property value="id"/> </s:param>
