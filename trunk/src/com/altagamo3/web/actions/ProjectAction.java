@@ -58,7 +58,7 @@ public class ProjectAction extends BaseAction{
 				// in deployment on server
 				System.out.println("ProjectAction :"+project.getImageCount());
 				if (project.getImageCount()> 0){
-				String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"proj_img/"+project.getId()+"/1.jpg"; 
+				String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/proj_img/"+project.getId()+"/1.jpg"; 
 					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(filePath);
 					image.scaleToFit(300f, 300f);
 					image.scaleAbsoluteWidth(300f);
