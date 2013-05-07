@@ -4,17 +4,15 @@
 <title>AlTagamo3.com - التجمع.كوم</title>
 
 <div id="welcome-part1" style="direction: ltr; background-image: url('/images/welcome/allam-consult.jpg');background-repeat: no-repeat;background-position: center;height: 505px;">			
-	<div class="ui-corner-all ui-widget-content" style="display: inline-block;margin: 5px;">
+	<div style="display: inline-block;margin: 15px;background-color: transparent;">
 	<s:url var="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
 	<s:form id="searchPropertyForm" action="fastSearch" method="POST" cssStyle="width: 250px;">
-	<div style="margin-left: 10px;font: Tahoma;font-size: 16pt;font-weight: bold;"><s:text name="welcome.fastsearch" /></div>
-	<sj:select id="propertyType" label="Property Type" name="propertyTypeID" href="%{listPropertiesData}" list="propertyTypesMap" />
-	<s:select name="propertyFor" id="propertyFor" list="#{1:getText('propertyfor.'+1),2:getText('propertyfor.'+2),3:getText('propertyfor.'+3)}"/>
+	<sj:select id="propertyType" label="Property Type" labelposition="top" name="propertyTypeID" href="%{listPropertiesData}" list="propertyTypesMap" />
+	<s:select id="propertyFor" label="For" labelposition="top" name="propertyFor"  list="#{1:getText('propertyfor.'+1),2:getText('propertyfor.'+2),3:getText('propertyfor.'+3)}"/>
 	<s:url id="listCairoLocations" action="listLocations" method="listLocations" />
 	<s:hidden name="property.country.id" value="1" />
 	<s:hidden name="property.state.id" value="1" />
-	<div style="margin-left: 10px;">
-		<sj:select label="City"
+		<sj:select label="City" labelposition="top"
 		        href="listCities"
 		        id="city"
 		        name="property.city.id"
@@ -23,9 +21,7 @@
 		        listValue="fullName"
 		        emptyOption="false" headerKey="-1" headerValue="-- Select City --"
 		        onChangeTopics="reloadCompoundsAndDistrictsList" />
-	</div>
-	<div style="margin-left: 10px;">
-		<sj:select label="Compound"
+		<sj:select label="Compound" labelposition="top"
 		        href="listCompounds"
 		        id="compound"
 		        name="property.compound.id"
@@ -36,9 +32,7 @@
 		        headerKey="-1" 
 		        reloadTopics="reloadCompoundsAndDistrictsList"  
 		        />
-	</div>
-	<div style="margin-left: 10px;">
-		<sj:select label="District"
+		<sj:select label="District" labelposition="top"
 		        href="listDistricts"
 		        id="district"
 		        name="property.district.id"
@@ -50,9 +44,7 @@
 		        reloadTopics="reloadCompoundsAndDistrictsList"
 		        onChangeTopics="reloadZonesList"  
 		        />
-	</div>								
-	<div style="margin-left: 10px;">
-		<sj:select label="Zone"
+		<sj:select label="Zone" labelposition="top"
 		        href="listZones"
 		        id="zone"
 		        name="property.zone.id"
@@ -64,9 +56,7 @@
 		        reloadTopics="reloadZonesList"
 		        onChangeTopics="reloadSubareasList"
 		        />
-	</div>								
-	<div style="margin-left: 10px;">
-		<sj:select label="Subarea"
+		<sj:select label="Subarea" labelposition="top"
 		        href="listSubareas"
 		        id="subarea"
 		        name="property.subarea.id"
@@ -77,14 +67,11 @@
 		        headerKey="-1" 
 		        reloadTopics="reloadSubareasList"
 		        />
-	</div>								
-	<div style="margin-left: 10px;">
 		<sj:submit targets="bodyID" indicator="indicator" button="true" value="Search"/>
 		<sj:a indicator="indicator" href="preSearchProperty" button="true" targets="bodyID"><s:text name="welcome.advancedsearch" /></sj:a>
-	</div>
 	
-	</s:form>								
-</div>
+	</s:form>
+	</div>								
 	<sj:dialog id="loginDialog" autoOpen="false"  showEffect="puff" 
     	hideEffect="explode"  title="%{getText('welcome.membersarea')}" modal="true" width="400">
 	<sj:div>
@@ -114,7 +101,7 @@
 <font face="Tahoma" style="font-size: 10pt"><sj:div href="%{marquee}" name="marqueeAds" targets="bodyID"/></font></marquee>
 </div>  
 <div id="welcome-part3" dir="ltr">
-	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<table border=0 width="100%" cellspacing="0" cellpadding="0">
 		<tr>
 		<td width="3%" height="108" bgcolor="#99DDE0">
 		<img border="0" src="images/welcome/side-label1.jpg" width="28" height="199"></td>
@@ -160,7 +147,7 @@
 </div>
 <br />
 <div id="welcome-part4">
-	<table border="0" width="100%" cellspacing="0" cellpadding="0" height="199">
+	<table border=0 width="100%" cellspacing="0" cellpadding="0" height="199">
 	<tr>
 		<td width="3%" height="108" bgcolor="#99DDE0">
 		<img border="0" src="images/welcome/side-label2.jpg" width="28" height="199"></td>
