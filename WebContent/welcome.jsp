@@ -1,13 +1,13 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
-<title>Welcome to AlTagamo3.com Website</title>
+<title>AlTagamo3.com - التجمع.كوم</title>
 
-<div id="welcome-part1" style="direction: ltr; background-image: url('/images/welcome/temp.jpg');background-repeat: no-repeat;background-position: center;height: 505px;">			
+<div id="welcome-part1" style="direction: ltr; background-image: url('/images/welcome/allam-consult.jpg');background-repeat: no-repeat;background-position: center;height: 505px;">			
 	<div class="ui-corner-all ui-widget-content" style="display: inline-block;">
 	<s:url var="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
-	<s:form id="searchPropertyForm" action="fastSearch" method="POST" theme="simple" cssStyle="background-color: #FFB00F; width: 250px;">
-	<div style="margin-left: 10px;font: Tahoma;font-size: 16pt;font-weight: bold;color:white;"><s:text name="welcome.fastsearch" /></div>
+	<s:form id="searchPropertyForm" action="fastSearch" method="POST" cssStyle="width: 250px;">
+	<div style="margin-left: 10px;font: Tahoma;font-size: 16pt;font-weight: bold;"><s:text name="welcome.fastsearch" /></div>
 	<div style="margin-left: 10px;"><sj:select id="propertyType" label="Property Type" name="propertyTypeID" href="%{listPropertiesData}" list="propertyTypesMap" /></div>
 	<div style="margin-left: 10px;"><s:select name="propertyFor" id="propertyFor" list="#{1:getText('propertyfor.'+1),2:getText('propertyfor.'+2),3:getText('propertyfor.'+3)}"/></div>
 	<s:url id="listCairoLocations" action="listLocations" method="listLocations" />
