@@ -57,15 +57,12 @@ public class ProjectAction extends BaseAction{
 				// in deployment on server
 				System.out.println("ProjectAction :"+project.getImageCount());
 				if (project.getImageCount()> 0){ 
-			//	if (false) { 
-					String path ="/home/allamco1/public_html/proj_img/"+project.getId()+"/1.jpg"; 
-					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(path);
+					String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"proj_img/"+project.getId()+"/1.jpg"; 
+					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(filePath);
 					document.add(image);
-				}
-				else { 
+				}else { 
 					//the path of Image
-					String parentPath = getText("image.path");
-					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("/home/allamco1/public_html/images/home.jpg");
+					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/images/home.jpg");
 					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/images/home.jpg");
 					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("C://Users/Public/Pictures/Sample Pictures/Desert.jpg");
 					image.scaleAbsoluteWidth(400f);
@@ -161,7 +158,7 @@ public class ProjectAction extends BaseAction{
 						//String filePath = context.getRealPath("/")+"proj_img/"+propertyID+"/";
 						//String filePath = "/public_html/proj_img/"+propertyID+"/";
 						//String filePath = "/home/allamco1/public_html/proj_img/"+projID+"/";
-						String filePath = request.getServletContext().getInitParameter(BaseAction.PROJECT_IMAGE_PATH)+projID;
+						String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"proj_img/"+projID;
 						FileUtils.deleteQuietly(new File(filePath));
 			             
 						System.out.println("Server path:" + filePath);
@@ -298,7 +295,7 @@ public class ProjectAction extends BaseAction{
 					//String filePath = context.getRealPath("/")+"proj_img/"+propertyID+"/";
 					//String filePath = "/public_html/proj_img/"+propertyID+"/";
 					//String filePath = "/home/allamco1/public_html/proj_img/"+projID+"/";
-					String filePath = request.getServletContext().getInitParameter(BaseAction.PROJECT_IMAGE_PATH)+projID;
+					String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"proj_img/"+projID;
 					System.out.println("Server path:" + filePath);
 		            for (Image image : attachedFiles) {
 		            	imageCount++;

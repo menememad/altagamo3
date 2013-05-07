@@ -43,7 +43,7 @@ public class PropertyHelper {
 		Connection conn = dbcon.getConnection();
 		int propertyID = 0;
 		try {
-			System.out.println("Property: "+p);
+			System.out.println("Property Compound ID: "+p.getCompound().getId());
 			System.out.println("Desc: "+p.getDescription());
 			String strSQL = "INSERT INTO property(property_type_id,title,description,country_id,state_id,city_id,district_id,compound_id,zone_id,subarea_id,prp_for,price," +
 					"rental_period,pay_type,pay_in_advance,inst_total_duration,created_by,finish_status,furn_status," +
