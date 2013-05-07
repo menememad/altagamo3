@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.print.attribute.standard.Compression;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
@@ -56,19 +57,30 @@ public class ProjectAction extends BaseAction{
 				document.add(new Paragraph(project.getTitle()));
 				// in deployment on server
 				System.out.println("ProjectAction :"+project.getImageCount());
-				if (project.getImageCount()> 0){ 
-					String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"proj_img/"+project.getId()+"/1.jpg"; 
+				if (project.getImageCount()> 0){
+				String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"proj_img/"+project.getId()+"/1.jpg"; 
 					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(filePath);
+					image.scaleToFit(300f, 300f);
+					image.scaleAbsoluteWidth(300f);
+					image.scaleAbsoluteHeight(300f);
+					image.scaleAbsolute(300f,300f);
+					System.out.println("ffffffffffffffff");
 					document.add(image);
-				}else { 
-					//the path of Image
-					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/images/home.jpg");
-					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/images/home.jpg");
-					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("C://Users/Public/Pictures/Sample Pictures/Desert.jpg");
-					image.scaleAbsoluteWidth(400f);
-					image.scaleAbsoluteHeight(400f);
-					document.add(image);	
-				}	
+					}
+//				else { 
+//					//the path of Image
+//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/images/home.jpg");
+//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/images/home.jpg");
+//					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("C://Users/Public/Pictures/Sample Pictures/Desert.jpg");
+//					image.scaleToFit(300f, 300f);
+//				//	image.scaleAbsoluteWidth(300f);
+//					
+//				//	image.scaleAbsoluteHeight(300f);
+//					image.scaleAbsolute(300f,300f);
+//				//	image.setWidthPercentage(200F);
+//					
+//					document.add(image);	
+//				}	
 				document.add(new Paragraph("\n"+project.getDescription()));
 				document.add(new Paragraph("\n"));
 				document.add(new Paragraph("\n"+project.getVideoLink()));			
