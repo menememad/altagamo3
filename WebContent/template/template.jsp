@@ -3,7 +3,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<sj:head />
+<sj:head jqueryui="true" jquerytheme="sunny"/>
 <html>
 <head>
 <meta name="description" content="AlTagamo3: All you need to know about properties in new cairo">
