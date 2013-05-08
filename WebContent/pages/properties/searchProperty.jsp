@@ -151,33 +151,33 @@ width: 200px;
 			</td>
 			<th><s:text name="location.state" /></th>
 			<td>
-				<sj:select href="listStates" id="state" name="property.state.id" list="statesList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select State --" headerKey="-1" reloathopics="reloadStatesList" onChangeTopics="reloadCitiesList" />
+				<sj:select href="listStates" id="state" name="property.state.id" list="statesList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select State --" headerKey="-1" reloadTopics="reloadStatesList" onChangeTopics="reloadCitiesList" />
 			</td>
 		</tr>
 		<tr>
 			<th><s:text name="location.city" /></th>
 			<td>
-				<sj:select href="listCities" id="city" name="property.city.id" list="citiesList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select City --" headerKey="-1" reloathopics="reloadCitiesList" onChangeTopics="reloadCompoundsAntdistrictsList" required="true"/>
+				<sj:select href="listCities" id="city" name="property.city.id" list="citiesList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select City --" headerKey="-1" reloadTopics="reloadCitiesList" onChangeTopics="reloadCompoundsList,reloadDistrictsList" required="true"/>
 			</td>	
 			<th><s:text name="location.compound" /></th>
 			<td>
-				<sj:select href="listCompounds" id="compound" name="property.compound.id" list="compoundsList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select Compound --" headerKey="-1" reloathopics="reloadCompoundsAntdistrictsList" onChangeTopics="disableAllOthers"/>
+				<sj:select href="listCompounds" id="compound" name="property.compound.id" list="compoundsList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select Compound --" headerKey="-1" reloadTopics="reloadCompoundsList" onChangeTopics="disableAllOthers"/>
 			</td>
 		</tr>
 		<tr>
 			<th class="otherLocationData"><s:text name="location.district" /></th>
 			<td class="otherLocationData">
-				<sj:select href="listDistricts" id="district" name="property.district.id" list="districtsList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select District --" headerKey="-1" reloathopics="reloadCompoundsAntdistrictsList" onChangeTopics="reloadZonesList" />
+				<sj:select href="listDistricts" id="district" name="property.district.id" list="districtsList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select District --" headerKey="-1" reloadTopics="reloadDistrictsList" onChangeTopics="reloadZonesList" />
 			</td>
 			<th class="otherLocationData"><s:text name="location.zone" /></th>
 			<td class="otherLocationData">
-				<sj:select href="listZones" id="zone" name="property.zone.id" list="zonesList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select Zone --" headerKey="-1" reloathopics="reloadZonesList" onChangeTopics="reloadSubareasList" />
+				<sj:select href="listZones" id="zone" name="property.zone.id" list="zonesList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select Zone --" headerKey="-1" reloadTopics="reloadZonesList" onChangeTopics="reloadSubareasList" />
 			</td>
 		</tr>
 		<tr>
 			<th class="otherLocationData"><s:text name="location.subarea" /></th>
 			<td class="otherLocationData">
-				<sj:select href="listSubareas" cssClass="otherLocationData" id="subarea" name="property.subarea.id" list="subareasList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select Subarea --" headerKey="-1" reloathopics="reloadSubareasList"/>
+				<sj:select href="listSubareas" cssClass="otherLocationData" id="subarea" name="property.subarea.id" list="subareasList" listKey="id" listValue="fullName" emptyOption="false" headerValue="-- Select Subarea --" headerKey="-1" reloadTopics="reloadSubareasList"/>
 			</td>
 		</tr>
 		</table>
@@ -257,7 +257,7 @@ width: 200px;
 		</table>
 	</fieldset>
 </s:if>	
-	<p class="submit"><sj:submit targets="bodyID" indicator="indicator" value="Search" /></p>
+	<p class="submit"><sj:submit targets="bodyID" indicator="indicator" value="Search" button="true"/></p>
 </s:form>	
 
 <tr><th colspan="6"></th></tr>

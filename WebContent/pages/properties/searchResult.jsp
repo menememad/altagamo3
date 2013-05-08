@@ -24,7 +24,7 @@ jQuery(function($){
 	
 /* // content */
 th{
-	background-color: blue;
+	background-image: linear-gradient(rgb(20,20,20),rgb(255,20,20));
 	color: white;
 }
 .more-div{display: none;}
@@ -85,7 +85,7 @@ th{
 	</s:url>
 	<tr>
 		<th colspan="2"><s:text name="itemNo" /> <s:property value="id" /></th>
-		<th colspan="2"><s:property value="propertyType.englishName" /></th><th><s:text name="propertyFor" /> <s:property value="getText('propertyfor.'+propertyFor)" /></th>
+		<th colspan="2"><s:property value="propertyType.englishName" /> - <s:property value="title" /></th><th><s:text name="propertyFor" /> <s:property value="getText('propertyfor.'+propertyFor)" /></th>
 	</tr>
 	<tr>
 		<td rowspan="4">
@@ -139,7 +139,7 @@ th{
 </table>
 <div>
 <div class="more-div ui-widget-content ui-corner-all" id="div_moreID_<s:property value="id" />"  >
-		<table class="formTables">
+		<table>
 			<tr >
 				<th><s:text name="propertyType"/></th>
 				<td><s:property value="propertyType.fullName" /></td>
@@ -160,10 +160,13 @@ th{
 			</s:elseif>
 			<tr >	
 				<th><s:text name="desciption" /></th>
-				<td width="500px"><s:property value="description" /></td>
+				<td rowspan="4" style="padding: 5 5 5 5;width: 400px;" > <div style="overflow: visible;max-height:160px;max-width:370px;"> <s:property value="description" /> </div> </td>
 				<th><s:text name="area" /></th>
-				<td><s:property value="area" /></td>
+				<td rowspan="4"><s:property value="area" /></td>
 			</tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
 			<tr >
 				<th><s:text name="floorNo" /></th>
 				<td><s:property value="floorNo" /></td>

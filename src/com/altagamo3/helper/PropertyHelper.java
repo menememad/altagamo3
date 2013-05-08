@@ -212,6 +212,7 @@ public class PropertyHelper {
 			if(rs.next()){
 				p = new Property();
 				p.setId(rs.getInt("property.id"));
+				p.setTitle(rs.getString("property.title"));
 				p.setDescription(rs.getString("description"));
 				p.setStatus(rs.getInt("property.status"));
 				p.setPropertyFor(rs.getInt("property.prp_for"));
@@ -515,7 +516,7 @@ public class PropertyHelper {
 			"video_link=?, c_name=?, c_phone=?, c_email=?, c_address=? WHERE id=?";
 			pst = conn.prepareStatement(strSQL);
 			pst.setInt(1, p.getPropertyType().getId());
-			pst.setString(2, p.getDescription());
+			pst.setString(2, p.getTitle());
 			pst.setString(3, p.getDescription());
 			pst.setInt(4, p.getCountry().getId());
 			pst.setInt(5, p.getState().getId());
@@ -863,6 +864,7 @@ public class PropertyHelper {
 			while(rs.next()){
 				Property p = new Property();
 				p.setId(rs.getInt("property.id"));
+				p.setTitle(rs.getString("title"));
 				p.setDescription(rs.getString("description"));
 				p.setStatus(rs.getInt("property.status"));
 				p.setPropertyFor(rs.getInt("property.prp_for"));

@@ -21,8 +21,8 @@
   </context-param>
   <context-param>
     <param-name>IMAGE_PATH</param-name>
-    <!-- <param-value>/home/allamco1/public_html</param-value> -->
-    <param-value>D:\views\altagamo3\WebContent</param-value>
+    <param-value>/home/allamco1/public_html</param-value>
+    <!-- <param-value>D:\views\altagamo3\WebContent</param-value> -->
   </context-param>
   <listener>
     <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>

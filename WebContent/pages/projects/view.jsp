@@ -1,6 +1,7 @@
 <%@ page  contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
+<title><s:property value="project.title" /></title>
 <%String dir = request.getLocale().getLanguage().equals("en")?"ltr":"rtl"; %>
 
 <script src="/scripts/jquery.slides.min.js"></script> 
@@ -8,7 +9,7 @@
 	<s:form id="ViewProjectForm"  theme="simple"> 
 		
 <fieldset >
-	<center ><legend ><h1><s:property value="project.title" /></h1></legend></center>
+	<center ><legend><h1><s:property value="project.title" /></h1></legend></center>
 		<s:if test="%{project.videoLink!=null && project.videoLink.length>0}">
 			<center>
 				<iframe id="player" width="640" height="390" src='http://www.youtube.com/embed/<s:property value="project.videoLink" />?enablejsapi=1&origin=http://www.altagamo3.com' frameborder="0" ></iframe>
