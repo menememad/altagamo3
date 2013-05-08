@@ -2,7 +2,7 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
-<title><s:text name="itemNo" /> <s:property value="property.id" /> - <s:property value="property.description" /></title>
+<title><s:text name="itemNo" /> <s:property value="property.id" /> - <s:property value="property.title" /></title>
         <script src="/galleria/galleria-1.2.7.min.js"></script>
         <script src="/scripts/watermark.jquery.js"></script>
     	<h2><s:text name="property.details" /></h2>
