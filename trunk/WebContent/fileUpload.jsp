@@ -17,7 +17,7 @@
 					buttonIcon="ui-icon-refresh" cssStyle="display:none" formIds="uploadFileFormID">									
 				</sj:submit>
 				
-				
+				<input type="reset"  id="resetID" style="display:none"/>
 </s:form>
 </div>
 
