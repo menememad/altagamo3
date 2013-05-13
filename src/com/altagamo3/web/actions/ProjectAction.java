@@ -307,7 +307,7 @@ public class ProjectAction extends BaseAction{
 					//String filePath = context.getRealPath("/")+"proj_img/"+propertyID+"/";
 					//String filePath = "/public_html/proj_img/"+propertyID+"/";
 					//String filePath = "/home/allamco1/public_html/proj_img/"+projID+"/";
-					String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"proj_img/"+projID;
+					String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/proj_img/"+projID;
 					System.out.println("Server path:" + filePath);
 		            for (Image image : attachedFiles) {
 		            	imageCount++;

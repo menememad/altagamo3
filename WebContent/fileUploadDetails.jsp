@@ -15,3 +15,6 @@
 	</tr>	
 </s:iterator>
 </table>
+<script type="text/javascript">
+$('#resetID').click();
+</script>
