@@ -23,7 +23,7 @@
 
 <!-- <a href="#" onclick="test();">upload file</a>
 <a href="#" onclick="changed();">changed</a> --> 
-<img alt="" src="./images/ajax-loader.gif" id="ajax-loaderID" style="display:none">
+<img alt="" src="./static/images/ajax-loader.gif" id="ajax-loaderID" style="display:none">
 
 <div id="uploadDivID">
 	

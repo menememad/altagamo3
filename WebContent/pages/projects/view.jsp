@@ -33,7 +33,7 @@
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 	
-<a onclick="exportWindow('<s:property value="project.id"/>')" href="javascript:;"  style="width:75px" ><img alt="" src="/images/export/pdf.jpg"/>  </a>
+<a onclick="exportWindow('<s:property value="project.id"/>')" href="javascript:;"  style="width:75px" ><img alt="" src="/static/images/export/pdf.jpg"/>  </a>
                </p>
                </td>
 			</tr>	
@@ -52,7 +52,7 @@
 <s:else>
 <fieldset style="margin:10px 140px 30px 140px;">
 <div id="slides">
-	<img border="0" class="slidesjs-slide" src='/images/home.jpg' />
+	<img border="0" class="slidesjs-slide" src='/static/images/home.jpg' />
 </div> 
 </fieldset>
 </s:else> 

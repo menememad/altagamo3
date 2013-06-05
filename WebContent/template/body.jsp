@@ -1,1 +1,1 @@
-<img border="0" src="<%=request.getContextPath()%>/images/image_31.jpg" width="489" height="185">
+<img border="0" src="<%=request.getContextPath()%>/static/images/image_31.jpg" width="489" height="185">

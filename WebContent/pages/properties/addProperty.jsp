@@ -8,15 +8,15 @@
 	<s:form id="addPropertyForm" action="addProperty" method="POST" theme="simple">
 	<s:url id="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
 		<s:if test="hasFieldErrors()">
-		 	<img src="/images/signs/error.gif" /><h3 style="color: red"><s:text name="err.message" /></h3>
+		 	<img src="/static/images/signs/error.gif" /><h3 style="color: red"><s:text name="err.message" /></h3>
 		   	<s:fielderror />
 		</s:if>
 		<s:elseif test="hasActionErrors()">
-			<img src="/images/signs/error.gif" /> <h3 style="color: red"><s:text name="err.message" /></h3>
+			<img src="/static/images/signs/error.gif" /> <h3 style="color: red"><s:text name="err.message" /></h3>
 		   	<s:actionerror />
 		</s:elseif>
 		<s:elseif test="hasActionMessages()">
-		   <img src="/images/signs/success.gif" /><h3 style="color: green"><s:actionmessage /></h3>
+		   <img src="/static/images/signs/success.gif" /><h3 style="color: green"><s:actionmessage /></h3>
 		</s:elseif>
 	<fieldset>
 		<legend><s:text name="section.property.info" /></legend>
@@ -83,7 +83,7 @@
 			<tr class="odd">
 				<td colspan="6">
 					<sj:a indicator="indicator" href="openUploadAttachedFile" targets="openUploadAttachedFileID" >
-						<img border="0" src="images/attachement.jpg" width="16" height="16" />
+						<img border="0" src="static/images/attachement.jpg" width="16" height="16" />
 						<s:text name="attach.file.title" />
 					</sj:a>	
 					<sj:div id="openUploadAttachedFileID" ></sj:div>	

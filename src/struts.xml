@@ -71,7 +71,7 @@
             <param name="contentDisposition">attachment; filename="${filename}"</param>
             <param name="bufferSize">1024</param>
     	</result>
-    	<result name="error">/images/placeholder.jpg</result>	
+    	<result name="error">/static/images/placeholder.jpg</result>	
 	</action>
 	<action name="displayPropertyImage" class="com.altagamo3.web.actions.ImageDisplayerAction" method="displayPropertyImage">
 		<result name="success" type="stream">
@@ -80,7 +80,7 @@
             <param name="contentDisposition">attachment; filename="${filename}"</param>
             <param name="bufferSize">1024</param>
     	</result>	
-    	<result name="error">/images/placeholder.jpg</result>
+    	<result name="error">/static/images/placeholder.jpg</result>
 	</action>
 	<action name="displayMarqueeData" class="com.altagamo3.web.actions.AdsAction" method="displayMarqueeData">
 		<result name="success" type="stream">

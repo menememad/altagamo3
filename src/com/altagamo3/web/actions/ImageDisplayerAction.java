@@ -69,7 +69,7 @@ public class ImageDisplayerAction extends ActionSupport implements ServletReques
 	}
 	public File getFile() {
 		String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-		File file = new File(filePath + "/images/users/", "user"+getFileExtension());
+		File file = new File(filePath + "/static/static/images/users/", "user"+getFileExtension());
 		System.out.println(file.toString());
 		return file;
 	}

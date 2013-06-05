@@ -112,10 +112,10 @@ th{
 			<sj:a href="%{getPropertyDetails}" indicator="indicator" targets="bodyID">
 		<%-- <img border="0" class="watermark" src='displayPropertyImage!displayPropertyImage?prpID=<s:property value="id" />&imgNo=1' width="160" height="160" align="right"/> --%>
 				<s:if test="%{imageCount>0}">
-					<img border="0" class="watermark" src='/prop_img/<s:property value="id" />/1.jpg' width="160" height="160" align="right"/>
+					<img border="0" class="watermark" src='/static/prop_img/<s:property value="id" />/1.jpg' width="160" height="160" align="right"/>
 				</s:if>
 				<s:else>
-					<img border="0" src='/images/home.jpg' width="160" height="160" align="right"/>
+					<img border="0" src='/static/images/home.jpg' width="160" height="160" align="right"/>
 				</s:else>
 			</sj:a>
 		</td>

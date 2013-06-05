@@ -32,7 +32,7 @@ if("ar_EG".equals(lang))
 
 
 <body id="templateID" style="margin:0;padding:0;height:100%;" dir='<%=dir%>'>
-<img id="myDefaultIndicator" src="/images/indicator.gif" alt="Loading..." style="display:none;border: 0;"/>
+<img id="myDefaultIndicator" src="/static/images/indicator.gif" alt="Loading..." style="display:none;border: 0;"/>
 <div id="container" style="min-height: 100%;position:relative;">
 	<a name="top"></a>
 	<div id="headerID"><tiles:insertAttribute name="header"/></div>
