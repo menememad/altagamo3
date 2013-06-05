@@ -32,8 +32,6 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
 	private List<User> usersList;
 
 	
-	private String USERS_IMAGE_PATH = "/images/users/";
-	
 	public String preLogin(){
 		System.out.println("in preLogin() method");
 		return SUCCESS;
@@ -81,7 +79,8 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
 			setEmail(currentUser.getEmail());
 			setMobile(currentUser.getMobile());
 			setAddress(currentUser.getAddress());
-			setPhotoFileName(servletRequest.getContextPath()+USERS_IMAGE_PATH+getUsername()+".jpg");
+			String filePath = servletRequest.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/user_img/";
+			setPhotoFileName(filePath+getUsername()+".jpg");
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();

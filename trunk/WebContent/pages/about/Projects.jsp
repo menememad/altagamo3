@@ -70,7 +70,7 @@ h4
 						<font size="2" color="#666666">
 						<span style="font-family: Tahoma,sans-serif">Al Montazah 
 						Royal Plaza</span></font><p>
-						<img border="0" src="/images/projects/000_0029.jpg" width="800" height="600"><font size="2" color="#666666"><span style="font-family: Tahoma,sans-serif"><br>
+						<img border="0" src="/static/images/projects/000_0029.jpg" width="800" height="600"><font size="2" color="#666666"><span style="font-family: Tahoma,sans-serif"><br>
 						<br>
 						Al Montazah Royal Plaza in Alexandria is the source of 
 						pride of Al Halawani for Real Estate. The Project is 
@@ -117,14 +117,14 @@ h4
 							</tr>
 							<tr>
 								<td align="center">
-								<a target="_blank" href="/images/projects/TXT_10.jpg">
-								<img border="0" src="/images/projects/TXT_10.jpg" width="210" height="215"></a></td>
+								<a target="_blank" href="/static/images/projects/TXT_10.jpg">
+								<img border="0" src="/static/images/projects/TXT_10.jpg" width="210" height="215"></a></td>
 								<td align="center">
-								<a target="_blank" href="/images/projects/U_1_01.jpg">
-								<img border="0" src="/images/projects/TXT_12.jpg" width="210" height="215"></a></td>
+								<a target="_blank" href="/static/images/projects/U_1_01.jpg">
+								<img border="0" src="/static/images/projects/TXT_12.jpg" width="210" height="215"></a></td>
 								<td align="center">
-								<a target="_blank" href="/images/projects/photo20_02.jpg">
-								<img border="0" src="/images/projects/Untitled-3_01.jpg" width="250" height="230"></a></td>
+								<a target="_blank" href="/static/images/projects/photo20_02.jpg">
+								<img border="0" src="/static/images/projects/Untitled-3_01.jpg" width="250" height="230"></a></td>
 							</tr>
 						</table>
 						<p>&nbsp;</p>

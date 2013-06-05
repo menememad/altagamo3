@@ -3,7 +3,7 @@
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <title>AlTagamo3.com - التجمع.كوم</title>
 
-<div id="welcome-part1" style="direction: ltr; background-image: url('/images/welcome/allam-consult.jpg');background-repeat: no-repeat;background-position: center;height: 505px;">			
+<div id="welcome-part1" style="direction: ltr; background-image: url('/static/images/welcome/allam-consult.jpg');background-repeat: no-repeat;background-position: center;height: 505px;">			
 	<div style="display: inline-block;margin: 15px;background-color: transparent;">
 	<s:url var="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
 	<s:form id="searchPropertyForm" action="fastSearch" method="POST" cssStyle="width: 250px;">
@@ -104,13 +104,13 @@
 	<table border=0 width="100%" cellspacing="0" cellpadding="0">
 		<tr>
 		<td width="3%" height="108" bgcolor="#99DDE0">
-		<img border="0" src="images/welcome/side-label1.jpg" width="28" height="199"></td>
+		<img border="0" src="static/images/welcome/side-label1.jpg" width="28" height="199"></td>
 					<td align="center">
 			<s:url var="searchLand" action="searchPropertyType" method="searchPropertyType">
 				<s:param name="propertyType" value="10" />
 			</s:url>
 			<sj:a href="%{searchLand}" indicator="indicator" targets="bodyID" onmouseover="">
-			<img border="0" src="images/welcome/big-property01.jpg" width="179" height="225">
+			<img border="0" src="static/images/welcome/big-property01.jpg" width="179" height="225">
 			</sj:a></td>
 			
 			<td align="center">
@@ -118,7 +118,7 @@
 				<s:param name="propertyType" value="1" />
 			</s:url>
 			<sj:a href="%{searchApartment}" indicator="indicator" targets="bodyID">
-			<img border="0" src="images/welcome/big-property02.jpg" width="180" height="225">
+			<img border="0" src="static/images/welcome/big-property02.jpg" width="180" height="225">
 			</sj:a></td>
 			<td align="center">
 			<s:url var="searchDuplex" action="searchPropertyType" method="searchPropertyType">
@@ -126,21 +126,21 @@
 				<s:param name="subType" value="3" />
 			</s:url>
 			<sj:a href="%{searchDuplex}" indicator="indicator" targets="bodyID">
-			<img border="0" src="images/welcome/big-property03.jpg" width="180" height="225">
+			<img border="0" src="static/images/welcome/big-property03.jpg" width="180" height="225">
 			</sj:a></td>
 			<td align="center">
 			<s:url var="searchVilla" action="searchPropertyType" method="searchPropertyType">
 				<s:param name="propertyType" value="2" />
 			</s:url>
 			<sj:a href="%{searchVilla}" indicator="indicator" targets="bodyID">
-			<img border="0" src="images/welcome/big-property04.jpg" width="181" height="225">
+			<img border="0" src="static/images/welcome/big-property04.jpg" width="181" height="225">
 			</sj:a></td>
 			<td align="center">
 			<s:url var="searchBusiness" action="searchPropertyType" method="searchPropertyType">
 				<s:param name="propertyType" value="13" />
 			</s:url>
 			<sj:a href="%{searchBusiness}" indicator="indicator" targets="bodyID">
-			<img border="0" src="images/welcome/big-property05.jpg" width="182" height="225">
+			<img border="0" src="static/images/welcome/big-property05.jpg" width="182" height="225">
 			</sj:a></td>
 		</tr>
 	</table>
@@ -150,13 +150,13 @@
 	<table border=0 width="100%" cellspacing="0" cellpadding="0" height="199">
 	<tr>
 		<td width="3%" height="108" bgcolor="#99DDE0">
-		<img border="0" src="images/welcome/side-label2.jpg" width="28" height="199"></td>
+		<img border="0" src="static/images/welcome/side-label2.jpg" width="28" height="199"></td>
 		<td width="20%" bgcolor="#F0FAFF" valign="top" align="center" height="108">
 		<table border="0" width="25%" cellpadding="2" height="196">
 			<tr>
 				<td>
 				<p align="center">
-				<img border="0" src="images/welcome/property1.jpg" width="168" height="105"></td>
+				<img border="0" src="static/images/welcome/property1.jpg" width="168" height="105"></td>
 			</tr>
 			<tr>
 				<td><font face="Arial" style="font-size: 8pt">Quiet 
@@ -172,7 +172,7 @@
 			<tr>
 				<td>
 				<p align="center">
-				<img border="0" src="images/welcome/property2.jpg" width="167" height="105"></td>
+				<img border="0" src="static/images/welcome/property2.jpg" width="167" height="105"></td>
 			</tr>
 			<tr>
 				<td><font face="Arial" style="font-size: 8pt">Quiet 
@@ -188,7 +188,7 @@
 			<tr>
 				<td>
 				<p align="center">
-				<img border="0" src="images/welcome/property3.jpg" width="168" height="104"></td>
+				<img border="0" src="static/images/welcome/property3.jpg" width="168" height="104"></td>
 			</tr>
 			<tr>
 				<td><font face="Arial" style="font-size: 8pt">Quiet 
@@ -204,7 +204,7 @@
 			<tr>
 				<td>
 				<p align="center">
-				<img border="0" src="images/welcome/property4.jpg" width="168" height="104"></td>
+				<img border="0" src="static/images/welcome/property4.jpg" width="168" height="104"></td>
 			</tr>
 			<tr>
 				<td><font face="Arial" style="font-size: 8pt">Quiet 
@@ -220,7 +220,7 @@
 			<tr>
 				<td> 
 				<p align="center">
-				<img border="0" src="images/welcome/property5.jpg" width="168" height="104"></td>
+				<img border="0" src="static/images/welcome/property5.jpg" width="168" height="104"></td>
 			</tr>
 			<tr>
 				<td><font face="Arial" style="font-size: 8pt">Quiet 

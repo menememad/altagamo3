@@ -128,7 +128,7 @@
 	/*"""""""" Custom Rule""""""""*/	
 	ul#qm0 .qmparent	
 	{	
-		background-image:url(/images/qmimages/arrow_5.gif);
+		background-image:url(/static/images/qmstatic/images/arrow_5.gif);
 		background-repeat:no-repeat;
 		background-position:92% 55%;
 	}
@@ -137,7 +137,7 @@
 	/*"""""""" Custom Rule""""""""*/	
 	ul#qm0 ul .qmparent	
 	{	
-		background-image:url(/images/qmimages/arrow_10.gif);
+		background-image:url(/static/images/qmstatic/images/arrow_10.gif);
 	}
 
 

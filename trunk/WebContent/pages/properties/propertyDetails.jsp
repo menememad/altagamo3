@@ -3,8 +3,8 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <title><s:text name="itemNo" /> <s:property value="property.id" /> - <s:property value="property.title" /></title>
-        <script src="/galleria/galleria-1.2.7.min.js"></script>
-        <script src="/scripts/watermark.jquery.js"></script>
+        <script src="/static/galleria/galleria-1.2.7.min.js"></script>
+        <script src="/static/scripts/watermark.jquery.js"></script>
     	<h2><s:text name="property.details" /></h2>
 	<fieldset>
 		<legend><s:text name="property.upload.image"/></legend>
@@ -13,7 +13,7 @@
 			<div class="content">
 		        <div id="galleria" style="width: 500px;">
 		        <s:iterator var="index" begin="1" end="property.imageCount">
-		            <img class="watermark" border="0" name="myImage" src='/prop_img/<s:property value="property.id" />/${index}.jpg' />
+		            <img class="watermark" border="0" name="myImage" src='/static/prop_img/<s:property value="property.id" />/${index}.jpg' />
 		        </s:iterator>    
 		        </div>
 			</div>  

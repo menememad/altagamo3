@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
-  <script src="/scripts/jquery.slides.min.js"></script>
+  <script src="/static/scripts/jquery.slides.min.js"></script>
    
 <script type="text/javascript">
    $(function(){
@@ -35,9 +35,9 @@
  <br>
 <sj:a href="%{viewprojectURL}" targets="bodyID" indicator="indicator" >
      <s:if test="%{imageCount>0}"> 
-			<img border="0" class="slidesjs-slide"  align="middle" src='/proj_img/<s:property value="id" />/1.jpg' />
+			<img border="0" class="slidesjs-slide"  align="middle" src='/static/proj_img/<s:property value="id" />/1.jpg' />
 	</s:if><s:else> 
-			<img border="0" class="slidesjs-slide"  align="middle" src='/images/home.jpg' />
+			<img border="0" class="slidesjs-slide"  align="middle" src='/static/images/home.jpg' />
 	</s:else>
 </sj:a>
 </div>

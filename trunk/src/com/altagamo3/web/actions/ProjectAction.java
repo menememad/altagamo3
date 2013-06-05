@@ -69,8 +69,8 @@ public class ProjectAction extends BaseAction{
 					}
 //				else { 
 //					//the path of Image
-//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/images/home.jpg");
-//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/images/home.jpg");
+//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/static/images/home.jpg");
+//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/static/images/home.jpg");
 //					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("C://Users/Public/Pictures/Sample Pictures/Desert.jpg");
 //					image.scaleToFit(300f, 300f);
 //				//	image.scaleAbsoluteWidth(300f);

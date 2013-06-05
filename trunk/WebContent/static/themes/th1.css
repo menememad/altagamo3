@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 *{font-family:Droid Sans Arabic, Tahoma; text-decoration: none; }
 .loginBtn{
-	background-image: url("/images/btn_login.jpg");
+	background-image: url("/static/images/btn_login.jpg");
 	background-repeat: no-repeat;
 	width: 73px;
 	height: 32px;
@@ -52,7 +52,7 @@ dd {
     I must do a bg image, too!  So I'm duplicating the pointer.gif
     image, and positioning it so that it doesn't show up
     within the box */
-    background: #ffc url(/images/hint/pointer.gif) no-repeat -10px 5px;
+    background: #ffc url(/static/images/hint/pointer.gif) no-repeat -10px 5px;
 }
 
 /* The pointer image is hadded by using another span */
@@ -62,7 +62,7 @@ dd {
     top: 5px;
     width: 10px;
     height: 19px;
-    background: url(/images/hint/pointer.gif) left top no-repeat;
+    background: url(/static/images/hint/pointer.gif) left top no-repeat;
 }
 .errorMessage{color:red!important;display:inline;font:normal 12px Verdana}
 ul.errorMessage,ul.validator{display:inline;list-style-type:none;margin:0;padding:0}
@@ -79,7 +79,7 @@ div.ui-buttonset{display: inline;}
     left: 45%;
     top: 40%;
     display: none;
-    background: transparent url("../images/loading.gif");
+    background: transparent url("../static/images/loading.gif");
     z-index: 1000;
     height: 64px;
     width: 64px;
@@ -215,7 +215,7 @@ div.footerItem p a{color: white;}
       width: 13px;
       height: 0;
       padding-top: 13px;
-      background-image: url(/images/pagination.png);
+      background-image: url(/static/images/pagination.png);
       background-position: 0 0;
       float: left;
       overflow: hidden;

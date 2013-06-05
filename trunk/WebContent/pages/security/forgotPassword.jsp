@@ -2,7 +2,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <title>Forgot Password - AlTagamo3.com</title>
-<center><img ismap id="indicatorImage" style="display: none;" src="<%=request.getContextPath()%>/images/indicator.gif"></center>
+<center><img ismap id="indicatorImage" style="display: none;" src="<%=request.getContextPath()%>/static/images/indicator.gif"></center>
 <s:form action="resetPassword" method="POST">	
 	<s:textfield name="username" key="security.username"  javascriptTooltip="Type the username" />
 	<sj:submit targets="bodyID" indicator="indicatorImage"/>
