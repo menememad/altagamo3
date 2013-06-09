@@ -5,9 +5,8 @@
 
 <div id="welcome-part1" style="direction: ltr; background-image: url('/static/images/welcome/allam-consult.jpg');background-repeat: no-repeat;background-position: center;height: 505px;">			
 	<div style="display: inline-block;margin: 15px;background-color: transparent;">
-	<s:url var="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
 	<s:form id="searchPropertyForm" action="fastSearch" method="POST" cssStyle="width: 250px;">
-	<sj:select id="propertyType" label="Property Type" labelposition="top" name="propertyTypeID" href="%{listPropertiesData}" list="propertyTypesMap" />
+	<s:select id="propertyType" label="Property Type" labelposition="top" name="propertyTypeID" list="%{#application.propertyTypes}" />
 	<s:select id="propertyFor" label="For" labelposition="top" name="propertyFor"  list="#{1:getText('propertyfor.'+1),2:getText('propertyfor.'+2),3:getText('propertyfor.'+3)}"/>
 	<s:url id="listCairoLocations" action="listLocations" method="listLocations" />
 	<s:hidden name="property.country.id" value="1" />
