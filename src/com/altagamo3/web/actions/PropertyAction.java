@@ -87,11 +87,11 @@ public class PropertyAction extends BaseAction{
 				//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
 				//String filePath = "/public_html/prop_img/"+propertyID+"/";
 				//String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
-				String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/prop_img/"+propertyID;
+				String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/prop_img/"+propertyID+"/";
 				//System.out.println("Server path:" + filePath);
 	            for (Image image : attachedFiles) {
 	            	imageCount++;
-					File fileToCreate = new File(filePath+imageCount+".jpg");
+					File fileToCreate = new File(filePath,imageCount+".jpg");
 					FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
 				}
 			} catch (IOException e) {
@@ -129,7 +129,7 @@ public class PropertyAction extends BaseAction{
 					int propertyID = property.getId();
 					//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
 					//String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
-					String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/prop_img/"+propertyID;
+					String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/prop_img/"+propertyID+"/";
 					FileUtils.deleteQuietly(new File(filePath));
 		             
 					System.out.println("Server path:" + filePath);

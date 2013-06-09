@@ -4,18 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+
+import org.apache.struts2.util.ServletContextAware;
+
 import com.altagamo3.helper.LocationHelper;
 import com.altagamo3.helper.PropertyHelper;
 import com.altagamo3.to.Location;
 import com.altagamo3.to.Property;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LookupAction extends ActionSupport{
+public class LookupAction extends ActionSupport implements ServletContextAware{
 	private static final long serialVersionUID = 5724286605804043856L;
 	private Property property;
 //	private PropertySearch propertySearch;
 	private Map<Integer, String> propertyTypesMap;
-
+	private ServletContext application;
 
 	private List<Location> countriesList;
 	private List<Location> statesList;
@@ -50,9 +54,10 @@ public class LookupAction extends ActionSupport{
 	}
 
 	public String listPropertyTypes(){
-		PropertyHelper prpHelp = PropertyHelper.getInstance();
-		propertyTypesMap = prpHelp.listPropertyTypes();
-		System.out.println("HELP: "+propertyTypesMap.size());
+		//PropertyHelper prpHelp = PropertyHelper.getInstance();
+		//propertyTypesMap = prpHelp.listPropertyTypes();
+		propertyTypesMap = (Map<Integer, String>)application.getAttribute("propertyTypes");
+		//System.out.println("HELP: "+propertyTypesMap.size());
 		return SUCCESS;
 	}
 
@@ -224,5 +229,10 @@ public class LookupAction extends ActionSupport{
 
 	public void setProperty(Property property) {
 		this.property = property;
+	}
+
+	@Override
+	public void setServletContext(ServletContext arg0) {
+		application = arg0;
 	}
 }
