@@ -66,7 +66,7 @@
 		        headerKey="-1" 
 		        reloadTopics="reloadSubareasList"
 		        />
-		<sj:submit targets="bodyID" indicator="indicator" button="true" value="Search"/>
+		<sj:submit targets="bodyID" indicator="indicator" button="true" value="%{getText('SEARCH')}"/>
 		<sj:a indicator="indicator" href="preSearchProperty" button="true" targets="bodyID"><s:text name="welcome.advancedsearch" /></sj:a>
 	
 	</s:form>
