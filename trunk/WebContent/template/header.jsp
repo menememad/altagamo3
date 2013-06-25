@@ -2,6 +2,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/static/themes/th1.css" />
  <style>
     .toggler { width: 500px; height: 200px; position: relative; }
     #button { padding: .5em 1em; text-decoration: none; }
@@ -38,8 +39,8 @@ $(function() {
 
 
 </script>
-<img id="indicator" src="<%=request.getContextPath()%>/static/images/loading.gif" align="middle"/>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/static/themes/th1.css" />
+<img id="indicator" style="display: none;" src="<%=request.getContextPath()%>/static/images/loading.gif" align="middle"/>
+
 <table dir="ltr" style="height: 104;text-align: center;">
 	<tr height="100" valign="top">
 		<td width="260">
@@ -81,12 +82,17 @@ $(function() {
 					<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/static/images/social/twitter.jpg" width="32" height="32"></a>
 			</div>
 			<s:if test="%{#session.userInfo!=null}" >
-				<div style="background-color: #FFFFFF;vertical-align: top;height: 5;"><a href="logout"  id="logoutLink"  >Logout </a> </div>
+				<div style="background-color: #FFFFFF;vertical-align: top;height: 5;">
+				<s:form action="logout" method="POST" theme="simple">
+				<!--  <a href="/logout.action"  id="logoutLink"  >Logout </a>--> 
+				<sj:submit indicator="indicator"   button="true" value="Logout"/> 
+				</s:form>
+			</div>	
 			</s:if>
 			<s:else> 
 			<div style="background-color: #FFFFFF;height: 5;vertical-align: top;">
 		<!-- <a href="javascript:;" class="login-btn" id="loginLink">Login</a> -->	
-			<sj:a openDialog="loginDialog" href="javascript:;" >Login</sj:a>
+			<sj:a openDialog="loginDialog" href="javascript:;"  button="true" >Login</sj:a>
 			</div><s:fielderror />
 			</s:else>
 		</td>
