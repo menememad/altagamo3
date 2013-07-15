@@ -1,59 +1,6 @@
-<%@page contentType="text/html; charset=UTF-8" %>
-<%@taglib prefix="s" uri="/struts-tags"%>
-<%@taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
 
-<script type="text/javascript" src="/easypaginate/js/easypaginate.min.js"></script>
-<script type="text/javascript">
-jQuery(function($){
-	$('div#items').easyPaginate({
-		step:10
-	});
-});    
-</script>
-
-<style>
-/* content */
-	ol#pagination{overflow:hidden;}
-	ol#pagination li{
-		float:left;
-		list-style:none;
-		cursor:pointer;
-		margin:0 0 0 .5em;
-		}
-	ol#pagination li.current{color:#f00;font-weight:bold;}
-	
-/* // content */
-th{
-	background-image: linear-gradient(rgb(20,20,20),rgb(255,20,20));
-	color: white;
-}
-.more-div{display: none;}
-</style>
-<s:url var="preSearch" action="preSearchProperty" method="preSearchProperty"/>
-<sj:a id="advSearchTop"  indicator="indicator" href="%{preSearch}" targets="bodyID" button="true"><s:text name="welcome.advancedsearch" /></sj:a>
-<hr>
-<s:if test="hasActionMessages()">
-   <h3 style="color: green"><s:actionmessage /></h3>
-</s:if>
-<s:form id="resultForm" action="batchEdit" method="POST" theme="simple">
-<s:hidden name="actionValue" id="actionID"> </s:hidden>
-<s:if test="%{getPropertiesList().size()==0}">
-<table><tr><td><s:text name="err.search.empty" /></td></tr></table>
-</s:if>
-<s:else>
-<s:if test="%{#session.userInfo!=null && #session.userInfo.roleID==1}">
-<span style="width:100%">
-<sj:submit id="addToFavTop"  indicator="indicator"   value="%{getText('action.addToFavorites')}" targets="bodyID"  onclick="changeStatus(-1)"/>
-<sj:submit id="activateTop"  indicator="indicator"  value="%{getText('action.activate')}" targets="bodyID" onclick="changeStatus(1)"/>
-<sj:submit id="approveTop" indicator="indicator"  value="%{getText('action.approve')}" targets="bodyID" onclick="changeStatus(2)" />
-<sj:submit id="sellTop"  indicator="indicator"   value="%{getText('action.sell')}" targets="bodyID" onclick="changeStatus(3)"/>
-<sj:submit id="rentTop"  indicator="indicator"   value="%{getText('action.rent')}" targets="bodyID" onclick="changeStatus(4)"/>
-<sj:submit id="deactivateTop"  indicator="indicator"  value="%{getText('action.deactivate')}" targets="bodyID" onclick="changeStatus(5)"/>
-</span>
-</s:if>
-<hr />
-<div id="items">
-<s:iterator value="propertiesList">
+ <s:iterator value="properties">
 <table >
 	<s:url var="approveProperty" action="approveProperty" method="approveProperty">
 		<s:param name="propertyID" value="%{id}" />
@@ -90,7 +37,6 @@ th{
 	<tr>
 		<td rowspan="4">
 		<s:if test="%{#session.userInfo!=null && #session.userInfo.roleID==1}" >
-			<input type="checkbox" name="propertyID" value='<s:property value="%{id}" />'/><br/>
 			<sj:a href="%{preEditProperty}" targets="bodyID" indicator="indicator"><s:text name="action.edit" /></sj:a><br/>
 			<s:if test="%{status==1}">
 				<sj:a href="%{approveProperty}" indicator="indicator" targets="bodyID"><s:text name="action.approve" /></sj:a><br/>
@@ -191,35 +137,4 @@ th{
 			</tr>
 		</table>
 </div>
-</div>
-</s:iterator> 
-</div><br />   		
-<hr />
-<s:if test="%{#session.userInfo!=null && #session.userInfo.roleID==1}" >
-<span style="width:100%">
-<sj:submit id="addToFavBtm" value="%{getText('action.addToFavorites')}" targets="bodyID" onclick="changeStatus(-1)"/>
-<sj:submit id="activateBtm" value="%{getText('action.activate')}" targets="bodyID" onclick="changeStatus(1)"/>
-<sj:submit id="approveBtm" value="%{getText('action.approve')}" targets="bodyID" onclick="changeStatus(2)" />
-<sj:submit id="sellBtm" value="%{getText('action.sell')}" targets="bodyID" onclick="changeStatus(3)"/>
-<sj:submit id="rentBtm" value="%{getText('action.rent')}" targets="bodyID" onclick="changeStatus(4)"/>
-<sj:submit id="deactivateBtm" value="%{getText('action.deactivate')}" targets="bodyID" onclick="changeStatus(5)"/>
-</span>
-</s:if>
-</s:else>
-</s:form>
-<hr>
-
-<script>
-function confirmDelete(){
-	return confirm('You are about to delete this item forever!');
-}
-function changeStatus(newStatus){
-	document.getElementById('actionID').value=newStatus;
-} 
-    function showHideDetails(S_H_obj)
-    {
-    //alert(S_H_obj.id);
-     $('#div_'+S_H_obj.id).toggle('fast',function(){});
-     $(this).toggleClass('#'+S_H_obj);return false;
-    } 
-</script>  
+</div> </s:iterator>
