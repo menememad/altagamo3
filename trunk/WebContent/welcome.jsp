@@ -1,6 +1,7 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
+<script src="/static/scripts/jquery.slides.min.js"></script>
 <title>AlTagamo3.com - التجمع.كوم</title>
 
 <div id="welcome-part1" style="direction: ltr; background-image: url('/static/images/welcome/allam-consult.jpg');background-repeat: no-repeat;background-position: center;height: 505px;">			
@@ -148,6 +149,33 @@
 <div id="welcome-part4">
 	<table border=0 width="100%" cellspacing="0" cellpadding="0" height="199">
 	<tr>
+			<td width="3%" height="108" bgcolor="#99DDE0">
+		<img border="0" src="static/images/welcome/side-label2.jpg" width="28" height="199"></td>
+	
+	<s:iterator value="arProperties"> 
+		<td width="20%" bgcolor="#F0FAFF" valign="top" align="center" height="108">
+	       		<table border="0" width="25%" cellpadding="2" height="196">
+			<tr>
+				<td>
+				<p align="center">
+				<img border="0" class="watermark" src='/static/prop_img/<s:property value="id" />/1.jpg' width="168" height="105" />
+				</td>
+			</tr>
+			<tr>
+				<td><font face="Arial" style="font-size: 8pt">
+                     <s:property value="description"/>
+                     </font></td>
+			</tr>
+		</table>
+	    </td>
+     </s:iterator> 
+    </tr>
+</table>
+</div>
+<!-- 
+<div id="welcome-part4">
+	<table border=0 width="100%" cellspacing="0" cellpadding="0" height="199">
+	<tr>
 		<td width="3%" height="108" bgcolor="#99DDE0">
 		<img border="0" src="static/images/welcome/side-label2.jpg" width="28" height="199"></td>
 		<td width="20%" bgcolor="#F0FAFF" valign="top" align="center" height="108">
@@ -233,6 +261,7 @@
 	</tr>
 	</table>
 </div>
+ -->
 <script type="text/javascript">
 //$('#box1').animate({boxShadow: '0 0 30px #44f'});
 $('#box1').corner();
