@@ -231,7 +231,9 @@ lsp=b;b[w]=qm_oo;if(w==e)b.onmouseover=function(event){clearTimeout(qm_tt);qm_tt
 			<li><sj:a href="preEditUser" indicator="indicator" targets="bodyID"><s:text name="menu.myProfile.edit" /></sj:a></li>
 			<li><span class="qmdivider qmdividerx" ></span></li>
 			<li><span class="qmtitle" ><s:text name="menu.myItems"/></span></li>
-			<li><sj:a href="preListFavorites" indicator="indicator" targets="bodyID"><s:text name="menu.myItems.myFav"/></sj:a></li>
+			<li>
+			    <s:url action="preListFavorites.action" id="preListFavoritesURL"></s:url>
+			<sj:a href="%{preListFavoritesURL}" indicator="indicator" targets="bodyID"><s:text name="menu.myItems.myFav"/></sj:a></li>
 			<li><sj:a href="preListAds" indicator="indicator" targets="bodyID"><s:text name="menu.myItems.myAds"/></sj:a></li>
 		</ul>
 	</li>
@@ -263,7 +265,8 @@ lsp=b;b[w]=qm_oo;if(w==e)b.onmouseover=function(event){clearTimeout(qm_tt);qm_tt
 		</s:if>
 			<li><sj:a href="preAddProperty" indicator="indicator" targets="bodyID"><s:text name="menu.property.add" /></sj:a></li>
 			<li><sj:a href="searchMyProperties" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.ads" /></sj:a></li>
-			<li><sj:a href="searchMyFavorites" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.fav" /></sj:a></li>
+			<s:url action="searchMyFavorites" id="searchMyFavoritesURL"></s:url>
+			<li><sj:a href="%{searchMyFavoritesURL}" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.fav" /></sj:a></li>
 		</ul>
 	</li>
 </s:if>
