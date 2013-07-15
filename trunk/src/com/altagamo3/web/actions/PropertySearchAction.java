@@ -186,13 +186,20 @@ public class PropertySearchAction extends ActionSupport implements ServletReques
 	}
 
 	public String searchMyFavorites(){
-		propertySearch = new PropertySearch();
-		User currentUser = (User)servletRequest.getSession().getAttribute("userInfo");
-		PropertyHelper prpHelp = PropertyHelper.getInstance();
-		Integer[] propertyIDs = prpHelp.getFavoritesPropertyIDs(currentUser.getId());
-		propertySearch.setPropertyID(propertyIDs);
-		propertySearch.setStatuses(new Integer[]{1,2,3,4,5});
-		propertiesList = prpHelp.searchProperties(propertySearch, cond, currentUser);
+		try {
+			System.out.println("searchMyFavorites::::::");
+			propertySearch = new PropertySearch();
+			User currentUser = (User)servletRequest.getSession().getAttribute("userInfo");
+			PropertyHelper prpHelp = PropertyHelper.getInstance();
+			Integer[] propertyIDs = prpHelp.getFavoritesPropertyIDs(currentUser.getId());
+			propertySearch.setPropertyID(propertyIDs);
+			propertySearch.setStatuses(new Integer[]{1,2,3,4,5});
+			propertiesList = prpHelp.searchProperties(propertySearch, cond, currentUser);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return SUCCESS;
+		}
 		return SUCCESS;
 	}
 

@@ -9,6 +9,8 @@ import java.util.List;
 import javax.print.attribute.standard.Compression;
 import javax.servlet.http.HttpServletResponse;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
@@ -176,10 +178,14 @@ public class ProjectAction extends BaseAction{
 						System.out.println("Server path:" + filePath);
 			            for (Image image : attachedFiles) {
 			            	imageCount++;
-							File fileToCreate = new File(filePath, imageCount+".jpg");
+			            	File fileToCreate = new File(filePath, imageCount+".jpg");
+			            	File fileThumb  = new File(filePath,"thumb"+imageCount+".jpg");
 							System.out.println("Image File: "+image.getFile());
 							FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
-						} 
+							Thumbnails.of(image.getFile())
+					        .size(160, 160)
+					        .toFile(fileThumb);
+			            } 
 					} catch (IOException ioe) {
 						addActionError(getText(ioe.getMessage()));
 						return INPUT;
@@ -312,9 +318,13 @@ public class ProjectAction extends BaseAction{
 		            for (Image image : attachedFiles) {
 		            	imageCount++;
 						File fileToCreate = new File(filePath, imageCount+".jpg");
+						File fileThumb = new File(filePath,"thumb"+imageCount+".jpg");
 						System.out.println("Image File: "+image.getFile());
 						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
-					}
+						Thumbnails.of(image.getFile())
+				        .size(160, 160)
+				        .toFile(fileThumb);
+		            }
 				} catch (IOException ioe) {
 					addActionError(getText(ioe.getMessage()));
 					return INPUT;

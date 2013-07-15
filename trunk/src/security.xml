@@ -7,7 +7,7 @@
 			<interceptor-ref name="defaultStack"/>			
 	 		<interceptor-ref name="scope">
 				<param name="type">start</param>
-				<param name="session">property,propertySearch</param>
+				<param name="session">property,propertySearch,arProperties</param>
 			    <param name="autoCreateSession">true</param>
 			</interceptor-ref>	
 			<result name="success" type="tiles">welcome</result>
