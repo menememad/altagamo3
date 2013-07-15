@@ -1,5 +1,7 @@
 package com.altagamo3.web.actions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.altagamo3.helper.PropertyHelper;
 import com.altagamo3.helper.SecurityHelper;
+import com.altagamo3.to.Property;
 import com.altagamo3.to.User;
 import com.altagamo3.utils.Constants;
 import com.altagamo3.utils.Utils;
@@ -37,10 +41,13 @@ public class SecurityAction extends ActionSupport implements ServletRequestAware
 	private String savedPassword;
 	private boolean remember;
 	private boolean forget;
+	private List <Property> arProperties = new ArrayList<Property>();
 
 	public String welcome(){
 		User currentUser = (User)servletRequest.getSession().getAttribute("userInfo");
 		String param = servletRequest.getParameter("src");
+		PropertyHelper helper= PropertyHelper.getInstance();
+		arProperties = helper.ListCommonFavourites();
 		if(currentUser==null || (param!=null && param.length()>0))
 			return SUCCESS;
 		else
@@ -92,6 +99,7 @@ public class SecurityAction extends ActionSupport implements ServletRequestAware
 		}else{
 			User u = secHelp.getUser(username);
 			session.put("userInfo", u);
+			username = "";
 			if(u.getRoleID()==1)//Administrator
 				return ADMIN;
 			else if(u.getRoleID()==2)//Seller
@@ -220,5 +228,13 @@ public class SecurityAction extends ActionSupport implements ServletRequestAware
 	@Override
 	public void setServletRequest(HttpServletRequest servletRequest) {
 		this.servletRequest = servletRequest;
+	}
+
+	public List<Property> getArProperties() {
+		return arProperties;
+	}
+
+	public void setArProperties(List<Property> arProperties) {
+		this.arProperties = arProperties;
 	}
 }

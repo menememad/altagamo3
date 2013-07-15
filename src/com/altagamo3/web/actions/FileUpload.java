@@ -97,7 +97,7 @@ public class FileUpload extends BaseAction {
 			file.setFileSize(attachedFile.length());
 			((ArrayList<Image>)session.get("attachedFiles")).add(file);			
 			
-			//log.info("FINISHED");
+			System.out.println("FINISHED");
 
 		}catch (Exception e) {
 			e.printStackTrace();

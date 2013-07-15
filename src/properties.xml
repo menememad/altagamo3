@@ -60,7 +60,11 @@
 		<result name="success">/pages/properties/confirmProperty.jsp</result>
 	</action>	
 	<action name="batchEdit" class="com.altagamo3.web.actions.PropertyAction" method="batchEdit">
+		<interceptor-ref name="scope">
+		<param name="session">propertiesList</param>
+		</interceptor-ref>
 		<interceptor-ref name="defaultStack"/>
+		<result name="input">/pages/properties/searchResult.jsp</result>
 		<result name="success">/pages/properties/searchResult.jsp</result>
 	</action>	
 		<action name="changePropertyStatus" class="com.altagamo3.web.actions.PropertyAction" method="changePropertyStatus">
@@ -70,6 +74,10 @@
 		
 <!-- Properties Search-->
 	<action name="searchPropertyFor" class="com.altagamo3.web.actions.PropertySearchAction" method="searchPropertyFor">
+	   	<interceptor-ref name="scope">
+	   	<param name="type">start</param>
+	   	<param name="session">propertiesList</param>
+	   	</interceptor-ref>
 	   	<interceptor-ref name="defaultStack"/>			
 		<result name="success">/pages/properties/searchResult.jsp</result>
 	</action>	
@@ -106,6 +114,14 @@
     <action name="searchMyFavorites" class="com.altagamo3.web.actions.PropertySearchAction" method="searchMyFavorites">
         <interceptor-ref name="defaultStack"/>
 	     <result name="success">/pages/properties/searchResult.jsp</result>
+    </action>
+    <action name="preListFavorites"  class="com.altagamo3.web.actions.PropertyAction"  method="preListFavorites">
+     <interceptor-ref name="scope">
+     <param name="start"></param>
+      <param name="session">properties</param>
+     </interceptor-ref>
+    <interceptor-ref name="defaultStack"></interceptor-ref>
+    <result name="success">/pages/properties/favourites.jsp</result>
     </action>	
 	</package>
 </struts>

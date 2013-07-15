@@ -907,11 +907,12 @@ public class PropertyHelper {
 		try {
 			pst = conn.prepareStatement("INSERT INTO favorites values(?,?)");
 			for (String s: propertyIDs) {
-				pst.setInt(1, userID);
-				pst.setInt(2, Integer.parseInt(s));
-				pst.addBatch();
+				pst.setInt(1, Integer.parseInt(s));
+				pst.setInt(2, userID);
+				System.out.println(s);
+				pst.executeUpdate();
 			}
-			pst.executeBatch();
+			//pst.executeBatch();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -941,7 +942,7 @@ public class PropertyHelper {
 				i++;
 			}
 			if(propertyIDs.length==0)
-				propertyIDs[0]=0;
+				propertyIDs=new Integer[]{0};
 			System.out.println("Fav length: "+propertyIDs.length);
 			System.out.println("Fav propertyID: "+propertyIDs[0]);
 		} catch (SQLException e) {
@@ -1006,5 +1007,66 @@ public class PropertyHelper {
 			}
 		}
 		return result;
+	}
+	public List<Property> listMyFavourites(User loggedInUser) {
+		List<Property> propList = new ArrayList<Property>();
+		try {
+		DBConnection dbcon = new DBConnection();
+		Connection conn = dbcon.getConnection();
+		PreparedStatement pst = null;
+		String strSQL=" select prop.id id , prop.description description ,prop.title title ,prop.img_count count " +
+					  " from favorites fav  	" +
+					  " inner join property prop on fav.property_id = prop.id " +
+					  " inner join Users user on fav.user_id = user.id " +
+					  " where fav.user_id = ?" ;
+		pst = conn.prepareStatement(strSQL);
+		pst.setInt(1, loggedInUser.getId());
+		ResultSet rs = pst.executeQuery();
+		Property property  ;
+		while (rs.next()) 
+		{
+			property = new Property();
+			property.setId(rs.getInt("id"));
+			property.setDescription(rs.getString("description"));
+			property.setTitle(rs.getString("title"));
+			property.setImageCount(rs.getInt("count"));
+		propList.add(property);
+		}
+		System.out.println("propList::"+propList.size());
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return propList;
+	}
+	public List<Property> ListCommonFavourites() {
+		List<Property> properties = new ArrayList<Property>();
+		try {
+			DBConnection dbcon = new DBConnection();
+			Connection conn = dbcon.getConnection();
+			PreparedStatement pst = null;
+			String strSQL=" select prop.id id , prop.description description ,prop.title title " +
+					      " ,prop.img_count count " +
+						  " from favorites fav  	" +
+						  " inner join property prop on fav.property_id = prop.id " +
+						  " inner join Users user on fav.user_id = user.id " +
+						  " where user.role_id = 1" ;
+			pst = conn.prepareStatement(strSQL);
+			ResultSet rs = pst.executeQuery();
+			Property property  ;
+			while (rs.next()) 
+			{
+				property = new Property();
+				property.setId(rs.getInt("id"));
+				property.setDescription(rs.getString("description"));
+				property.setTitle(rs.getString("title"));
+				property.setImageCount(rs.getInt("count"));
+			properties.add(property);
+			}
+			System.out.println("ListCommonFavourites:properties::"+properties.size());	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return properties;
 	}
 }

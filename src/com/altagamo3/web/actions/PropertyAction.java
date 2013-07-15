@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 
 import com.altagamo3.helper.PropertyHelper;
 import com.altagamo3.to.Image;
@@ -12,33 +15,54 @@ import com.altagamo3.to.Property;
 import com.altagamo3.to.User;
 import com.altagamo3.utils.Constants;
 import com.altagamo3.utils.Utils;
+import com.opensymphony.xwork2.ActionContext;
 
 public class PropertyAction extends BaseAction{
 
 	private static final long serialVersionUID = -736270398790301333L;
 	private Property property;
 	private int aprtSubtype;
-	private int villaSubtype;
+	private int villaSubtype; 
+	private String actionValue;
+	private List<Property> properties ;
+	public String preListFavorites()
+	{
+		try {
+			User loggedInUser = (User)session.get("userInfo");
+			PropertyHelper prpHelp = PropertyHelper.getInstance();
+			properties = prpHelp.listMyFavourites(loggedInUser);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return SUCCESS;
+		}
+		return SUCCESS;
+	}
 	
 	public String batchEdit(){
-		User loggedInUser = (User)session.get("userInfo");
-		String[] propertyIDs = request.getParameterValues("propertyID");
-		if(propertyIDs.length>0){
-			int action = Integer.parseInt(request.getParameter("action"));
-			System.out.println("Action: "+action);
-			PropertyHelper prpHelp = PropertyHelper.getInstance();
-			if(action==-1){
-				prpHelp.addToFavorites(loggedInUser.getId(),propertyIDs);
-				addActionMessage(getText("msg.add.favorite.property"));
-			}else{
-				prpHelp.changePropertyStatus(propertyIDs, action, loggedInUser.getId());
-			String PropertyIDsStr = "";
-			for (String s : propertyIDs) {
-				PropertyIDsStr+=s+",";
+		try {
+			User loggedInUser = (User)session.get("userInfo");
+			HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+			String[] propertyIDs = request.getParameterValues("propertyID");
+			if(propertyIDs.length>0){
+				int action =  Integer.parseInt(actionValue);
+				System.out.println("Action: "+action);
+				PropertyHelper prpHelp = PropertyHelper.getInstance();
+				if(action==-1){
+					prpHelp.addToFavorites(loggedInUser.getId(),propertyIDs);
+					addActionMessage(getText("msg.add.favorite.property"));
+				}else{
+					prpHelp.changePropertyStatus(propertyIDs, action, loggedInUser.getId());
+				String PropertyIDsStr = "";
+				for (String s : propertyIDs) {
+					PropertyIDsStr+=s+",";
+				}
+				PropertyIDsStr = PropertyIDsStr.substring(0, PropertyIDsStr.length()-1);
+				addActionMessage(getText("msg.edit.property",new String[]{PropertyIDsStr}));
+				}
 			}
-			PropertyIDsStr = PropertyIDsStr.substring(0, PropertyIDsStr.length()-1);
-			addActionMessage(getText("msg.edit.property",new String[]{PropertyIDsStr}));
-			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
 		}
 		return SUCCESS;
 	}
@@ -295,5 +319,17 @@ public class PropertyAction extends BaseAction{
 	}
 	public void setVillaSubtype(int villaSubtype) {
 		this.villaSubtype = villaSubtype;
+	}
+	public void setActionValue(String actionValue) {
+		this.actionValue = actionValue;
+	}
+	public String getActionValue() {
+		return actionValue;
+	}
+	public List<Property> getProperties() {
+		return properties;
+	}
+	public void setProperties(List<Property> properties) {
+		this.properties = properties;
 	}
 }
