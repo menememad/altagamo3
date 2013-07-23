@@ -85,14 +85,14 @@ $(function() {
 				<div style="background-color: #FFFFFF;vertical-align: top;height: 5;">
 				<s:form action="logout" method="POST" theme="simple">
 				<!--  <a href="/logout.action"  id="logoutLink"  >Logout </a>--> 
-				<sj:submit indicator="indicator"   button="true" value="Logout"/> 
+				<sj:submit indicator="indicator"   button="true" value="%{getText('menu.security.logout')}"/> 
 				</s:form>
 			</div>	
 			</s:if>
 			<s:else> 
 			<div style="background-color: #FFFFFF;height: 5;vertical-align: top;">
 		<!-- <a href="javascript:;" class="login-btn" id="loginLink">Login</a> -->	
-			<sj:a openDialog="loginDialog" href="javascript:;"  button="true" >Login</sj:a>
+			<sj:a openDialog="loginDialog" href="javascript:;"  button="true" ><s:text name="global.login"></s:text> </sj:a>
 			</div><s:fielderror />
 			</s:else>
 		</td>
