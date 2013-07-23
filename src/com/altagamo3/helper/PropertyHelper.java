@@ -1049,10 +1049,11 @@ public class PropertyHelper {
 						  " from favorites fav  	" +
 						  " inner join property prop on fav.property_id = prop.id " +
 						  " inner join Users user on fav.user_id = user.id " +
-						  " where user.role_id = 1" ;
+						  " where user.role_id = 1 order by fav.property_id  ASC" ;
 			pst = conn.prepareStatement(strSQL);
 			ResultSet rs = pst.executeQuery();
 			Property property  ;
+			int i = 0;
 			while (rs.next()) 
 			{
 				property = new Property();
@@ -1061,6 +1062,9 @@ public class PropertyHelper {
 				property.setTitle(rs.getString("title"));
 				property.setImageCount(rs.getInt("count"));
 			properties.add(property);
+			i++;
+			if(i == 4)
+				break;
 			}
 			System.out.println("ListCommonFavourites:properties::"+properties.size());	
 		} catch (Exception e) {
