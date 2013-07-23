@@ -86,7 +86,7 @@
 								<font face="Arial" style="font-size: 10pt; font-weight: 700" color="red"><s:fielderror /></font>
 							--><br>
 								<center>
-								<sj:submit indicator="indicator"   button="true" value="Login"/>  </center>
+								<sj:submit indicator="indicator"   button="true" value="%{getText('global.login')}"/>  </center>
 						<center>								<font face="Arial"  size="2">
 								<sj:a indicator="indicator" href="/pages/security/forgotPassword.jsp" targets="bodyID"><s:text name="global.forgotpassword" /></sj:a> | <sj:a href="preAddUser" targets="bodyID"><s:text name="global.registernow" /></sj:a></font>
 								</center>	
