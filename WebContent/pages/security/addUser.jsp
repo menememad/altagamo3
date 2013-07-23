@@ -1,4 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
@@ -68,8 +67,10 @@
 			<dt style="width: 200px;"><s:text name="security.address" /></dt>
 			<dd style="width: 500px;"><s:textarea name="address" cols="50" rows="5" /></dd>
 		</dl>
-		<sj:submit targets="bodyID"  indicator="indicator"/>
-	</fieldset>
+		</fieldset>
+<br/>
+	<sj:submit targets="bodyID"  indicator="indicator"/>
+
 </s:form>
 <script>
 function prepareInputsForHints() {
