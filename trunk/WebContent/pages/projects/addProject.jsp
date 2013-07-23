@@ -1,8 +1,9 @@
 <%@ page  contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
-<%String dir = request.getLocale().getLanguage().equals("en")?"ltr":"rtl"; %>
-<div id="container" dir='<%=dir%>' style="width:100%"> 
+
+<div id="container" dir="${dir}" style="width:100%"> 
+
 <s:form id="addProjectForm"   theme="simple">
 <table width="100%"><tr><td align="center"> <h2 style="color:blue;"><em><s:text name="title.project.addNew" /></em></h2> </td></tr></table>
 <s:if test="hasFieldErrors()">
@@ -24,7 +25,7 @@
 				<td width="70%"><sj:textfield id="title" name="project.title" maxlength="100"/> <s:fielderror fieldName="project.title"/></td>
 			</tr>
 			<tr class="even">
-				<td width="30%"><s:text name="project.description"/> <s:text name="required.flag" /></td>
+				<td width="30%"><s:text name="desciption"/> <s:text name="required.flag" /></td>
 				<td width="70%"><s:textarea id="description" name="project.description" resizable="true" rows="5" cols="50" /><s:fielderror fieldName="project.description"/></td>
 			</tr>
 		 	<tr class="odd">
