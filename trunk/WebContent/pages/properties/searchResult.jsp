@@ -29,6 +29,8 @@ th{
 }
 .more-div{display: none;}
 </style>
+<div id="container" dir="${dir}" style="width:100%"> 
+
 <s:url var="preSearch" action="preSearchProperty" method="preSearchProperty"/>
 <sj:a id="advSearchTop"  indicator="indicator" href="%{preSearch}" targets="bodyID" button="true"><s:text name="welcome.advancedsearch" /></sj:a>
 <hr>
@@ -208,7 +210,7 @@ th{
 </s:else>
 </s:form>
 <hr>
-
+</div>
 <script>
 function confirmDelete(){
 	return confirm('You are about to delete this item forever!');
