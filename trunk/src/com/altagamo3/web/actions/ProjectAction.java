@@ -183,7 +183,7 @@ public class ProjectAction extends BaseAction{
 							System.out.println("Image File: "+image.getFile());
 							FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
 							Thumbnails.of(image.getFile())
-					        .size(160, 160)
+					        .size(140, 140)
 					        .toFile(fileThumb);
 			            } 
 					} catch (IOException ioe) {
@@ -322,7 +322,7 @@ public class ProjectAction extends BaseAction{
 						System.out.println("Image File: "+image.getFile());
 						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
 						Thumbnails.of(image.getFile())
-				        .size(160, 160)
+				        .size(140, 140)
 				        .toFile(fileThumb);
 		            }
 				} catch (IOException ioe) {
