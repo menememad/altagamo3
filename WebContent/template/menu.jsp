@@ -128,7 +128,7 @@
 	/*"""""""" Custom Rule""""""""*/	
 	ul#qm0 .qmparent	
 	{	
-		background-image:url(/static/images/qmstatic/images/arrow_5.gif);
+		background-image:url(res/tgm3/images/qmstatic/tgm3/images/arrow_5.gif);
 		background-repeat:no-repeat;
 		background-position:92% 55%;
 	}
@@ -137,7 +137,7 @@
 	/*"""""""" Custom Rule""""""""*/	
 	ul#qm0 ul .qmparent	
 	{	
-		background-image:url(/static/images/qmstatic/images/arrow_10.gif);
+		background-image:url(res/tgm3/images//qmstatic/tgm3/images/arrow_10.gif);
 	}
 
 
@@ -232,7 +232,7 @@ lsp=b;b[w]=qm_oo;if(w==e)b.onmouseover=function(event){clearTimeout(qm_tt);qm_tt
 			<li><span class="qmdivider qmdividerx" ></span></li>
 			<li><span class="qmtitle" ><s:text name="menu.myItems"/></span></li>
 			<li>
-			    <s:url action="preListFavorites.action" id="preListFavoritesURL"></s:url>
+			    <s:url includeContext="false" action="preListFavorites.action" id="preListFavoritesURL"></s:url>
 			<sj:a href="%{preListFavoritesURL}" indicator="indicator" targets="bodyID"><s:text name="menu.myItems.myFav"/></sj:a></li>
 			<li><sj:a href="preListAds" indicator="indicator" targets="bodyID"><s:text name="menu.myItems.myAds"/></sj:a></li>
 		</ul>
@@ -265,7 +265,7 @@ lsp=b;b[w]=qm_oo;if(w==e)b.onmouseover=function(event){clearTimeout(qm_tt);qm_tt
 		</s:if>
 			<li><sj:a href="preAddProperty" indicator="indicator" targets="bodyID"><s:text name="menu.property.add" /></sj:a></li>
 			<li><sj:a href="searchMyProperties" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.ads" /></sj:a></li>
-			<s:url action="searchMyFavorites" id="searchMyFavoritesURL"></s:url>
+			<s:url includeContext="false" action="searchMyFavorites" id="searchMyFavoritesURL"></s:url>
 			<li><sj:a href="%{searchMyFavoritesURL}" indicator="indicator" targets="bodyID"><s:text name="menu.property.list.fav" /></sj:a></li>
 		</ul>
 	</li>

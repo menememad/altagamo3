@@ -2,7 +2,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/static/themes/th1.css" />
+<link rel="stylesheet" type="text/css" href='<s:url includeContext="false" value="/res/tgm3/themes/th1.css" />' />
  <style>
     .toggler { width: 500px; height: 200px; position: relative; }
     #button { padding: .5em 1em; text-decoration: none; }
@@ -39,12 +39,12 @@ $(function() {
 
 
 </script>
-<img id="indicator" style="display: none;" src="<%=request.getContextPath()%>/static/images/loading.gif" align="middle"/>
+<img id="indicator" style="display: none;" src='<s:url includeContext="false" value="/res/tgm3/images/loading.gif" />' align="middle"/>
 
 <table dir="ltr" style="height: 104;text-align: center;">
 	<tr height="100" valign="top">
 		<td width="260">
-			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/welcome.action?src=logo"><img class="bounce-class" src="<%=request.getContextPath()%>/static/images/header/logo.jpg" align="middle" width="220" border="0"/></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/welcome.action?src=logo"><img class="bounce-class" src='<s:url includeContext="false" value="/res/tgm3/images/header/logo.jpg" />' align="middle" width="220" border="0"/></a>
 		</td>
 		<td width="800" align="center" valign="top" height="100">
 			<div style="background-color: #FFFFFF;height: 98;">
@@ -52,22 +52,22 @@ $(function() {
 				<a href="?request_locale=en" ><s:text name="locale.english"/></a>	
 				&nbsp;&nbsp;
 				<sj:a href="/pages/about/AboutUs.htm" indicator="indicator" targets="bodyID">
-				<img  class="bounce-class" border="0" src="<%=request.getContextPath()%>/static/images/header/menu-aboutus.jpg" width="113" height="89"></sj:a>&nbsp;
-				<s:url var="searchRent" action="searchPropertyFor" method="searchPropertyFor">
+				<img  class="bounce-class" border="0" src='<s:url includeContext="false" value="/res/tgm3/images/header/menu-aboutus.jpg" />' width="113" height="89"></sj:a>&nbsp;
+				<s:url includeContext="false" var="searchRent" action="searchPropertyFor" method="searchPropertyFor">
 					<s:param name="propertyFor" value="2" />
 				</s:url>
 				<sj:a href="%{searchRent}" indicator="indicator" targets="bodyID">
-				<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/static/images/header/menu-rent.jpg" width="113" height="89"></sj:a>&nbsp;
-				<s:url var="searchSale" action="searchPropertyFor" method="searchPropertyFor">
+				<img class="bounce-class" border="0" src='<s:url includeContext="false" value="/res/tgm3/images/header/menu-rent.jpg" />' width="113" height="89"></sj:a>&nbsp;
+				<s:url includeContext="false" var="searchSale" action="searchPropertyFor" method="searchPropertyFor">
 					<s:param name="propertyFor" value="1" />
 				</s:url>
 				<sj:a href="%{searchSale}" indicator="indicator" targets="bodyID">
-				<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/static/images/header/menu-sale.jpg" width="113" height="89"></sj:a>&nbsp;
+				<img class="bounce-class" border="0" src='<s:url includeContext="false" value="/res/tgm3/images/header/menu-sale.jpg" />' width="113" height="89"></sj:a>&nbsp;
 				<!-- /pages/about/Projects.jsp -->
 				<sj:a href="listProjects"  indicator="indicator" targets="bodyID">
-				<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/static/images/header/menu-projects.jpg" width="113" height="89"></sj:a>
+				<img class="bounce-class" border="0" src='<s:url includeContext="false" value="/res/tgm3/images/header/menu-projects.jpg" />' width="113" height="89"></sj:a>
 			&nbsp;<sj:a href="/pages/about/consultant.html" targets="bodyID">
-			<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/static/images/header/menu-consultant.jpg" width="113" height="89"></sj:a>
+			<img class="bounce-class" border="0" src='<s:url includeContext="false" value="/res/tgm3/images/header/menu-consultant.jpg" />' width="113" height="89"></sj:a>
 			</div>
 		</td>
 		<td width="5">&nbsp;</td>
@@ -75,11 +75,11 @@ $(function() {
 			<div style="background-color: #FFFFFF;height: 30px;">&nbsp;</div>
 			<div style="background-color: #FFFFFF;vertical-align: bottom;height: 42;">
 				<a target="_blank" href="https://www.facebook.com/altagamo3">
-					<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/static/images/social/facebook.jpg" width="32" height="32"></a>
+					<img class="bounce-class" border="0" src='<s:url includeContext="false" value="/res/tgm3/images/social/facebook.jpg" />' width="32" height="32"></a>
 				<a target="_blank" href="https://plus.google.com/u/0/b/114002517545550561732/114002517545550561732/">
-					<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/static/images/social/googleplus.jpg" width="32" height="32"></a>
+					<img class="bounce-class" border="0" src='<s:url includeContext="false" value="/res/tgm3/images/social/googleplus.jpg" />' width="32" height="32"></a>
 				<a target="_blank" href="https://twitter.com/AlTagamo3">
-					<img class="bounce-class" border="0" src="<%=request.getContextPath()%>/static/images/social/twitter.jpg" width="32" height="32"></a>
+					<img class="bounce-class" border="0" src='<s:url includeContext="false" value="/res/tgm3/images/social/twitter.jpg" />' width="32" height="32"></a>
 			</div>
 			<s:if test="%{#session.userInfo!=null}" >
 				<div style="background-color: #FFFFFF;vertical-align: top;height: 5;">
