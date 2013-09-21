@@ -3,6 +3,8 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@page import="com.altagamo3.to.User" %>
+<%String dir = request.getLocale().getLanguage().equals("en")?"ltr":"rtl"; %>
+<div id="container" dir='<%=dir%>'> 
 <s:if test="hasFieldErrors()">
    <h3 style="color: red"><s:text name="err.message" /></h3>
    <s:fielderror />
@@ -52,6 +54,7 @@
 		<sj:submit indicator="indicator" targets="bodyID" />
 	</fieldset>
 </s:form>
+</div>
 <script>
 function prepareInputsForHints() {
 	var inputs = document.getElementsByTagName("input");

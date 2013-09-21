@@ -2,8 +2,27 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
+<%String dir = request.getLocale().getLanguage().equals("en")?"ltr":"rtl"; %>
+<script type="text/javascript">
+function editUserLink(cellvalue, options, rowObject)
+{
 
+return "<input type=button value='edit' onclick='runlink(\""+cellvalue+"\");'/>";
+}
+function runlink(obj)
+{
+$('#usernameID').val(obj);
+$('#editUserLinkID').click();
+
+}
+</script>
+
+<s:form theme="simple" id="listUserFormId">
+
+<s:hidden name="username" id="usernameID"></s:hidden>
 <sj:a href="preAddUser" indicator="indicator" targets="bodyID" id="addUserLink" button="true"><s:text name="menu.user.add"></s:text> </sj:a>
+<sj:a href="preEditUser" formIds="listUserFormId" indicator="indicator" targets="bodyID" id="editUserLinkID" ></sj:a>
+
 <br/>
     <s:url id="remoteurl" action="listUsers" method="listUsers"/>
     <sjg:grid 
@@ -19,36 +38,16 @@
     	direction="%{dir}"
     	loadonce="true" 
     	editinline="true" editurl="%{remoteurl}"
-    	navigator="true"
-    	navigatorSearchOptions="{sopt:['eq','ne','lt','gt']}"
-    	navigatorAddOptions="{height:280,reloadAfterSubmit:true}"
-    	navigatorEditOptions="{height:280,reloadAfterSubmit:false}"
-    	navigatorEdit="false"
-    	navigatorView="false"
-    	navigatorDelete="true"
-    	navigatorDeleteOptions="{height:280,reloadAfterSubmit:true}"
-    	navigatorExtraButtons="{
-    		seperator: { 
-    			title : 'seperator'  
-    		}, 
-    		hide : { 
-	    		title : 'Show/Hide', 
-	    		icon: 'ui-icon-wrench', 
-	    		topic: 'showcolumns'
-    		},
-    		alert : { 
-	    		title : 'Alert', 
-	    		onclick: function(){ alert('Grid Button clicked!') }
-    		}
-    	}"
-    	
+    	navigator="false"
+    	autowidth="true"
     >
-    	<sjg:gridColumn name="selectID" index="id" title="%{getText('SELECT')}" formatter="checkbox" />
-    	<sjg:gridColumn name="id" index="id" title="%{getText('ID')}" sortable="true" formatter="integer" />
-    	<sjg:gridColumn name="username" index="username" title="%{getText('security.username')}" sortable="true"/>
-    	<sjg:gridColumn name="fullName" index="fullName" title="%{getText('security.fullname')}" sortable="true" />
-     	<sjg:gridColumn name="firstName" index="firstName" title="%{getText('security.firstname')}" sortable="true" hidden="true"/>
-    	<sjg:gridColumn name="lastName" index="lastName" title="%{getText('security.lastname')}" sortable="true" hidden="true"/>
-    	<sjg:gridColumn name="mobile" index="mobile" title="%{getText('security.mobile')}"  sortable="false"/>
-    	<sjg:gridColumn name="email" index="email" title="%{getText('security.email')}" sortable="false"/>
+    	<sjg:gridColumn name="id" align="center" title="%{getText('ID')}" sortable="true" formatter="integer" />
+    	<sjg:gridColumn name="username" align="center" index="username" title="%{getText('security.username')}" sortable="true"/>
+    	<sjg:gridColumn name="fullName" align="center" title="%{getText('security.fullname')}" sortable="true" />
+     	<sjg:gridColumn name="firstName" align="center" title="%{getText('security.firstname')}" sortable="true" hidden="true"/>
+    	<sjg:gridColumn name="lastName" align="center" title="%{getText('security.lastname')}" sortable="true" hidden="true"/>
+    	<sjg:gridColumn name="mobile" align="center" title="%{getText('security.mobile')}"  sortable="false"/>
+    	<sjg:gridColumn name="email" align="center" title="%{getText('security.email')}" sortable="false"/>
+    	<sjg:gridColumn name="username" align="center" title="%{getText('EDIT')}" formatter="editUserLink" sortable="false"/>
     </sjg:grid>
+</s:form>

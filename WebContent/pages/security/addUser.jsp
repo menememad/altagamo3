@@ -1,7 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
-<%@page import="com.altagamo3.to.User" %>
+
 <s:if test="hasFieldErrors()">
    <h3 style="color: red"><s:text name="err.message" /></h3>
    <s:fielderror />
@@ -13,7 +13,7 @@
 <s:elseif test="hasActionMessages()">
    <h3 style="color: green"><s:actionmessage /></h3>
 </s:elseif>
-<s:form action="addUser" method="POST" enctype="multipart/form-data" theme="simple">
+<s:form action="addUser" id="addUserformID" method="POST" enctype="multipart/form-data" theme="simple">
 	<fieldset style="padding: 0 10 0 10;margin: 10 10 10 10;">
 		<legend><s:text name="title.registration" /></legend>
 		<dl style="width: 500px;">
@@ -32,16 +32,15 @@
 			<dd><s:password name="confirmPassword" maxlength="15" />
 			<span class="hint"><s:text name="hint.user.confirmPassword"/><span class="hint-pointer">&nbsp;</span></span></dd>
 			<br/>
-			<%if(session.getAttribute("userInfo")!=null){ 
-			User u = (User)session.getAttribute("userInfo");
-			if(u.getRoleID()==1){%>
+			<s:if test="%{#session.userInfo!=null && #session.userInfo.roleID==1}">
+
 			<dt style="width: 200px;"><s:text name="security.role" /> <s:text name="required.flag" /></dt>
 			<dd><sj:radio name="roleID" list="#{'1':'Administrator','2':'Seller'}" value="2"/></dd>
-			<%}else if(u.getRoleID()==2){ %>
+			</s:if><s:elseif test="#session.userInfo.roleID==2">
 			<s:hidden name="roleID" value="2" />
-			<%}}else{ %>
+			</s:elseif><s:else>
 			<s:hidden name="roleID" value="3" />
-			<%}%>
+			</s:else>
 			<br/>
 			<dt style="width: 200px;"><s:text name="security.firstname" /> <s:text name="required.flag" /></dt>
 			<dd><s:textfield name="firstname" maxlength="15" />
@@ -69,7 +68,7 @@
 		</dl>
 		</fieldset>
 <br/>
-	<sj:submit targets="bodyID"  indicator="indicator"/>
+	<sj:submit targets="bodyID" button="true" formIds="addUserformID"  indicator="indicator"/>
 
 </s:form>
 <script>
