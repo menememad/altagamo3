@@ -1,8 +1,8 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
-
-<script type="text/javascript" src="/static/easypaginate/js/easypaginate.min.js"></script>
+<s:url includeContext="false" value="/res/easypaginate/js/easypaginate.min.js" includeContext="false"/>
+<script type="text/javascript" src='<s:url includeContext="false" value="/res/easypaginate/js/easypaginate.min.js" />'></script>
 <script type="text/javascript">
 jQuery(function($){
 	$('div#items').easyPaginate({
@@ -32,32 +32,32 @@ th{
 
  <s:iterator value="properties">
 <table >
-	<s:url var="approveProperty" action="approveProperty" method="approveProperty">
+	<s:url includeContext="false" var="approveProperty" action="approveProperty" method="approveProperty">
 		<s:param name="propertyID" value="%{id}" />
 	</s:url>
-	<s:url var="activateProperty" action="changePropertyStatus" escapeAmp="false">
+	<s:url includeContext="false" var="activateProperty" action="changePropertyStatus" escapeAmp="false">
 		<s:param name="propertyID" value="%{id}" />
 		<s:param name="newStatus" value="1" />
 	</s:url>
-	<s:url var="sellProperty" action="changePropertyStatus" escapeAmp="false">
+	<s:url includeContext="false" var="sellProperty" action="changePropertyStatus" escapeAmp="false">
 		<s:param name="propertyID" value="%{id}" />
 		<s:param name="newStatus" value="3" />
 	</s:url>
-	<s:url var="rentProperty" action="changePropertyStatus" escapeAmp="false">
+	<s:url includeContext="false" var="rentProperty" action="changePropertyStatus" escapeAmp="false">
 		<s:param name="propertyID" value="%{id}" />
 		<s:param name="newStatus" value="4" />
 	</s:url>
-	<s:url var="deactivateProperty" action="changePropertyStatus" escapeAmp="false">
+	<s:url includeContext="false" var="deactivateProperty" action="changePropertyStatus" escapeAmp="false">
 		<s:param name="propertyID" value="%{id}" />
 		<s:param name="newStatus" value="5" />
 	</s:url>
-	<s:url var="preEditProperty" action="preEditProperty">
+	<s:url includeContext="false" var="preEditProperty" action="preEditProperty">
 		<s:param name="propertyID" value="%{id}" />
 	</s:url>
-	<s:url var="getPropertyDetails" action="getPropertyDetails" method="getPropertyDetails">
+	<s:url includeContext="false" var="getPropertyDetails" action="getPropertyDetails" method="getPropertyDetails">
 		<s:param name="propertyID" value="%{id}" />
 	</s:url>
-	<s:url var="deleteProperty" action="deleteProperty">
+	<s:url includeContext="false" var="deleteProperty" action="deleteProperty">
 		<s:param name="propertyID" value="%{id}" />
 	</s:url>
 	<tr>
@@ -69,10 +69,10 @@ th{
 			<sj:a href="%{getPropertyDetails}" indicator="indicator" targets="bodyID">
 		<%-- <img border="0" class="watermark" src='displayPropertyImage!displayPropertyImage?prpID=<s:property value="id" />&imgNo=1' width="160" height="160" align="right"/> --%>
 				<s:if test="%{imageCount>0}">
-					<img border="0" class="watermark" src='/static/prop_img/<s:property value="id" />/1.jpg' width="160" height="160" align="right"/>
+					<img border="0" class="watermark" src='/static/prop_img/<s:property value="id" />/thumb_1.jpg' width="160" height="160" align="right"/>
 				</s:if>
 				<s:else>
-					<img border="0" src='/static/images/home.jpg' width="160" height="160" align="right"/>
+					<img border="0" src='static/tgm3/images//home.jpg' width="160" height="160" align="right"/>
 				</s:else>
 			</sj:a>
 		</td>
