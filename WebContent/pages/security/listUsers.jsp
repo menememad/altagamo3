@@ -6,8 +6,11 @@
 <script type="text/javascript">
 function editUserLink(cellvalue, options, rowObject)
 {
-
-return "<input type=button value='edit' onclick='runlink(\""+cellvalue+"\");'/>";
+var admin = '<s:property value="#session.userInfo.roleID"/> ' ;
+if(admin!= null && admin == 1)
+      return "<input type=button value='edit' onclick='runlink(\""+cellvalue+"\");'/>";
+else 
+      return " " ;
 }
 function runlink(obj)
 {
