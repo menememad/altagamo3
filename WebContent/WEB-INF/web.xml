@@ -7,8 +7,8 @@
  <context-param>
   <param-name>IMAGE_PATH</param-name>
   <!-- <param-value>/usr/local/tomcat/webapps/static</param-value> -->
-  <param-value>/var/www/static</param-value>
-  <!-- <param-value>D:\views\altagamo3\WebContent</param-value> -->
+  <!-- <param-value>/var/www/res/tgm3</param-value> -->
+  <param-value>D:/workspaces/altagamo3/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/altagamo3/res/tgm3</param-value>
  </context-param>
  <context-param>
   <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
