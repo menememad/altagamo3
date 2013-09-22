@@ -23,7 +23,7 @@ width: 200px;
    <h3 style="color: green"><s:actionmessage /></h3>
 </s:elseif>
 	<s:form id="searchPropertyForm" action="searchProperty" method="POST" theme="simple">
-	<s:url id="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
+	<s:url includeContext="false" id="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
 	<fieldset style="patding: 0 10 0 10;margin: 10 10 10 10;">
 		<legend><s:text name="section.property.info" /></legend>
 		<table class="search">

@@ -1,10 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 //EN">
-<%@page contentType="text/html; charset=UTF-8" %>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <title><s:text name="itemNo" /> <s:property value="property.id" /> - <s:property value="property.title" /></title>
-        <script src="/static/galleria/galleria-1.2.7.min.js"></script>
-        <script src="/static/scripts/watermark.jquery.js"></script>
+        <script src="/res/tgm3/galleria/galleria-1.2.7.min.js"></script>
     	<h2><s:text name="property.details" /></h2>
 	<fieldset>
 		<legend><s:text name="property.upload.image"/></legend>
@@ -13,7 +12,7 @@
 			<div class="content">
 		        <div id="galleria" style="width: 500px;">
 		        <s:iterator var="index" begin="1" end="property.imageCount">
-		            <img class="watermark" border="0" name="myImage" src='/static/prop_img/<s:property value="property.id" />/${index}.jpg' />
+		            <img class="watermark" border="0" name="myImage" src='/res/tgm3/prop_img/<s:property value="property.id" />/${index}.jpg' />
 		        </s:iterator>    
 		        </div>
 			</div>  
@@ -142,7 +141,7 @@
 	
 	<s:if test="%{property.imageCount>0}">
         <script>
-            Galleria.loadTheme('/galleria/themes/classic/galleria.classic.min.js');
+            Galleria.loadTheme('/res/tgm3/galleria/themes/classic/galleria.classic.min.js');
             Galleria.run('#galleria');
         </script>
     </s:if>    

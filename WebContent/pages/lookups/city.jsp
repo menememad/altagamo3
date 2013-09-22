@@ -2,7 +2,7 @@
 <%@taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 
 <br/>
-    <s:url id="remoteurl" action="listAllCities" method="listAllCities"/>
+    <s:url includeContext="false" id="remoteurl" action="listAllCities" method="listAllCities"/>
      <sjg:grid
     	id="gridtable"
     	caption="Cities"

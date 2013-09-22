@@ -12,16 +12,16 @@
     });
 </script>
 <s:if test="%{#session.userInfo!=null && #session.userInfo.roleID==1}" ><!-- Admins only -->
- <s:url id="preAddProjectURL" action="preAddProject"/>
+ <s:url includeContext="false" id="preAddProjectURL" action="preAddProject"/>
  <sj:a href="%{preAddProjectURL}" indicator="indicator" targets="bodyID" ><s:text name="title.project.addNew" /></sj:a>
  </s:if>
 <fieldset style="margin:20px 140px 150px 140px;">
 <div id="slides">  
  <s:iterator value="arProjectList" >
-<s:url action="preEditProject" var="editprojectURL" >
+<s:url includeContext="false" action="preEditProject" var="editprojectURL" >
  <s:param name="projectID"><s:property value="id"/> </s:param>
 </s:url>	
-<s:url action="viewProjectDetails" var="viewprojectURL">
+<s:url includeContext="false" action="viewProjectDetails" var="viewprojectURL">
  <s:param name="projectID"><s:property value="id"/> </s:param>
 </s:url>
 <div>
@@ -37,7 +37,7 @@
      <s:if test="%{imageCount>0}"> 
 			<img border="0" class="slidesjs-slide"  align="middle" src='/static/proj_img/<s:property value="id" />/1.jpg' />
 	</s:if><s:else> 
-			<img border="0" class="slidesjs-slide"  align="middle" src='/static/images/home.jpg' />
+			<img border="0" class="slidesjs-slide"  align="middle" src='static/tgm3/images//home.jpg' />
 	</s:else>
 </sj:a>
 </div>

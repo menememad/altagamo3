@@ -43,11 +43,11 @@ h4
 </head>
 <body>
 <s:form theme="simple">
-<s:url id="preAddProjectURL" action="preAddProject"/>
+<s:url includeContext="false" id="preAddProjectURL" action="preAddProject"/>
 <sj:a href="%{preAddProjectURL}" indicator="indicator" targets="bodyID" >Add Project </sj:a>
 </s:form>
 <s:if test="%{#session.userInfo!=null && #session.userInfo.roleID==1}">
-<s:url var="listProjects" action="listProjects"/>
+<s:url includeContext="false" var="listProjects" action="listProjects"/>
 <sj:a href="%{listProjects}" indicator="indicator" targets="bodyID" button="true">Project Management</sj:a>
 </s:if>				
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -70,7 +70,7 @@ h4
 						<font size="2" color="#666666">
 						<span style="font-family: Tahoma,sans-serif">Al Montazah 
 						Royal Plaza</span></font><p>
-						<img border="0" src="/static/images/projects/000_0029.jpg" width="800" height="600"><font size="2" color="#666666"><span style="font-family: Tahoma,sans-serif"><br>
+						<img border="0" src='<s:url includeContext="false" value="/res/tgm3/images/projects/000_0029.jpg" />' width="800" height="600"><font size="2" color="#666666"><span style="font-family: Tahoma,sans-serif"><br>
 						<br>
 						Al Montazah Royal Plaza in Alexandria is the source of 
 						pride of Al Halawani for Real Estate. The Project is 
@@ -117,14 +117,14 @@ h4
 							</tr>
 							<tr>
 								<td align="center">
-								<a target="_blank" href="/static/images/projects/TXT_10.jpg">
-								<img border="0" src="/static/images/projects/TXT_10.jpg" width="210" height="215"></a></td>
+								<a target="_blank" href='<s:url includeContext="false" value="/res/tgm3/images/projects/TXT_10.jpg" />'>
+								<img border="0" src='<s:url includeContext="false" value="/res/tgm3/images/projects/TXT_10.jpg" />' width="210" height="215"></a></td>
 								<td align="center">
-								<a target="_blank" href="/static/images/projects/U_1_01.jpg">
-								<img border="0" src="/static/images/projects/TXT_12.jpg" width="210" height="215"></a></td>
+								<a target="_blank" href='<s:url includeContext="false" value="/res/tgm3/images/projects/U_1_01.jpg" />'>
+								<img border="0" src='<s:url includeContext="false" value="/res/tgm3/images/projects/TXT_12.jpg" />' width="210" height="215"></a></td>
 								<td align="center">
-								<a target="_blank" href="/static/images/projects/photo20_02.jpg">
-								<img border="0" src="/static/images/projects/Untitled-3_01.jpg" width="250" height="230"></a></td>
+								<a target="_blank" href='<s:url includeContext="false" value="/res/tgm3/images/projects/photo20_02.jpg" />'>
+								<img border="0" src='<s:url includeContext="false" value="/res/tgm3/images/projects/Untitled-3_01.jpg" />' width="250" height="230"></a></td>
 							</tr>
 						</table>
 						<p>&nbsp;</p>

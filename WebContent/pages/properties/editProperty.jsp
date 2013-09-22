@@ -1,5 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@page contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE HTML>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%String dir = request.getLocale().getLanguage().equals("en")?"ltr":"rtl"; %>
@@ -7,17 +7,17 @@
 	<h2><s:text name="title.property.edit" /></h2>
 	<s:form id="editPropertyForm" action="editProperty" method="POST" enctype="multipart/form-data" theme="simple">
 	<s:hidden name="property.id" />
-	<s:url id="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
+	<s:url includeContext="false" id="listPropertiesData" action="listPropertyTypes" method="listPropertyTypes"/>
 	<s:if test="hasFieldErrors()">
-	 	<h3 style="color: red"><img src="/static/images/signs/error.gif" /><s:text name="err.message" /></h3>
+	 	<h3 style="color: red"><img src='<s:url includeContext="false" value="/res/tgm3/images//signs/error.gif" />' /><s:text name="err.message" /></h3>
 	   	<s:fielderror />
 	</s:if>
 	<s:elseif test="hasActionErrors()">
-		 <h3><img src="/static/images/signs/error.gif" /><s:text name="err.message" /></h3>
+		 <h3><img src='<s:url includeContext="false" value="/res/tgm3/images//signs/error.gif" />' /><s:text name="err.message" /></h3>
 	   	<s:actionerror />
 	</s:elseif>
 	<s:elseif test="hasActionMessages()">
-	   <img src="/static/images/signs/success.gif" /><h3><s:actionmessage /></h3>
+	   <img src='<s:url includeContext="false" value="/res/tgm3/images//signs/success.gif" />' /><h3><s:actionmessage /></h3>
 	</s:elseif>
 	<fieldset>
 		<legend><s:text name="section.property.info" /></legend>
@@ -84,7 +84,7 @@
 			<tr class="odd">
 				<td colspan="6">
 					<sj:a indicator="indicator" href="openUploadAttachedFile" targets="openUploadAttachedFileID" >
-						<img border="0" src="static/images/attachement.jpg" width="16" height="16" />
+						<img border="0" src='<s:url includeContext="false" value="/res/tgm3/images/attachement.jpg" />' width="16" height="16" />
 						<s:text name="attach.file.title" />
 					</sj:a>	
 					<sj:div id="openUploadAttachedFileID" ></sj:div>	
