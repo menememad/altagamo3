@@ -875,7 +875,6 @@ public class PropertyHelper {
 				p.setNoOfBathRooms(rs.getInt("property.bathroomsNo"));
 				p.setFloorNo(rs.getInt("property.floorNo"));
 				p.setImageCount(rs.getInt("property.img_count"));
-				System.out.println("CCCCCCCCCCCCCCC"+rs.getInt("property.img_count")); 
 				p.setSubtype(rs.getInt("property.subtype"));
 				p.setPropertyType(new PropertyType(rs.getInt("prop_type.id"), rs.getString("prop_type.name_ar"), rs.getString("prop_type.name_en")));
 				p.setCountry(new Location(rs.getInt("country.id"),rs.getString("country.name_ar"),rs.getString("country.name_en")));
@@ -1017,7 +1016,7 @@ public class PropertyHelper {
 		String strSQL=" select prop.id id , prop.description description ,prop.title title ,prop.img_count count " +
 					  " from favorites fav  	" +
 					  " inner join property prop on fav.property_id = prop.id " +
-					  " inner join Users user on fav.user_id = user.id " +
+					  " inner join users user on fav.user_id = user.id " +
 					  " where fav.user_id = ?" ;
 		pst = conn.prepareStatement(strSQL);
 		pst.setInt(1, loggedInUser.getId());
@@ -1044,27 +1043,20 @@ public class PropertyHelper {
 			DBConnection dbcon = new DBConnection();
 			Connection conn = dbcon.getConnection();
 			PreparedStatement pst = null;
-			String strSQL=" select prop.id id , prop.description description ,prop.title title " +
-					      " ,prop.img_count count " +
-						  " from favorites fav  	" +
-						  " inner join property prop on fav.property_id = prop.id " +
-						  " inner join Users user on fav.user_id = user.id " +
-						  " where user.role_id = 1 order by fav.property_id  ASC" ;
+			String strSQL=" SELECT prop.id id , prop.description description ,prop.title title,prop.img_count count " +
+						  " FROM favorites fav " +
+						  " INNER JOIN property prop ON fav.property_id = prop.id " +
+						  " INNER JOIN users user ON fav.user_id = user.id " +
+						  " WHERE user.role_id = 1 ORDER BY fav.property_id  ASC LIMIT 0,4" ;
 			pst = conn.prepareStatement(strSQL);
 			ResultSet rs = pst.executeQuery();
-			Property property  ;
-			int i = 0;
-			while (rs.next()) 
-			{
-				property = new Property();
+			while (rs.next()) {
+				Property property = new Property();
 				property.setId(rs.getInt("id"));
 				property.setDescription(rs.getString("description"));
 				property.setTitle(rs.getString("title"));
 				property.setImageCount(rs.getInt("count"));
-			properties.add(property);
-			i++;
-			if(i == 4)
-				break;
+				properties.add(property);
 			}
 			System.out.println("ListCommonFavourites:properties::"+properties.size());	
 		} catch (Exception e) {

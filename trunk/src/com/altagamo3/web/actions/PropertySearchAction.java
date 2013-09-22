@@ -21,7 +21,7 @@ public class PropertySearchAction extends ActionSupport implements ServletReques
 	private Property property;
 	private List<Property> propertiesList;
 	//private Integer page;
-	private SearchConditions cond = new SearchConditions();;
+	private SearchConditions cond = new SearchConditions();
 	
 	public String preSearchProperty(){
 		return SUCCESS;
@@ -176,6 +176,7 @@ public class PropertySearchAction extends ActionSupport implements ServletReques
 			propertySearch = new PropertySearch();
 			PropertyHelper prpHelp = PropertyHelper.getInstance();
 			User currentUser = (User)servletRequest.getSession().getAttribute("userInfo");
+			cond.setOrderByColumn("property.id");
 			propertiesList = prpHelp.searchProperties(propertySearch, cond, currentUser);
 			return SUCCESS;
 		} catch (Exception e) {

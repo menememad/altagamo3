@@ -33,6 +33,10 @@
 		<result name="success">/welcome.jsp</result>
 	</action>	
 
+	<action name="test" class="com.altagamo3.web.actions.TestAction">
+	    <interceptor-ref name="defaultStack"/>			
+		<result name="success">uploadTestResult.jsp</result>
+	</action>
 	<action name="openUploadAttachedFile" class="com.altagamo3.web.actions.FileUpload" method="openUploadAttachedFile">
 	    <interceptor-ref name="defaultStack"/>			
 		<interceptor-ref name="scope">
@@ -71,7 +75,7 @@
             <param name="contentDisposition">attachment; filename="${filename}"</param>
             <param name="bufferSize">1024</param>
     	</result>
-    	<result name="error">/static/images/placeholder.jpg</result>	
+    	<result name="error">res/tgm3/images/placeholder.jpg</result>	
 	</action>
 	<action name="displayPropertyImage" class="com.altagamo3.web.actions.ImageDisplayerAction" method="displayPropertyImage">
 		<result name="success" type="stream">
@@ -80,7 +84,7 @@
             <param name="contentDisposition">attachment; filename="${filename}"</param>
             <param name="bufferSize">1024</param>
     	</result>	
-    	<result name="error">/static/images/placeholder.jpg</result>
+    	<result name="error">res/tgm3/images//placeholder.jpg</result>
 	</action>
 	<action name="displayMarqueeData" class="com.altagamo3.web.actions.AdsAction" method="displayMarqueeData">
 		<result name="success" type="stream">
