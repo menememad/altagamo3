@@ -4,7 +4,7 @@
 <script src='<s:url value="res/scripts/jquery.slides.min.js" />'></script>
 <title>AlTagamo3.com - التجمع.كوم</title>
 
-<div id="welcome-part1" style="border-color:red;border:2; direction: ltr; background-image: url('res/tgm3/images/banner.jpg');background-repeat: no-repeat;background-position: center;height: 505px;width: 100%">			
+<div id="welcome-part1" style="border-color:red;border:2; direction: ltr; background-image: url('res/tgm3/images/banner.jpg');background-repeat: no-repeat;background-position: center;height: 100%px;width: 100%">			
 	<div style="display: inline-block;margin: 15px;background-color: transparent;">
 	<s:form id="searchPropertyForm" action="fastSearch" method="POST" cssStyle="width: 250px;">
 	<s:select id="propertyType" label="Property Type" labelposition="top" name="propertyTypeID" list="%{#application.propertyTypes}" />
