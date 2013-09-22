@@ -1,12 +1,17 @@
 package com.altagamo3.web.actions;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
 import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.filters.Watermark;
+import net.coobird.thumbnailator.geometry.Positions;
+import net.coobird.thumbnailator.name.Rename;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -30,7 +35,7 @@ public class PropertyAction extends BaseAction{
 	public String preListFavorites()
 	{
 		try {
-			User loggedInUser = (User)session.get("userInfo");
+			User loggedInUser = (User)session.get(USER_SESSION_VAR);
 			PropertyHelper prpHelp = PropertyHelper.getInstance();
 			properties = prpHelp.listMyFavourites(loggedInUser);
 		} catch (Exception e) {
@@ -42,7 +47,7 @@ public class PropertyAction extends BaseAction{
 	
 	public String batchEdit(){
 		try {
-			User loggedInUser = (User)session.get("userInfo");
+			User loggedInUser = (User)session.get(USER_SESSION_VAR);
 			HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 			String[] propertyIDs = request.getParameterValues("propertyID");
 			if(propertyIDs.length>0){
@@ -110,22 +115,26 @@ public class PropertyAction extends BaseAction{
 		if(attachedFiles!=null && attachedFiles.size()>0){
 			int imageCount = 0;
 			try {
-				//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
-				//String filePath = "/public_html/prop_img/"+propertyID+"/";
-				//String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
-				String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/prop_img/"+propertyID+"/";
-				//System.out.println("Server path:" + filePath);
-	            for (Image image : attachedFiles) {
+				String imagePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/prop_img/"+propertyID+"/";
+				BufferedImage watermarkImage = ImageIO.read(new File(request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/images/watermark.png"));
+				Watermark wm = new Watermark(Positions.CENTER, watermarkImage, 0.5f);
+				for (Image image : attachedFiles) {
+					System.out.println("loop on images...");
 	            	imageCount++;
-					File fileToCreate = new File(filePath,imageCount+".jpg");
-					File fileThumb = new File(filePath,"thumb"+imageCount+".jpg");
+					File fileToCreate = new File(imagePath,imageCount+".jpg");
+					System.out.println("STEP 1...");
+					File fileThumb = new File(imagePath,"thumb"+imageCount+".jpg");
 					System.out.println("Image File: "+image.getFile());
 					FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
-					Thumbnails.of(image.getFile())
-			        .size(140, 140)
-			        .toFile(fileThumb);
+					System.out.println("STEP 2...");
+					Thumbnails.of(image.getFile()).size(140, 140).toFile(fileThumb);
 	            }
-			} catch (IOException e) {
+				Thumbnails.of(new File(imagePath).listFiles()).size(290, 290).outputFormat("jpg").toFiles(Rename.PREFIX_HYPHEN_THUMBNAIL);
+				System.out.println("STEP 3...");
+				//Thumbnails.of(new File(imagePath).listFiles()).watermark(wm).outputFormat("jpg").asFiles(Rename.NO_CHANGE);
+	            //System.out.println("STEP 4...");
+				} catch (IOException e) {
+				e.printStackTrace();
 				return INPUT;
 			}
 			session.remove("attachedFiles");
@@ -158,22 +167,23 @@ public class PropertyAction extends BaseAction{
 				int imageCount = 0;
 				try {
 					int propertyID = property.getId();
-					//String filePath = context.getRealPath("/")+"prop_img/"+propertyID+"/";
-					//String filePath = "/home/allamco1/public_html/prop_img/"+propertyID+"/";
-					String filePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/prop_img/"+propertyID+"/";
-					FileUtils.deleteQuietly(new File(filePath));
-		             
-					System.out.println("Server path:" + filePath);
+					String imagePath = request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/prop_img/"+propertyID+"/";
+					BufferedImage watermarkImage = ImageIO.read(new File(request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/images/watermark.png"));
+					Watermark wm = new Watermark(Positions.CENTER, watermarkImage, 0.5f);
+					FileUtils.deleteQuietly(new File(imagePath));
 		            for (Image image : attachedFiles) {
 		            	imageCount++;
-						File fileToCreate = new File(filePath, imageCount+".jpg");
-		            	File fileThumb  = new File(filePath,"thumb"+imageCount+".jpg");
+						File fileToCreate = new File(imagePath, imageCount+".jpg");
+		            	File fileThumb  = new File(imagePath,"thumb"+imageCount+".jpg");
 						System.out.println("Image File: "+image.getFile());
 						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
 						Thumbnails.of(image.getFile())
 				        .size(140, 140)
 				        .toFile(fileThumb);
 		            }
+					Thumbnails.of(new File(imagePath).listFiles()).size(290, 290).outputFormat("jpg").toFiles(Rename.PREFIX_HYPHEN_THUMBNAIL);
+					System.out.println("STEP 3...");
+					//Thumbnails.of(new File(imagePath).listFiles()).watermark(wm).outputFormat("jpg").asFiles(Rename.NO_CHANGE);
 				} catch (IOException ioe) {
 					addActionError(getText(ioe.getMessage()));
 					return INPUT;

@@ -71,8 +71,8 @@ public class ProjectAction extends BaseAction{
 					}
 //				else { 
 //					//the path of Image
-//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"/static/images/home.jpg");
-//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"/static/images/home.jpg");
+//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(request.getServletContext().getInitParameter(BaseAction.IMAGE_PATH)+"static/tgm3/images//home.jpg");
+//					//com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(parentPath+"static/tgm3/images//home.jpg");
 //					com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("C://Users/Public/Pictures/Sample Pictures/Desert.jpg");
 //					image.scaleToFit(300f, 300f);
 //				//	image.scaleAbsoluteWidth(300f);
@@ -321,9 +321,7 @@ public class ProjectAction extends BaseAction{
 						File fileThumb = new File(filePath,"thumb"+imageCount+".jpg");
 						System.out.println("Image File: "+image.getFile());
 						FileUtils.writeByteArrayToFile(fileToCreate,image.getFileBytes());
-						Thumbnails.of(image.getFile())
-				        .size(140, 140)
-				        .toFile(fileThumb);
+						Thumbnails.of(image.getFile()).size(140, 140).toFile(fileThumb);
 		            }
 				} catch (IOException ioe) {
 					addActionError(getText(ioe.getMessage()));
