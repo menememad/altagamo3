@@ -16,7 +16,7 @@
 <s:elseif test="hasActionMessages()">
    <h3 style="color: green"><s:actionmessage /></h3>
 </s:elseif>
-<s:form action="editUser" method="POST" enctype="multipart/form-data" theme="simple">
+<s:form id="edituserformid" action="editUser" method="POST" enctype="multipart/form-data" theme="simple">
 	<fieldset style="padding: 0 10 0 10;margin: 10 10 10 10;">
 		<legend><s:text name="title.user.edit" /></legend>
 		<img src='<s:url includeContext="false" action="displayUserImage" method="displayUserImage"/>' width="160" height="160" align="right"/>
@@ -51,8 +51,8 @@
 			<dt style="width: 200px;"><s:text name="security.address" /></dt>
 			<dd style="width: 500px;"><s:textarea name="address" cols="50" rows="5" /></dd>
 		</dl>
-		<sj:submit indicator="indicator" targets="bodyID" />
-	</fieldset>
+	</fieldset><br/>
+		<sj:submit indicator="indicator" button="true" formIds="edituserformid" targets="bodyID" />
 </s:form>
 </div>
 <script>
