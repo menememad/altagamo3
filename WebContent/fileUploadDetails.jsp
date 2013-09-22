@@ -8,7 +8,7 @@
 		<td><s:property value="fileName"/></td>
 		<td><s:text name="attach.file.size"/>:&nbsp;<s:property value="getText('{0,number,#,##0.00}',{fileSize/1000000})"/> &nbsp; <s:text name="MB"/></td>
 		<td>																													
-			<s:url action="deleteUploadFile" var="deleteUploadURL" encode="true">
+			<s:url includeContext="false" action="deleteUploadFile" var="deleteUploadURL" encode="true">
 				<s:param name="index"><s:property value="#stat.index" /></s:param>
 			</s:url>
 		<sj:a href="%{deleteUploadURL}" indicator="indicator" targets="uploadDivID"><s:text name="attach.file.remove"/></sj:a></td>

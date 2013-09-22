@@ -173,7 +173,7 @@ div.socialicons p {
 	line-height: 8px;
 	height: 8px;
 	background-image:
-		url('http://cdn.androidadvices.com/wp-content/plugins/wp-polls/static/images/default/pollbg.gif');
+		url('http://cdn.androidadvices.com/wp-content/plugins/wp-pollsstatic/tgm3/images//default/pollbg.gif');
 	border: 1px solid #c8c8c8;
 }
 </style>
@@ -368,7 +368,7 @@ google_ad_height = 90;
 						<div id="rss-3" class="widget widget_rss">
 							<div class="widget-wrap">
 								<h3 class="widgettitle">
-									<span><a class='rsswidget' href='http://androidadvices.com/info/price-list/feed/' title='Syndicate this content'><img style='border: 0' width='14' height='14' src='http://cdn.androidadvices.com/wp-includes/static/images/rss.png' alt='RSS' /> </a> <a class='rsswidget' href='http://androidadvices.com' title='Blog dedicated towards Android related products, services and devices in the market.'>Price Updates</a> </span>
+									<span><a class='rsswidget' href='http://androidadvices.com/info/price-list/feed/' title='Syndicate this content'><img style='border: 0' width='14' height='14' src='http://cdn.androidadvices.com/wp-includesstatic/tgm3/images//rss.png' alt='RSS' /> </a> <a class='rsswidget' href='http://androidadvices.com' title='Blog dedicated towards Android related products, services and devices in the market.'>Price Updates</a> </span>
 								</h3>
 								<ul>
 									<li><a class='rsswidget' href='http://androidadvices.com/sprint-android-phones-2012-smartphones-list/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=sprint-android-phones-2012-smartphones-list' title='Sprint is one of the leading mobile carriers in United States and here in this article have listed down the best smartphones available on the Sprint network. Devices comes with 4G LTE, 4G or 3G support and users have many choices here. Check them out now - Samsung Galaxy S II Epic Touch 4G Samsung Galaxy S II Epic Touch 4G delivers the best entertainment wit [&hellip;]'>Best Sprint Android Phones 2012 ? Top Smartphones List</a></li>

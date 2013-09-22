@@ -23,7 +23,7 @@
 
 <!-- <a href="#" onclick="test();">upload file</a>
 <a href="#" onclick="changed();">changed</a> --> 
-<img alt="" src="./static/images/ajax-loader.gif" id="ajax-loaderID" style="display:none">
+<img alt="" src=".static/tgm3/images//ajax-loader.gif" id="ajax-loaderID" style="display:none">
 
 <div id="uploadDivID">
 	
@@ -34,7 +34,7 @@
 		<td><s:property value="fileName"/></td>
 		<td><s:text name="attach.file.size"/>:&nbsp;<s:property value="%{fileSize/1000000}"/> &nbsp; <s:text name="MB"/></td>
 		<td>
-			<s:url action="deleteUploadFile" var="deleteUploadURL" encode="true">
+			<s:url includeContext="false" action="deleteUploadFile" var="deleteUploadURL" encode="true">
 				<s:param name="index"><s:property value="#stat.index" /></s:param>
 			</s:url>
 		<sj:a indicator="indicator" href="%{deleteUploadURL}" targets="uploadDivID"><s:text name="attach.file.remove"/></sj:a></td>
