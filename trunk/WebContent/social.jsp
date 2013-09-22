@@ -49,7 +49,7 @@ if (parent.frames.length > 0) { parent.location.href = location.href; }
 	font-size: 6px;
 	line-height: 8px;
 	height: 8px;
-	background-image: url('http://cdn.androidadvices.com/wp-content/plugins/wp-polls/static/images/default/pollbg.gif');
+	background-image: url('http://cdn.androidadvices.com/wp-content/plugins/wp-pollsstatic/tgm3/images//default/pollbg.gif');
 	border: 1px solid #c8c8c8;
 }
 </style>
