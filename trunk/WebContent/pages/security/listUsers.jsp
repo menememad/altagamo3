@@ -24,7 +24,7 @@ $('#editUserLinkID').click();
 <sj:a href="preEditUser" formIds="listUserFormId" indicator="indicator" targets="bodyID" id="editUserLinkID" ></sj:a>
 
 <br/>
-    <s:url id="remoteurl" action="listUsers" method="listUsers"/>
+    <s:url includeContext="false" id="remoteurl" action="listUsers" method="listUsers"/>
     <sjg:grid 
     	id="gridtable"
     	caption="Users"

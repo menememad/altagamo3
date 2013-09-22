@@ -19,7 +19,7 @@
 <s:form action="editUser" method="POST" enctype="multipart/form-data" theme="simple">
 	<fieldset style="padding: 0 10 0 10;margin: 10 10 10 10;">
 		<legend><s:text name="title.user.edit" /></legend>
-		<img src='<s:url action="displayUserImage" method="displayUserImage"/>' width="160" height="160" align="right"/>
+		<img src='<s:url includeContext="false" action="displayUserImage" method="displayUserImage"/>' width="160" height="160" align="right"/>
 		<dl style="width: 500px;">
 			<dt style="width: 200px;"><s:text name="security.photo" /></dt>
 			<dd><s:file name="photo" />
