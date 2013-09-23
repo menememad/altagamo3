@@ -1,4 +1,4 @@
-<%@page contentType="text/html; charset=UTF-8" %>
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 <s:if test="hasFieldErrors()">
@@ -12,9 +12,9 @@
 <s:elseif test="hasActionMessages()">
    <h3 style="color: green"><s:actionmessage /></h3>
 </s:elseif>
-  <s:form action="addUser"  theme="simple" id="addFormUserID" >
+  <s:form   theme="simple" action="addUser.action" id="addingUserID" >
   <fieldset style="padding: 0 10 0 10;margin: 10 10 10 10;">
-		<legend><s:text name="title.user.edit" /></legend>
+		<legend><s:text name="title.user.add" /></legend>
 <table   class="formTables">
 	<tr>
 		<td><s:text name="security.photo"/> </td>
@@ -70,6 +70,6 @@
 </table> 
 </fieldset> 
 <div class="actionBtns">
-<sj:submit targets="bodyID" button="true" formIds="addUserformID"  indicator="indicator"/>
+<sj:submit targets="bodyID"  button="true" formIds="addingUserID"  indicator="indicator"/>
 </div>
   </s:form>
