@@ -12,7 +12,7 @@
 <s:elseif test="hasActionMessages()">
    <h3 style="color: green"><s:actionmessage /></h3>
 </s:elseif>
-  <s:form   theme="simple" action="editUser" id="edituserformid" >
+  <s:form   theme="simple" action="editUser.action" id="editinguserformid" >
   <fieldset style="padding: 0 10 0 10;margin: 10 10 10 10;">
 		<legend><s:text name="title.user.edit" /></legend>
 <table   class="formTables">
@@ -70,6 +70,6 @@
 </table> 
 </fieldset> 
 <div class="actionBtns">
-	<sj:submit indicator="indicator" button="true" formIds="edituserformid" targets="bodyID" />
+	<sj:submit indicator="indicator" button="true" formIds="editinguserformid" targets="bodyID" />
 </div>
   </s:form>
