@@ -20,7 +20,7 @@
 		        listKey="id"
 		        listValue="fullName"
 		        emptyOption="false" headerKey="-1" headerValue="-- Select City --"
-		        onChangeTopics="reloadCompoundsAndDistrictsList" />
+		        onChangeTopics="reloadCompoundsList,reloadDistrictsList" />
 		<sj:select label="Compound" labelposition="top"
 		        href="listCompounds"
 		        id="compound"
@@ -30,7 +30,7 @@
 		        listValue="fullName"
 		        emptyOption="false" headerValue="-- Select Compound --"
 		        headerKey="-1" 
-		        reloadTopics="reloadCompoundsAndDistrictsList"  
+		        reloadTopics="reloadCompoundsList"  
 		        />
 		<sj:select label="District" labelposition="top"
 		        href="listDistricts"
@@ -41,7 +41,7 @@
 		        listValue="fullName"
 		        emptyOption="false" headerValue="-- Select District --"
 		        headerKey="-1"
-		        reloadTopics="reloadCompoundsAndDistrictsList"
+		        reloadTopics="reloadDistrictsList"
 		        onChangeTopics="reloadZonesList"  
 		        />
 		<sj:select label="Zone" labelposition="top"
